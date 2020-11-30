@@ -11,5 +11,8 @@
 
     <artifactId>im-server</artifactId>
 
+    <properties>
+
+    </properties>
 
 </project>
