@@ -5,8 +5,13 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.GlobalEventExecutor;
 import lombok.extern.slf4j.Slf4j;
+import pers.enoch.im.attribute.Attributes;
+import pers.enoch.im.session.Session;
+
+import java.util.UUID;
 
 /**
  * @Author yang.zhao
@@ -16,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  **/
 @Slf4j
 public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+
 
     public static final WebSocketHandler INSTANCE = new WebSocketHandler();
 
@@ -37,6 +43,8 @@ public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketF
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info( ctx.name() + "与客户端建立连接");
+        String userId = UUID.randomUUID().toString();
+
         channelGroup.add(ctx.channel());
     }
 
