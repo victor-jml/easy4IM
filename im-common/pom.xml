@@ -11,5 +11,50 @@
 
     <artifactId>im-common</artifactId>
 
+    <dependencies>
 
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.protobuf-java-format</groupId>
+            <artifactId>protobuf-java-format</artifactId>
+        </dependency>
+
+    </dependencies>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.xolstice.maven.plugins</groupId>
+               <artifactId>protobuf-maven-plugin</artifactId>
+               <version>0.5.0</version>
+               <extensions>true</extensions>
+               <configuration>
+                   <protoSourceRoot>${project.basedir}/src/main/resources/proto</protoSourceRoot>
+                   <protocExecutable>/usr/local/Cellar/protobuf/3.14.0/bin/protoc</protocExecutable>
+                   <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                   <clearOutputDirectory>false</clearOutputDirectory>
+                   <temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies
+                   </temporaryProtoFileDirectory>
+                   <!--配置查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
+               </configuration>
+<!--               <executions>-->
+<!--                   <execution>-->
+<!--                       <goals>-->
+<!--                           <goal>compile</goal>-->
+<!--                           <goal>compile-custom</goal>-->
+<!--                       </goals>-->
+<!--                   </execution>-->
+<!--               </executions>-->
+           </plugin>
+       </plugins>
+   </build>
 </project>

@@ -19,14 +19,14 @@ import java.net.InetSocketAddress;
  * @Version 1.0
  * @Description
  **/
-@Component
 @Slf4j
+@Component
 public class ImServer {
 
     private EventLoopGroup boss = new NioEventLoopGroup();
     private EventLoopGroup worker = new NioEventLoopGroup();
 
-    @Value("${im.server.port}")
+    @Value("${server.netty.port}")
     private int port;
 
     /**
@@ -43,7 +43,7 @@ public class ImServer {
                     .childHandler(new ServerHandlerInitializer());
         ChannelFuture future = serverBootstrap.bind().sync();
         if(future.isSuccess()){
-            log.info("im-server 启动成功");
+            log.info("im-server 启动成功，Netty端口号为： " + port);
         }
     }
 
