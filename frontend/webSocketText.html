@@ -6,48 +6,78 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>WebSocket长连接测试</title>
     <script type="text/javascript">
-        var socket;
-        if (!window.WebSocket) {
-            window.WebSocket = window.MozWebSocket;
-        }
-        if (window.WebSocket) {
-            socket = new WebSocket("ws://localhost:19999/login");
-            socket.onmessage = function(event) {
-                var ta = document.getElementById('responseText');
-                ta.value += event.data + "\r\n";
-            };
-            socket.onopen = function(event) {
-                var ta = document.getElementById('responseText');
-                ta.value = "已连接";
-            };
-            socket.onclose = function(event) {
-                var ta = document.getElementById('responseText');
-                ta.value = "已关闭";
-            };
-        } else {
-            alert("您的浏览器不支持WebSocket协议！");
+        let socket;
+
+
+        function connect(id) {
+            console.log("启动连接WebSocket");
+            socket = new WebSocket("ws://localhost:19999/ws");
+            socket.onopen = function () {
+                console.log("连接服务器成功");
+            }
+            socket.onclose = function () {
+                console.log("服务器断开");
+            }
+            socket.onmessage = function(message){
+                let ta = document.getElementById('responseText');
+                ta.value += message.data + "\r\n";
+            }
         }
 
-        function send(message) {
-            if (!window.WebSocket) {
-                return;
-            }
-            if (socket.readyState == WebSocket.OPEN) {
+        function sendMessage(message) {
+            if(socket.readyState === WebSocket.OPEN){
+                console.log("正在发送消息" + message);
                 socket.send(message);
-            } else {
-                alert("WebSocket 连接没有建立成功！");
+            }else {
+                alert("未建立连接,发送失败");
             }
         }
+
+        //
+        // if (!window.WebSocket) {
+        //     window.WebSocket = window.MozWebSocket;
+        // }
+        // if (window.WebSocket) {
+        //     socket = new WebSocket("ws://localhost:19999/ws");
+        //     socket.onmessage = function(event) {
+        //         var ta = document.getElementById('responseText');
+        //         ta.value += event.data + "\r\n";
+        //     };
+        //     socket.onopen = function(event) {
+        //         var ta = document.getElementById('responseText');
+        //         ta.value = "已连接";
+        //     };
+        //     socket.onclose = function(event) {
+        //         var ta = document.getElementById('responseText');
+        //         ta.value = "已关闭";
+        //     };
+        // } else {
+        //     alert("您的浏览器不支持WebSocket协议！");
+        // }
+        //
+        // function send(message) {
+        //     if (!window.WebSocket) {
+        //         return;
+        //     }
+        //     if (socket.readyState == WebSocket.OPEN) {
+        //         console.log("发送消息成功");
+        //         socket.send(message);
+        //     } else {
+        //         alert("WebSocket 连接没有建立成功！");
+        //     }
+        // }
     </script>
 </head>
 
 <body>
 <form onSubmit="return false;">
     <hr color="black" />
+    <h3>连接服务器</h3>
+    <label>id</label><input type="text" name="id" value="" /> <br />
+    <br /> <input type="button" value="连接服务" onClick="connect(this.form.id.value)" />
     <h3>客户端发送的信息</h3>
-    <label>名字</label><input type="text" name="uid" value="hello from client" /> <br />
-    <label>内容</label><input type="text" name="message" value="hello from client" /> <br />
-    <br /> <input type="button" value="点击发送" onClick="send(this.form.uid.value+':'+this.form.message.value)" />
+    <label>消息</label><input type="text" name="message" value="hello from client" /> <br />
+    <br /> <input type="button" value="点击发送" onClick="sendMessage(this.form.message.value)" />
     <hr color="black" />
     <h3>服务端返回的应答消息</h3>
     <textarea id="responseText" style="width: 900px;height: 300px;"></textarea>

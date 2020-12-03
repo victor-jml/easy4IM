@@ -1,5 +1,5 @@
 syntax = "proto2";
-option java_package = "pers.enoch.im.generate";
+option java_package = "pers.enoch.im.common.generate";
 option java_outer_classname = "Ack";
 
 message AckMsg{
