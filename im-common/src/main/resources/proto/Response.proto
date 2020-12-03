@@ -1,0 +1,17 @@
+syntax ="proto3";
+
+import "MessageResponse.proto";
+import "UserResponse.proto";
+
+
+//optimize_for 加快解析的速度
+option optimize_for = SPEED;
+option java_package = "pers.enoch.im.common.generate";
+
+// 返回实体
+message Response{
+    int32 type = 1;
+    MessageResponse message = 2;
+    UserResponse user = 3;
+    string create_time = 4;
+}

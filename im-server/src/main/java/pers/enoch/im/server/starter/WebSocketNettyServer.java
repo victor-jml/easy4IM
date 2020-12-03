@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import pers.enoch.im.server.init.ServerHandlerInitializer;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.net.InetSocketAddress;
 
 /**
@@ -42,8 +43,15 @@ public class WebSocketNettyServer {
                 .childHandler(new ServerHandlerInitializer());
         ChannelFuture future = serverBootstrap.bind().sync();
         if(future.isSuccess()){
-            log.info("Netty服务端启动成功，绑定端口号为： " + port);
+            log.info("ws server 启动成功，绑定端口号为： " + port);
         }
-
     }
+
+    @PreDestroy
+    public void destroy(){
+        bossGroup.shutdownGracefully();
+        workerGroup.shutdownGracefully();
+        log.info("关闭 ws server 成功");
+    }
+
 }

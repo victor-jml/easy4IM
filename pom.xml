@@ -10,7 +10,7 @@
     <modules>
         <module>im-server</module>
         <module>im-common</module>
-        <module>im-userstats</module>
+        <module>im-api</module>
     </modules>
 
 
