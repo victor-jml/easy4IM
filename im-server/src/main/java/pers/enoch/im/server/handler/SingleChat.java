@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import pers.enoch.im.common.generate.RequestOuterClass;
+import pers.enoch.im.common.generate.Single;
 
 /**
  * @Author yang.zhao
@@ -14,11 +14,16 @@ import pers.enoch.im.common.generate.RequestOuterClass;
  **/
 @Slf4j
 @ChannelHandler.Sharable
-public class ChatHandler extends SimpleChannelInboundHandler<RequestOuterClass.Request> {
+public class SingleChat extends SimpleChannelInboundHandler<Single.SingleSendRequest> {
 
-    public static final ChatHandler INSTANCE = new ChatHandler();
+    public static final SingleChat INSTANCE = new SingleChat();
 
-    private ChatHandler(){
+    private SingleChat(){
+
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Single.SingleSendRequest singleSendRequest) throws Exception {
 
     }
 
@@ -47,8 +52,4 @@ public class ChatHandler extends SimpleChannelInboundHandler<RequestOuterClass.R
         super.exceptionCaught(ctx, cause);
     }
 
-    @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, RequestOuterClass.Request request) throws Exception {
-
-    }
 }

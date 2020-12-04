@@ -17,7 +17,8 @@ import org.springframework.beans.factory.annotation.Value;
 import pers.enoch.im.common.generate.RequestOuterClass;
 import pers.enoch.im.server.decode.WebSocketDecoder;
 import pers.enoch.im.server.encode.WebSocketEncoder;
-import pers.enoch.im.server.handler.ChatHandler;
+import pers.enoch.im.server.handler.Authhandler;
+import pers.enoch.im.server.handler.SingleChat;
 
 /**
  * @Author yang.zhao
@@ -60,8 +61,9 @@ public class ServerHandlerInitializer extends ChannelInitializer<SocketChannel> 
         pipeline.addLast(WebSocketEncoder.INSTANCE);
         // protobuf编码器
         pipeline.addLast(new ProtobufDecoder(RequestOuterClass.Request.getDefaultInstance()));
-
+        // 添加认证的handler
+        pipeline.addLast(Authhandler.INSTANCE);
         // 添加业务逻辑handler
-        pipeline.addLast(new ChatHandler());
+        pipeline.addLast(SingleChat.INSTANCE);
     }
 }

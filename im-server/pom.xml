@@ -21,8 +21,6 @@
 
         </dependency>
 
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -59,11 +57,15 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
 
-
-        <!--todo: import other module-->
         <dependency>
             <groupId>pers.enoch.im</groupId>
             <artifactId>im-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>pers.enoch.im</groupId>
+            <artifactId>im-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
