@@ -54,4 +54,21 @@ public class WebSocketNettyServer {
         log.info("关闭 ws server 成功");
     }
 
+    public static void main(String[] args) throws InterruptedException {
+         EventLoopGroup bossGroup = new NioEventLoopGroup();
+         EventLoopGroup workerGroup = new NioEventLoopGroup();
+
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+        serverBootstrap.group(bossGroup,workerGroup)
+                .channel(NioServerSocketChannel.class)
+                //设置服务器端口
+                .localAddress(new InetSocketAddress(19999))
+                // TCP长连接
+                .childOption(ChannelOption.SO_KEEPALIVE,true)
+                .childHandler(new ServerHandlerInitializer());
+        ChannelFuture future = serverBootstrap.bind().sync();
+        if(future.isSuccess()){
+            log.info("ws server 启动成功，绑定端口号为： " + 19999);
+        }
+    }
 }

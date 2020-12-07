@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.generate.Auth;
-import pers.enoch.im.server.session.Session;
 
 import javax.annotation.Resource;
 
@@ -23,10 +22,12 @@ public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
     @Resource
     private UserService userService;
 
-    public static final Authhandler INSTANCE = new Authhandler();
+    private static class AuthHolder{
+        private static final Authhandler INSTANCE = new Authhandler();
+    }
 
-    private Authhandler(){
-
+    public static Authhandler getInstance(){
+        return AuthHolder.INSTANCE;
     }
 
     @Override
@@ -38,8 +39,8 @@ public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
             response = Auth.AuthResponse.newBuilder()
                     .setStatus(0)
                     .build();
-            // 添加用户与对应channel关联信息
-            Session.put(Long.valueOf(auth.getUid()),channelHandlerContext.channel());
+            // 用户已经登录
+            userService.online(auth.getUid(),channelHandlerContext.channel());
         }else {
             response = Auth.AuthResponse.newBuilder()
                     .setStatus(1)

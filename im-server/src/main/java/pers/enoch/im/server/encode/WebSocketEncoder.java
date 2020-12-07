@@ -18,16 +18,18 @@ import static io.netty.buffer.Unpooled.wrappedBuffer;
  * @Author yang.zhao
  * @Date 2020/12/3 10:36
  * @Version 1.0
- * @Description
+ * @Description websocket编码
  **/
 @Slf4j
 @ChannelHandler.Sharable
 public class WebSocketEncoder extends MessageToMessageEncoder<MessageLiteOrBuilder> {
 
-    public static final WebSocketEncoder INSTANCE = new WebSocketEncoder();
+    private static class WebsocketEncodeHolder{
+        private static final WebSocketEncoder INSTANCE = new WebSocketEncoder();
+    }
 
-    private WebSocketEncoder(){
-
+    public static WebSocketEncoder getInstance(){
+        return WebsocketEncodeHolder.INSTANCE;
     }
 
     @Override

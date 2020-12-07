@@ -13,16 +13,18 @@ import java.util.List;
  * @Author yang.zhao
  * @Date 2020/12/3 10:21
  * @Version 1.0
- * @Description 用于处理
+ * @Description websocket解码
  **/
 @Slf4j
 @ChannelHandler.Sharable
 public class WebSocketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
 
-    public static final WebSocketDecoder INSTANCE = new WebSocketDecoder();
+    private static class WebSocketDecoderHolder{
+        private static final WebSocketDecoder INSTANCE = new WebSocketDecoder();
+    }
 
-    private WebSocketDecoder(){
-
+    public static WebSocketDecoder getInstance(){
+        return WebSocketDecoderHolder.INSTANCE;
     }
 
     @Override

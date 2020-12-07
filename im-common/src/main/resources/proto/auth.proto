@@ -5,7 +5,7 @@ option java_package = "pers.enoch.im.common.generate";
 
 message AuthRequest{
   // 用户id
-  string uid = 1;
+  int64 uid = 1;
   // token
   string token = 2;
   // 时间戳

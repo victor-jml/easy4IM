@@ -56,14 +56,14 @@ public class ServerHandlerInitializer extends ChannelInitializer<SocketChannel> 
         // protobuf解析器
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         // 添加WebSocket协议包解码
-        pipeline.addLast(WebSocketDecoder.INSTANCE);
+        pipeline.addLast(WebSocketDecoder.getInstance());
         // 添加WebSocket协议包编码
-        pipeline.addLast(WebSocketEncoder.INSTANCE);
+        pipeline.addLast(WebSocketEncoder.getInstance());
         // protobuf编码器
         pipeline.addLast(new ProtobufDecoder(RequestOuterClass.Request.getDefaultInstance()));
         // 添加认证的handler
-        pipeline.addLast(Authhandler.INSTANCE);
+        pipeline.addLast(Authhandler.getInstance());
         // 添加业务逻辑handler
-        pipeline.addLast(SingleChat.INSTANCE);
+        pipeline.addLast(SingleChat.getInstance());
     }
 }
