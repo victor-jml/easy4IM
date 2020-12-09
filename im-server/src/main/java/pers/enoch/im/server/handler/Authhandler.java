@@ -39,7 +39,7 @@ public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
             response = Auth.AuthResponse.newBuilder()
                     .setStatus(0)
                     .build();
-            // 用户已经登录
+            // 用户已经登录标记上线
             userService.online(auth.getUid(),channelHandlerContext.channel());
         }else {
             response = Auth.AuthResponse.newBuilder()
