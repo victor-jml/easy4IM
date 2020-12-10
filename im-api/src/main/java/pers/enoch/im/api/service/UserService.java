@@ -1,25 +1,16 @@
 package pers.enoch.im.api.service;
 
-
-import io.netty.channel.Channel;
+import pers.enoch.im.common.entity.User;
 
 /**
- * @author yang.zhao
+ * 用户登录验证
+ * @Author yang.zhao
  */
 public interface UserService {
-
     /**
-     * 验证身份
-     * @param uid 用户id
-     * @param token 登录发放的token
-     * @return
-     */
-    boolean checkUser(String uid,String token);
-
-    /**
-     * 标记用户上线
+     * 通过userId查询用户
      * @param uid
-     * @param channel
+     * @return User
      */
-    void online(String uid, Channel channel);
+    User findById(String uid);
 }

@@ -4,9 +4,10 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import pers.enoch.im.api.service.UserService;
+import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.generate.Auth;
+import pers.enoch.im.server.session.Session;
 
 import javax.annotation.Resource;
 
@@ -20,7 +21,7 @@ import javax.annotation.Resource;
 @ChannelHandler.Sharable
 public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
     @Resource
-    private UserService userService;
+    private UserStatusService userStatusService;
 
     private static class AuthHolder{
         private static final Authhandler INSTANCE = new Authhandler();
@@ -32,15 +33,15 @@ public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, Auth.AuthRequest auth) throws Exception {
-        boolean isLogin = userService.checkUser(auth.getUid(), auth.getToken());
+        boolean isLogin = userStatusService.checkUser(auth.getUid(), auth.getToken());
         Auth.AuthResponse response;
         if(isLogin){
             // 回执验证成功
             response = Auth.AuthResponse.newBuilder()
                     .setStatus(0)
                     .build();
-            // 用户已经登录标记上线
-            userService.online(auth.getUid(),channelHandlerContext.channel());
+            // 保存userId与通道
+            Session.put(auth.getUid(),channelHandlerContext);
         }else {
             response = Auth.AuthResponse.newBuilder()
                     .setStatus(1)

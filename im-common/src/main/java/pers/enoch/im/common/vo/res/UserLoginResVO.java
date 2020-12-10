@@ -1,5 +1,6 @@
 package pers.enoch.im.common.vo.res;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @Description 用户登录后返回token
  **/
 @Data
+@Builder
 public class UserLoginResVO {
 
     private String userId;

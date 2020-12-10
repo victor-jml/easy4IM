@@ -1,5 +1,8 @@
 package pers.enoch.im.common.entity;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -8,6 +11,8 @@ import java.util.Date;
  * @Version 1.0
  * @Description user实体类
  **/
+@Builder
+@Data
 public class User {
     /**
      * 用户id

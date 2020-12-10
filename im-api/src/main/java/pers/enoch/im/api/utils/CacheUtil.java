@@ -1,10 +1,11 @@
 package pers.enoch.im.api.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +18,13 @@ import java.util.concurrent.TimeUnit;
  **/
 @Component
 public class CacheUtil {
-    @Autowired
+
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+    @Resource
     private RedisTemplate<String, String> redisTemplate;
+
+    public static final String USER_PREFIX = "IM:USER:";
 
     /**
      * 维护一个本类的静态变量
@@ -28,6 +34,7 @@ public class CacheUtil {
     @PostConstruct
     public void init() {
         cacheUtils = this;
+        cacheUtils.stringRedisTemplate = this.stringRedisTemplate;
         cacheUtils.redisTemplate = this.redisTemplate;
     }
 
@@ -37,7 +44,7 @@ public class CacheUtil {
      * @param value 必须要实现 Serializable 接口
      */
     public static void set(String key, String value) {
-        cacheUtils.redisTemplate.opsForValue().set(key, value);
+        cacheUtils.stringRedisTemplate.opsForValue().set(USER_PREFIX + key, value);
     }
 
     /**
@@ -47,7 +54,7 @@ public class CacheUtil {
      * @param timeout
      */
     public static void set(String key, String value, Long timeout) {
-        cacheUtils.redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.MINUTES);
+        cacheUtils.stringRedisTemplate.opsForValue().set(USER_PREFIX + key, value, timeout, TimeUnit.SECONDS);
     }
 
     /**
@@ -56,7 +63,7 @@ public class CacheUtil {
      * @return
      */
     public static Object get(String key) {
-        return cacheUtils.redisTemplate.opsForValue().get(key);
+        return cacheUtils.stringRedisTemplate.opsForValue().get(USER_PREFIX + key);
     }
 
     /**
@@ -65,7 +72,12 @@ public class CacheUtil {
      * @param ttl 过期秒数
      */
     public static boolean expire(String key, Long ttl) {
-        return cacheUtils.redisTemplate.expire(key, ttl, TimeUnit.MINUTES);
+        Boolean expire = cacheUtils.stringRedisTemplate.expire(key, ttl, TimeUnit.MINUTES);
+        return expire != null;
+    }
+
+    public static Long getExpire(String key){
+        return cacheUtils.stringRedisTemplate.getExpire(key);
     }
 
     /**
@@ -73,7 +85,8 @@ public class CacheUtil {
      * @param key 键值
      */
     public static boolean hasKey(String key) {
-        return cacheUtils.redisTemplate.hasKey(key);
+        Boolean aBoolean = cacheUtils.redisTemplate.hasKey(key);
+        return aBoolean != null;
     }
 
     /**

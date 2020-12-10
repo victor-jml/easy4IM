@@ -1,32 +1,63 @@
 package pers.enoch.im.api.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @Author yang.zhao
  * @Date 2020/12/4 14:22
  * @Version 1.0
  * @Description 用户登录工具类
  **/
+@Slf4j
 public class LoginUtil {
 
+    /**
+     * 默认过期时间为40分钟
+     */
+    private static final Long DEFAULT_TTL = 40000L;
 
     /**
-     *  创建 token 默认过期时间为15分钟
-     * @param uid
-     * @return
+     * 默认5分钟自动刷新token过期时间
      */
-    public static String createToken(Long uid) {
-        return createToken(uid, 15L);
+    private static final Long MIN_TTL = 5000L;
+
+    /**
+     * 检查是否已经登录
+     * @param uid
+     * @return boolean
+     */
+    public static boolean checkLogin(String uid){
+        String value = (String)CacheUtil.get(CacheUtil.USER_PREFIX + uid.toString());
+        return !value.equals("0");
     }
 
     /**
-     * 创建 token
+     * 用户上线（token过期时间默认40分钟）
      * @param uid
-     * @return
+     * @param token
      */
-    public static String createToken(Long uid, Long ttl) {
-        String token = TokenUtil.makeToken();
-        CacheUtil.set(uid.toString(),token,ttl);
-        return token;
+    public static void online(String uid,String token){
+        online(uid,token,DEFAULT_TTL);
+    }
+
+    /**
+     * 用户上线
+     * @param uid
+     * @param token
+     * @param ttl
+     */
+    public static void online(String uid,String token,Long ttl){
+        CacheUtil.set(uid,token,ttl);
+        log.info("用户 {} 上线",uid);
+    }
+
+    /**
+     * 用户下线
+     * @param uid
+     */
+    public static void offline(String uid){
+        CacheUtil.delete(uid.toString());
+        log.info("用户 {} 下线",uid);
     }
 
     /**
@@ -40,17 +71,12 @@ public class LoginUtil {
             return false;
         }
         // 如果token不为空则返回true
-        // todo 更新快过期的token
-        updateToken(uid);
+        Long ttl = CacheUtil.getExpire(uid.toString());
+        if(ttl < MIN_TTL){
+            CacheUtil.expire(uid.toString(),DEFAULT_TTL);
+            log.info("用户 {} 更新token过期时间",uid);
+        }
         return true;
     }
 
-    /**
-     * 更新token
-     * @param uid 用户id
-     */
-    public static void updateToken(Long uid){
-        String newToken = createToken(uid);
-        CacheUtil.set(uid.toString(),newToken);
-    }
 }
