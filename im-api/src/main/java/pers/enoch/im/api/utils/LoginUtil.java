@@ -27,7 +27,7 @@ public class LoginUtil {
      * @return boolean
      */
     public static boolean checkLogin(String uid){
-        String value = (String)CacheUtil.get(CacheUtil.USER_PREFIX + uid.toString());
+        String value = (String)CacheUtil.get(uid);
         return !value.equals("0");
     }
 
@@ -56,7 +56,7 @@ public class LoginUtil {
      * @param uid
      */
     public static void offline(String uid){
-        CacheUtil.delete(uid.toString());
+        CacheUtil.delete(uid);
         log.info("用户 {} 下线",uid);
     }
 
