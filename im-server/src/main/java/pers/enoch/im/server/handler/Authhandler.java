@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.generate.Auth;
-import pers.enoch.im.server.session.Session;
 
 import javax.annotation.Resource;
 
@@ -33,22 +32,21 @@ public class Authhandler extends SimpleChannelInboundHandler<Auth.AuthRequest> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, Auth.AuthRequest auth) throws Exception {
-        boolean isLogin = userStatusService.checkUser(auth.getUid(), auth.getToken());
+        // 检验当前用户是否合法
+        boolean isLegal = userStatusService.checkToken(auth.getUid(), auth.getToken());
         Auth.AuthResponse response;
-        if(isLogin){
-            // 回执验证成功
+        if(!isLegal){
             response = Auth.AuthResponse.newBuilder()
-                    .setStatus(0)
+                    .setErrCode(ResultEnum.USER_TOKEN_EXPIRE.getCode())
+                    .setErrMsg(ResultEnum.USER_TOKEN_EXPIRE.getMessage())
                     .build();
-            // 保存userId与通道
-            Session.put(auth.getUid(),channelHandlerContext);
         }else {
             response = Auth.AuthResponse.newBuilder()
-                    .setStatus(1)
-                    .setErrCode(ResultEnum.AUTH_FAILED.getCode())
-                    .setErrMsg(ResultEnum.AUTH_FAILED.getMessage())
+                    .setStatus(ResultEnum.SUCCESS.getCode())
                     .build();
         }
         channelHandlerContext.channel().writeAndFlush(response);
+
+
     }
 }

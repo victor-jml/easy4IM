@@ -1,6 +1,7 @@
 package pers.enoch.im.api.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 
 /**
  * @Author yang.zhao
@@ -28,7 +29,10 @@ public class LoginUtil {
      */
     public static boolean checkLogin(String uid){
         String value = (String)CacheUtil.get(uid);
-        return !value.equals("0");
+        if(Strings.isBlank(value)){
+            return false;
+        }
+        return !"0".equals(value);
     }
 
     /**
@@ -61,21 +65,22 @@ public class LoginUtil {
     }
 
     /**
-     * 检验token是否有效
+     * 检验token是否有效,每一次都会更新过期时间
      * @param validToken 传入的token
      * @return Boolean
      */
-    public static Boolean checkToken(Long uid, String validToken) {
-        Object oldToken = CacheUtil.get(uid.toString());
+    public static Boolean checkToken(String uid, String validToken) {
+        Object oldToken = CacheUtil.get(uid);
         if(oldToken == null){
             return false;
         }
-        // 如果token不为空则返回true
-        Long ttl = CacheUtil.getExpire(uid.toString());
-        if(ttl < MIN_TTL){
-            CacheUtil.expire(uid.toString(),DEFAULT_TTL);
-            log.info("用户 {} 更新token过期时间",uid);
+        if(!validToken.equals(oldToken)){
+            return false;
         }
+        // 如果token不为空则返回true
+        Long ttl = CacheUtil.getExpire(uid);
+        CacheUtil.expire(uid,DEFAULT_TTL);
+        log.info("用户 {} 更新token过期时间",uid);
         return true;
     }
 

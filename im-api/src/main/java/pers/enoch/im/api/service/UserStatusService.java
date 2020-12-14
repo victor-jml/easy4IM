@@ -1,6 +1,8 @@
 package pers.enoch.im.api.service;
 
 
+import io.netty.channel.ChannelHandlerContext;
+
 /**
  * @author yang.zhao
  */
@@ -20,6 +22,12 @@ public interface UserStatusService {
     void offline(String uid);
 
     /**
+     * 用户离线
+     * @param ctx
+     */
+    void offline(ChannelHandlerContext ctx);
+
+    /**
      * 调用登录API时，检验该用户是否已经登录
      * @param uid
      * @return
@@ -32,7 +40,13 @@ public interface UserStatusService {
      * @param token 登录发放的token
      * @return
      */
-    boolean checkUser(String uid,String token);
+    boolean checkToken(String uid,String token);
 
-
+    /**
+     * 验证token是否过期
+     * @param uid
+     * @param oldTimestamp
+     * @return
+     */
+    boolean checkToken(String uid,Long oldTimestamp);
 }

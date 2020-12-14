@@ -10,23 +10,38 @@ import lombok.Getter;
 @Getter
 public enum  ResultEnum {
     /**
-     *
+     * 成功状态码
      */
-    NOT_NETWORK(-1, "系统繁忙，请稍后再试~"),
+    SUCCESS(1, "成功"),
 
-    SUCCESS(0, "success"),
+    /**
+     * 参数错误
+     */
+    PARAM_IS_INVALID(1001,"参数无效"),
 
-    LOGIN_VERIFY_FALL(1, "登录失效~"),
+    PARAM_IS_BLANK(1002,"参数为空"),
 
-    PARAM_VERIFY_FALL(2, "参数验证错误~"),
+    PARAM_TYPE_BIND_ERROR(1003,"参数类型错误"),
 
-    AUTH_FAILED(3, "权限验证失败~"),
+    PARAM_NOT_COMPLETE(1004,"参数类型缺失"),
 
-    DATA_NOT(4, "没有相关数据~"),
+    /**
+     * 用户错误
+     */
+    USER_NOT_LOGGED_IN(2001,"用户未登录，访问路径需要验证，请登录"),
 
-    DATA_CHANGE(5, "数据没有任何更改~"),
+    USER_LOGIN_ERROR(2002,"账号不存在或者密码错误"),
 
-    DATA_REPEAT(6, "数据已存在~"),;
+    USER_ACCOUNT_FORBIDDEN(2003,"账号已被禁用"),
+
+    USER_NOT_EXIST(2004,"用户不存在"),
+
+    USER_HAS_EXISTED(2005,"用户已存在"),
+
+    USER_OTHER_LOGIN(2006,"该账户其他地方登录！如果非本人操作请及时修改密码"),
+
+    USER_TOKEN_EXPIRE(2007,"用户TOKEN已过期，请重新登录")
+    ;
 
     private Integer code;
 

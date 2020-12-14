@@ -1,13 +1,11 @@
 package pers.enoch.im.server.util;
 
-import com.google.common.collect.Maps;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import lombok.extern.slf4j.Slf4j;
-import pers.enoch.im.server.attribute.Attributes;
-import pers.enoch.im.server.session.Session;
 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: zy
@@ -18,49 +16,36 @@ import java.util.Map;
 @Slf4j
 public class SessionUtil {
 
-    private static final Map<String, Channel> userIdChannelMap = Maps.newConcurrentMap();
+    private static final Map<String, Channel> userIdChannelMap = new ConcurrentHashMap<String ,Channel>(64);
 
-    private static final Map<String, ChannelGroup> groupIdChannelGroupMap = Maps.newConcurrentMap();
+    private static final Map<String, ChannelGroup> groupIdChannelGroupMap = new ConcurrentHashMap<String ,ChannelGroup>(64);
 
     /**
      * 登录
-     * @param session
+     * @param userId
      * @param channel
      */
-    public static void bindSession(Session session, Channel channel){
-        userIdChannelMap.put(session.getUserId(),channel);
-        channel.attr(Attributes.SESSION).set(session);
+    public static void bindSession(String userId , Channel channel){
+        userIdChannelMap.put(userId,channel);
     }
 
     /**
      * 注销
-     * @param channel
+     * @param userId
      */
-    public static void unBindSession(Channel channel){
-        if(hasLogin(channel)){
-            Session session = getSession(channel);
-            userIdChannelMap.remove(session.getUserId());
-            channel.attr(Attributes.SESSION).set(null);
-            log.info(session + "退出登录");
+    public static void unBindSession(String userId){
+        if(hasLogin(userId)){
+            userIdChannelMap.remove(userId);
         }
     }
 
     /**
      * 判断是否已经登录
-     * @param channel
+     * @param userId
      * @return
      */
-    public static boolean hasLogin(Channel channel){
-        return getSession(channel) != null;
-    }
-
-    /**
-     * 获取当前channel绑定的session
-     * @param channel
-     * @return
-     */
-    public static Session getSession(Channel channel){
-        return channel.attr(Attributes.SESSION).get();
+    public static boolean hasLogin(String userId){
+        return userIdChannelMap.containsKey(userId);
     }
 
     /**

@@ -3,18 +3,14 @@ package pers.enoch.im.api.controller.user;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.api.utils.TokenUtil;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.entity.User;
-import pers.enoch.im.common.utils.ResultUtil;
+import pers.enoch.im.common.utils.Result;
 import pers.enoch.im.common.vo.req.UserPwdLoginReqVO;
-import pers.enoch.im.common.vo.res.BaseResVO;
 import pers.enoch.im.common.vo.res.UserLoginResVO;
 
 import javax.validation.Valid;
@@ -49,29 +45,32 @@ public class UserLoginController  {
      * @return
      */
     @PostMapping(value = "byPwd")
-    public BaseResVO loginByPwd(@Valid @RequestBody UserPwdLoginReqVO userPwdLoginReqVO,
-                                BindingResult bindingResult){
+    public Result loginByPwd(@Valid @RequestBody UserPwdLoginReqVO userPwdLoginReqVO,
+                             BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            return ResultUtil.error(ResultEnum.PARAM_VERIFY_FALL, bindingResult.getFieldError().getDefaultMessage());
+            return Result.failure(ResultEnum.PARAM_TYPE_BIND_ERROR);
         }
         // 判断账号密码是否正确
         User user = userService.findById(userPwdLoginReqVO.getUserId());
         if(!user.getPwd().equals(userPwdLoginReqVO.getPassword())){
-            return ResultUtil.error(ResultEnum.PARAM_VERIFY_FALL,"账号或密码验证错误");
+            return Result.failure(ResultEnum.USER_LOGIN_ERROR);
         }
         String userId = userPwdLoginReqVO.getUserId();
-        boolean isLogin = userStatusService.checkLogin(userId.toString());
+        boolean isLogin = userStatusService.checkLogin(userId);
         // 这里先实现只能单端登录,如果已登录挤掉下线
         if(isLogin){
             // 移除登录状态
             userStatusService.offline(userId);
         }
         String token = TokenUtil.makeToken();
-        userStatusService.online(userId,token);
+        Long timestamp = System.currentTimeMillis();
+        userStatusService.online(userId,token + "," + timestamp.toString());
         UserLoginResVO loginResVO = UserLoginResVO.builder()
                 .userId(userId)
                 .token(token)
+                .timestamp(timestamp)
                 .build();
-        return ResultUtil.success(loginResVO);
+        return Result.success(loginResVO);
     }
+
 }

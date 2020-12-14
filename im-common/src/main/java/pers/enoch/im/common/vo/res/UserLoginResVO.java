@@ -5,15 +5,16 @@ import lombok.Data;
 
 /**
  * @Author yang.zhao
- * @Date 2020/12/4 11:15
+ * @Date 2020/12/11 14:50
  * @Version 1.0
- * @Description 用户登录后返回token
+ * @Description
  **/
 @Data
 @Builder
 public class UserLoginResVO {
-
     private String userId;
 
     private String token;
+
+    private Long timestamp;
 }
