@@ -33,11 +33,11 @@ public final class ResponseOuterClass {
      * <code>.MessageResponse message = 2;</code>
      * @return The message.
      */
-    pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse getMessage();
+    pers.enoch.im.common.generate.MsgResponse.MessageResponse getMessage();
     /**
      * <code>.MessageResponse message = 2;</code>
      */
-    pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder getMessageOrBuilder();
+    pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder getMessageOrBuilder();
 
     /**
      * <code>.UserResponse user = 3;</code>
@@ -122,11 +122,11 @@ public final class ResponseOuterClass {
               break;
             }
             case 18: {
-              pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder subBuilder = null;
+              pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder subBuilder = null;
               if (message_ != null) {
                 subBuilder = message_.toBuilder();
               }
-              message_ = input.readMessage(pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.parser(), extensionRegistry);
+              message_ = input.readMessage(pers.enoch.im.common.generate.MsgResponse.MessageResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(message_);
                 message_ = subBuilder.buildPartial();
@@ -197,7 +197,7 @@ public final class ResponseOuterClass {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
-    private pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse message_;
+    private pers.enoch.im.common.generate.MsgResponse.MessageResponse message_;
     /**
      * <code>.MessageResponse message = 2;</code>
      * @return Whether the message field is set.
@@ -211,14 +211,14 @@ public final class ResponseOuterClass {
      * @return The message.
      */
     @java.lang.Override
-    public pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse getMessage() {
-      return message_ == null ? pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.getDefaultInstance() : message_;
+    public pers.enoch.im.common.generate.MsgResponse.MessageResponse getMessage() {
+      return message_ == null ? pers.enoch.im.common.generate.MsgResponse.MessageResponse.getDefaultInstance() : message_;
     }
     /**
      * <code>.MessageResponse message = 2;</code>
      */
     @java.lang.Override
-    public pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder getMessageOrBuilder() {
+    public pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder getMessageOrBuilder() {
       return getMessage();
     }
 
@@ -700,9 +700,9 @@ public final class ResponseOuterClass {
         return this;
       }
 
-      private pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse message_;
+      private pers.enoch.im.common.generate.MsgResponse.MessageResponse message_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder> messageBuilder_;
+          pers.enoch.im.common.generate.MsgResponse.MessageResponse, pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder, pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder> messageBuilder_;
       /**
        * <code>.MessageResponse message = 2;</code>
        * @return Whether the message field is set.
@@ -714,9 +714,9 @@ public final class ResponseOuterClass {
        * <code>.MessageResponse message = 2;</code>
        * @return The message.
        */
-      public pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse getMessage() {
+      public pers.enoch.im.common.generate.MsgResponse.MessageResponse getMessage() {
         if (messageBuilder_ == null) {
-          return message_ == null ? pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.getDefaultInstance() : message_;
+          return message_ == null ? pers.enoch.im.common.generate.MsgResponse.MessageResponse.getDefaultInstance() : message_;
         } else {
           return messageBuilder_.getMessage();
         }
@@ -724,7 +724,7 @@ public final class ResponseOuterClass {
       /**
        * <code>.MessageResponse message = 2;</code>
        */
-      public Builder setMessage(pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse value) {
+      public Builder setMessage(pers.enoch.im.common.generate.MsgResponse.MessageResponse value) {
         if (messageBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -741,7 +741,7 @@ public final class ResponseOuterClass {
        * <code>.MessageResponse message = 2;</code>
        */
       public Builder setMessage(
-          pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder builderForValue) {
+          pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder builderForValue) {
         if (messageBuilder_ == null) {
           message_ = builderForValue.build();
           onChanged();
@@ -754,11 +754,11 @@ public final class ResponseOuterClass {
       /**
        * <code>.MessageResponse message = 2;</code>
        */
-      public Builder mergeMessage(pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse value) {
+      public Builder mergeMessage(pers.enoch.im.common.generate.MsgResponse.MessageResponse value) {
         if (messageBuilder_ == null) {
           if (message_ != null) {
             message_ =
-              pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.newBuilder(message_).mergeFrom(value).buildPartial();
+              pers.enoch.im.common.generate.MsgResponse.MessageResponse.newBuilder(message_).mergeFrom(value).buildPartial();
           } else {
             message_ = value;
           }
@@ -786,7 +786,7 @@ public final class ResponseOuterClass {
       /**
        * <code>.MessageResponse message = 2;</code>
        */
-      public pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder getMessageBuilder() {
+      public pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder getMessageBuilder() {
         
         onChanged();
         return getMessageFieldBuilder().getBuilder();
@@ -794,23 +794,23 @@ public final class ResponseOuterClass {
       /**
        * <code>.MessageResponse message = 2;</code>
        */
-      public pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder getMessageOrBuilder() {
+      public pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder getMessageOrBuilder() {
         if (messageBuilder_ != null) {
           return messageBuilder_.getMessageOrBuilder();
         } else {
           return message_ == null ?
-              pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.getDefaultInstance() : message_;
+              pers.enoch.im.common.generate.MsgResponse.MessageResponse.getDefaultInstance() : message_;
         }
       }
       /**
        * <code>.MessageResponse message = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder> 
+          pers.enoch.im.common.generate.MsgResponse.MessageResponse, pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder, pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder> 
           getMessageFieldBuilder() {
         if (messageBuilder_ == null) {
           messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponse.Builder, pers.enoch.im.common.generate.MessageResponseOuterClass.MessageResponseOrBuilder>(
+              pers.enoch.im.common.generate.MsgResponse.MessageResponse, pers.enoch.im.common.generate.MsgResponse.MessageResponse.Builder, pers.enoch.im.common.generate.MsgResponse.MessageResponseOrBuilder>(
                   getMessage(),
                   getParentForChildren(),
                   isClean());
@@ -1080,17 +1080,17 @@ public final class ResponseOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016Response.proto\032\025MessageResponse.proto\032" +
-      "\022UserResponse.proto\"m\n\010Response\022\014\n\004type\030" +
-      "\001 \001(\005\022!\n\007message\030\002 \001(\0132\020.MessageResponse" +
-      "\022\033\n\004user\030\003 \001(\0132\r.UserResponse\022\023\n\013create_" +
-      "time\030\004 \001(\tB!\n\035pers.enoch.im.common.gener" +
-      "ateH\001b\006proto3"
+      "\n\016Response.proto\032\021MsgResponse.proto\032\022Use" +
+      "rResponse.proto\"m\n\010Response\022\014\n\004type\030\001 \001(" +
+      "\005\022!\n\007message\030\002 \001(\0132\020.MessageResponse\022\033\n\004" +
+      "user\030\003 \001(\0132\r.UserResponse\022\023\n\013create_time" +
+      "\030\004 \001(\tB!\n\035pers.enoch.im.common.generateH" +
+      "\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          pers.enoch.im.common.generate.MessageResponseOuterClass.getDescriptor(),
+          pers.enoch.im.common.generate.MsgResponse.getDescriptor(),
           pers.enoch.im.common.generate.UserResponseOuterClass.getDescriptor(),
         });
     internal_static_Response_descriptor =
@@ -1099,7 +1099,7 @@ public final class ResponseOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Response_descriptor,
         new java.lang.String[] { "Type", "Message", "User", "CreateTime", });
-    pers.enoch.im.common.generate.MessageResponseOuterClass.getDescriptor();
+    pers.enoch.im.common.generate.MsgResponse.getDescriptor();
     pers.enoch.im.common.generate.UserResponseOuterClass.getDescriptor();
   }
 

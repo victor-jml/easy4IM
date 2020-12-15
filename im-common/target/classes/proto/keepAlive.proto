@@ -1,0 +1,13 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+option java_package = "pers.enoch.im.common.generate";
+
+// 心跳请求
+message KeepAliveReq{
+
+}
+
+// 心跳回执
+message KeepAliveRes{
+
+}

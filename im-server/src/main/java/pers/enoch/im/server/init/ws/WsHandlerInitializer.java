@@ -16,8 +16,6 @@ import io.netty.handler.timeout.IdleStateHandler;
 import org.springframework.beans.factory.annotation.Value;
 import pers.enoch.im.server.decode.WebSocketDecoder;
 import pers.enoch.im.server.encode.WebSocketEncoder;
-import pers.enoch.im.server.handler.Authhandler;
-import pers.enoch.im.server.handler.SingleChat;
 
 /**
  * @Author yang.zhao
@@ -58,9 +56,6 @@ public class WsHandlerInitializer extends ChannelInitializer<SocketChannel> {
         // protobuf解析器
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
-        // 添加认证的handler
-        pipeline.addLast(Authhandler.getInstance());
-        // 添加业务逻辑handler
-        pipeline.addLast(SingleChat.getInstance());
+        // todo 待开发支持ws
     }
 }

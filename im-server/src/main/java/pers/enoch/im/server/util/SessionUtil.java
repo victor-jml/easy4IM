@@ -3,6 +3,7 @@ package pers.enoch.im.server.util;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,6 +41,17 @@ public class SessionUtil {
     }
 
     /**
+     * 注销
+     * @param channel
+     */
+    public static void unBindSession(Channel channel){
+        String userId = getUserId(channel);
+        if(Strings.isNotBlank(userId)){
+            unBindSession(userId);
+        }
+    }
+
+    /**
      * 判断是否已经登录
      * @param userId
      * @return
@@ -55,6 +67,15 @@ public class SessionUtil {
      */
     public static Channel getChannel(String userId){
         return userIdChannelMap.get(userId);
+    }
+
+    public static String getUserId(Channel channel){
+        for (Map.Entry<String, Channel> entry : userIdChannelMap.entrySet()) {
+            if(entry.getValue() == channel){
+                return entry.getKey();
+            }
+        }
+        return "";
     }
 
     /**
