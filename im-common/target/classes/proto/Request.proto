@@ -2,7 +2,7 @@ syntax ="proto3";
 
 //optimize_for 加快解析的速度
 option optimize_for = SPEED;
-option java_package = "pers.enoch.im.common.generate";
+option java_package = "pers.enoch.im.common.protobuf";
 
 // 请求实体 type (0: 心跳, 1: 登录)
 message Request{

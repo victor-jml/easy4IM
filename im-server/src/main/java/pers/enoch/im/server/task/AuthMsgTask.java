@@ -4,7 +4,7 @@ import io.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.ResultEnum;
-import pers.enoch.im.common.generate.Auth;
+import pers.enoch.im.common.protobuf.Auth;
 import pers.enoch.im.server.util.SessionUtil;
 
 /**

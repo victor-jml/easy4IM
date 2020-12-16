@@ -3,7 +3,7 @@ package pers.enoch.im.server.task;
 import io.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.common.generate.Logout;
+import pers.enoch.im.common.protobuf.Logout;
 
 /**
  * @Author yang.zhao

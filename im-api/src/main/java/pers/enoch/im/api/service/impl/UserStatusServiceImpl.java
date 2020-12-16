@@ -19,8 +19,8 @@ public class UserStatusServiceImpl implements UserStatusService {
 
     @Override
     public void online(String uid,String token) {
-        // todo redis存入用户id与其对应的token
         LoginUtil.online(uid,token);
+
     }
 
     @Override

@@ -8,7 +8,6 @@ import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.utils.TokenUtil;
 import pers.enoch.im.common.constant.ResultEnum;
-import pers.enoch.im.common.Model.User;
 import pers.enoch.im.common.utils.Result;
 import pers.enoch.im.common.vo.req.UserPwdLoginReqVO;
 import pers.enoch.im.common.vo.res.UserLoginResVO;

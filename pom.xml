@@ -31,6 +31,7 @@
         <slf4j.version>1.7.7</slf4j.version>
         <mysql.version>8.0.15</mysql.version>
         <hutool.version>4.6.5</hutool.version>
+        <mybatis-plus.version>3.1.0</mybatis-plus.version>
     </properties>
 
     <parent>
@@ -96,14 +97,22 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.1.0</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
-                <version>3.1.0</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+
 
             <dependency>
                 <groupId>org.slf4j</groupId>

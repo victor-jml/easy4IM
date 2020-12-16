@@ -6,7 +6,7 @@ import "UserResponse.proto";
 
 //optimize_for 加快解析的速度
 option optimize_for = SPEED;
-option java_package = "pers.enoch.im.common.generate";
+option java_package = "pers.enoch.im.common.protobuf";
 
 // 返回实体
 message Response{

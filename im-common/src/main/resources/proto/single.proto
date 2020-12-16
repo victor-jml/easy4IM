@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option optimize_for = SPEED;
-option java_package = "pers.enoch.im.common.generate";
+option java_package = "pers.enoch.im.common.protobuf";
 
 // 指客户端发送消息给服务端
 message SingleSendRequest{
