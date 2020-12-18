@@ -1,7 +1,8 @@
-package pers.enoch.im.api.utils;
+package pers.enoch.im.common.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
+import pers.enoch.im.common.constant.Constant;
 
 /**
  * @Author yang.zhao
@@ -11,7 +12,6 @@ import org.apache.logging.log4j.util.Strings;
  **/
 @Slf4j
 public class LoginUtil {
-
     /**
      * 默认过期时间为40分钟
      */
@@ -28,7 +28,7 @@ public class LoginUtil {
      * @return boolean
      */
     public static boolean checkLogin(String uid){
-        String value = (String)CacheUtil.get(uid);
+        String value = (String)RedisUtil.get(Constant.REDIS_USER_PREFIX,uid);
         if(Strings.isBlank(value)){
             return false;
         }
@@ -51,7 +51,7 @@ public class LoginUtil {
      * @param ttl
      */
     public static void online(String uid,String token,Long ttl){
-        CacheUtil.set(uid,token,ttl);
+        RedisUtil.set(Constant.REDIS_USER_PREFIX ,uid,token,ttl);
         log.info("用户 {} 上线",uid);
     }
 
@@ -60,7 +60,7 @@ public class LoginUtil {
      * @param uid
      */
     public static void offline(String uid){
-        CacheUtil.delete(uid);
+        RedisUtil.delete(Constant.REDIS_USER_PREFIX,uid);
         log.info("用户 {} 下线",uid);
     }
 
@@ -70,7 +70,7 @@ public class LoginUtil {
      * @return Boolean
      */
     public static Boolean checkToken(String uid, String validToken) {
-        Object oldToken = CacheUtil.get(uid);
+        Object oldToken = RedisUtil.get(Constant.REDIS_USER_PREFIX,uid);
         if(oldToken == null){
             return false;
         }
@@ -78,8 +78,8 @@ public class LoginUtil {
             return false;
         }
         // 如果token不为空则返回true
-        Long ttl = CacheUtil.getExpire(uid);
-        CacheUtil.expire(uid,DEFAULT_TTL);
+        Long ttl = RedisUtil.getExpire(Constant.REDIS_USER_PREFIX,uid);
+        RedisUtil.expire(Constant.REDIS_USER_PREFIX,uid,DEFAULT_TTL);
         log.info("用户 {} 更新token过期时间",uid);
         return true;
     }

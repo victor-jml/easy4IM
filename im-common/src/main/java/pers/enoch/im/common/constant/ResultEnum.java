@@ -15,6 +15,11 @@ public enum  ResultEnum {
     SUCCESS(1, "成功"),
 
     /**
+     * 服务器错误
+     */
+    SERVER_ERROR(0,"服务器内部错误,请重试"),
+
+    /**
      * 参数错误
      */
     PARAM_IS_INVALID(1001,"参数无效"),
@@ -24,6 +29,12 @@ public enum  ResultEnum {
     PARAM_TYPE_BIND_ERROR(1003,"参数类型错误"),
 
     PARAM_NOT_COMPLETE(1004,"参数类型缺失"),
+
+    PHONE_VALID_ERROR(1005,"电话号码格式错误"),
+
+    CODE_VALID_EXPIRED(1006,"验证码失效"),
+
+    CODE_VALID_ERROR(1007,"验证码错误"),
 
     /**
      * 用户错误

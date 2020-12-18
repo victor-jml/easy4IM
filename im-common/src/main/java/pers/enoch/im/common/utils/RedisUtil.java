@@ -1,8 +1,7 @@
-package pers.enoch.im.api.utils;
+package pers.enoch.im.common.utils;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -12,30 +11,28 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author yang.zhao
- * @Date 2020/12/4 13:05
+ * @Date 2020/12/18 09:59
  * @Version 1.0
  * @Description
  **/
-@Component
-public class CacheUtil {
+public class RedisUtil {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
-    public static final String USER_PREFIX = "IM:USER:";
 
     /**
      * 维护一个本类的静态变量
      */
-    private static CacheUtil cacheUtils;
+    private static RedisUtil redisUtil;
 
     @PostConstruct
     public void init() {
-        cacheUtils = this;
-        cacheUtils.stringRedisTemplate = this.stringRedisTemplate;
-        cacheUtils.redisTemplate = this.redisTemplate;
+        redisUtil = this;
+        redisUtil.stringRedisTemplate = this.stringRedisTemplate;
+        redisUtil.redisTemplate = this.redisTemplate;
     }
 
     /**
@@ -43,8 +40,8 @@ public class CacheUtil {
      * @param key
      * @param value 必须要实现 Serializable 接口
      */
-    public static void set(String key, String value) {
-        cacheUtils.stringRedisTemplate.opsForValue().set(USER_PREFIX + key, value);
+    public static void set(String prefix ,String key, String value) {
+        redisUtil.stringRedisTemplate.opsForValue().set(prefix + key, value);
     }
 
     /**
@@ -53,8 +50,8 @@ public class CacheUtil {
      * @param value 必须要实现 Serializable 接口
      * @param timeout
      */
-    public static void set(String key, String value, Long timeout) {
-        cacheUtils.stringRedisTemplate.opsForValue().set(USER_PREFIX + key, value, timeout, TimeUnit.SECONDS);
+    public static void set(String prefix , String key, String value, Long timeout) {
+        redisUtil.stringRedisTemplate.opsForValue().set(prefix + key, value, timeout, TimeUnit.SECONDS);
     }
 
     /**
@@ -62,8 +59,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static Object get(String key) {
-        return cacheUtils.stringRedisTemplate.opsForValue().get(USER_PREFIX + key);
+    public static Object get(String prefix,String key) {
+        return redisUtil.stringRedisTemplate.opsForValue().get(prefix + key);
     }
 
     /**
@@ -71,21 +68,21 @@ public class CacheUtil {
      * @param key 键值
      * @param ttl 过期秒数
      */
-    public static boolean expire(String key, Long ttl) {
-        Boolean expire = cacheUtils.stringRedisTemplate.expire(key, ttl, TimeUnit.MINUTES);
+    public static boolean expire(String prefix , String key, Long ttl) {
+        Boolean expire = redisUtil.stringRedisTemplate.expire(prefix + key, ttl, TimeUnit.MINUTES);
         return expire != null;
     }
 
-    public static Long getExpire(String key){
-        return cacheUtils.stringRedisTemplate.getExpire(key);
+    public static Long getExpire(String prefix ,String key){
+        return redisUtil.stringRedisTemplate.getExpire(prefix + key);
     }
 
     /**
      * 判断某个键是否存在
      * @param key 键值
      */
-    public static boolean hasKey(String key) {
-        Boolean aBoolean = cacheUtils.redisTemplate.hasKey(key);
+    public static boolean hasKey(String prefix ,String key) {
+        Boolean aBoolean = redisUtil.redisTemplate.hasKey(prefix + key);
         return aBoolean != null;
     }
 
@@ -95,8 +92,8 @@ public class CacheUtil {
      * @param value
      * @return 返回值为设置成功的value数
      */
-    public static Long sAdd(String key, String... value) {
-        return cacheUtils.redisTemplate.opsForSet().add(key, value);
+    public static Long sAdd(String prefix,String key, String... value) {
+        return redisUtil.redisTemplate.opsForSet().add(prefix + key, value);
     }
 
     /**
@@ -104,8 +101,8 @@ public class CacheUtil {
      * @param key
      * @return 返回值为redis中键值为key的value的Set集合
      */
-    public static Set<String> sGetMembers(String key) {
-        return cacheUtils.redisTemplate.opsForSet().members(key);
+    public static Set<String> sGetMembers(String prefix, String key) {
+        return redisUtil.redisTemplate.opsForSet().members(prefix + key);
     }
 
     /**
@@ -116,7 +113,7 @@ public class CacheUtil {
      * @return
      */
     public static Boolean zAdd(String key, String value, double score) {
-        return cacheUtils.redisTemplate.opsForZSet().add(key, value, score);
+        return redisUtil.redisTemplate.opsForZSet().add(key, value, score);
     }
 
     /**
@@ -125,8 +122,8 @@ public class CacheUtil {
      * @param value
      * @return
      */
-    public static Double zScore(String key, String value) {
-        return cacheUtils.redisTemplate.opsForZSet().score(key, value);
+    public static Double zScore(String prefix,String key, String value) {
+        return redisUtil.redisTemplate.opsForZSet().score(prefix + key, value);
     }
 
     /**
@@ -134,8 +131,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static Boolean delete(String key) {
-        return cacheUtils.redisTemplate.delete(key);
+    public static Boolean delete(String prefix ,String key) {
+        return redisUtil.redisTemplate.delete(prefix + key);
     }
 
     /**
@@ -144,8 +141,7 @@ public class CacheUtil {
      * @return
      */
     public static Long delete(Collection<String> keys) {
-        return cacheUtils.redisTemplate.delete(keys);
+        return redisUtil.redisTemplate.delete(keys);
     }
 
 }
-

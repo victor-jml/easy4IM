@@ -17,13 +17,13 @@ import java.util.List;
  **/
 @Slf4j
 @ChannelHandler.Sharable
-public class WebSocketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
+public class WsDecoder extends MessageToMessageDecoder<WebSocketFrame> {
 
     private static class WebSocketDecoderHolder{
-        private static final WebSocketDecoder INSTANCE = new WebSocketDecoder();
+        private static final WsDecoder INSTANCE = new WsDecoder();
     }
 
-    public static WebSocketDecoder getInstance(){
+    public static WsDecoder getInstance(){
         return WebSocketDecoderHolder.INSTANCE;
     }
 

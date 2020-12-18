@@ -14,8 +14,8 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import org.springframework.beans.factory.annotation.Value;
-import pers.enoch.im.server.decode.WebSocketDecoder;
-import pers.enoch.im.server.encode.WebSocketEncoder;
+import pers.enoch.im.server.decode.WsDecoder;
+import pers.enoch.im.server.encode.WsEncoder;
 
 /**
  * @Author yang.zhao
@@ -50,9 +50,9 @@ public class WsHandlerInitializer extends ChannelInitializer<SocketChannel> {
         // 解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
         // 添加WebSocket协议包解码
-        pipeline.addLast(WebSocketDecoder.getInstance());
+        pipeline.addLast(WsDecoder.getInstance());
         // 添加WebSocket协议包编码
-        pipeline.addLast(WebSocketEncoder.getInstance());
+        pipeline.addLast(WsEncoder.getInstance());
         // protobuf解析器
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());

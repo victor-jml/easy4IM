@@ -3,6 +3,7 @@ package pers.enoch.im.common.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  **/
 @Data
 @Builder
-public class Users {
+public class Users implements Serializable {
     /**
      * 自增id
      */
@@ -74,6 +75,4 @@ public class Users {
      */
     private Long lastLogout;
 
-    public Users() {
-    }
 }

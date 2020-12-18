@@ -1,14 +1,20 @@
 package pers.enoch.im.api.controller.user;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.common.utils.TokenUtil;
 import pers.enoch.im.common.constant.ResultEnum;
+import pers.enoch.im.common.model.LocalAuth;
+import pers.enoch.im.common.utils.PwdUtil;
 import pers.enoch.im.common.utils.Result;
+import pers.enoch.im.common.utils.TokenUtil;
 import pers.enoch.im.common.vo.req.UserPwdLoginReqVO;
 import pers.enoch.im.common.vo.res.UserLoginResVO;
 
@@ -49,9 +55,21 @@ public class UserLoginController  {
         if (bindingResult.hasErrors()) {
             return Result.failure(ResultEnum.PARAM_TYPE_BIND_ERROR);
         }
-        // 判断账号密码是否正确
-        User user = userService.findById(userPwdLoginReqVO.getUserId());
-        if(!user.getPwd().equals(userPwdLoginReqVO.getPassword())){
+        // 判断用户是用户名登录或者邮箱登录或者是手机号码登录
+        LocalAuth auth = null;
+        if(!Strings.isBlank(userPwdLoginReqVO.getEmail())) {
+            // 判断账号密码是否正确
+            auth = userService.findById(userPwdLoginReqVO.getEmail());
+        }else if(!Strings.isBlank(userPwdLoginReqVO.getPhone())){
+            auth = userService.findByEmail(userPwdLoginReqVO.getPhone());
+        }else {
+            auth = userService.findByPhone(userPwdLoginReqVO.getPhone());
+        }
+        // 账号不存在
+        if(auth == null){
+            return Result.failure(ResultEnum.USER_LOGIN_ERROR);
+        }
+        if(!auth.getPassword().equals(PwdUtil.md5(userPwdLoginReqVO.getPassword()))){
             return Result.failure(ResultEnum.USER_LOGIN_ERROR);
         }
         String userId = userPwdLoginReqVO.getUserId();

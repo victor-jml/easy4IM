@@ -26,6 +26,16 @@ public class LocalAuth {
     private String userId;
 
     /**
+     * 用户邮箱
+     */
+    private String email;
+
+    /**
+     * 电话号码
+     */
+    private String phone;
+
+    /**
      * 昵称
      */
     private String username;
@@ -34,9 +44,6 @@ public class LocalAuth {
      * 密码
      */
     private String password;
-
-    public LocalAuth() {
-    }
 
 }
 

@@ -22,13 +22,13 @@ import static io.netty.buffer.Unpooled.wrappedBuffer;
  **/
 @Slf4j
 @ChannelHandler.Sharable
-public class WebSocketEncoder extends MessageToMessageEncoder<MessageLiteOrBuilder> {
+public class WsEncoder extends MessageToMessageEncoder<MessageLiteOrBuilder> {
 
     private static class WebsocketEncodeHolder{
-        private static final WebSocketEncoder INSTANCE = new WebSocketEncoder();
+        private static final WsEncoder INSTANCE = new WsEncoder();
     }
 
-    public static WebSocketEncoder getInstance(){
+    public static WsEncoder getInstance(){
         return WebsocketEncodeHolder.INSTANCE;
     }
 

@@ -4,8 +4,9 @@ import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.api.utils.CacheUtil;
-import pers.enoch.im.api.utils.LoginUtil;
+import pers.enoch.im.common.constant.Constant;
+import pers.enoch.im.common.utils.LoginUtil;
+import pers.enoch.im.common.utils.RedisUtil;
 
 /**
  * @Author yang.zhao
@@ -45,7 +46,7 @@ public class UserStatusServiceImpl implements UserStatusService {
 
     @Override
     public boolean checkToken(String uid, Long oldTimestamp) {
-        Object o = CacheUtil.get(uid);
+        Object o = RedisUtil.get(Constant.REDIS_USER_PREFIX,uid);
         if(o == null){
             return false;
         }

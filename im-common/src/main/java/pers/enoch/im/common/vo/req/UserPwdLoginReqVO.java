@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 /**
  * @Author yang.zhao
@@ -16,9 +15,21 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserPwdLoginReqVO extends BaseRequestVO{
 
-
-    @NotNull(message = "用户id不能为空")
+    /**
+     * 通过userId进行登录
+     */
     private String userId;
+
+    /**
+     * 通过email进行登录
+     */
+    private String email;
+
+    /**
+     * 通过手机号进行登录
+     */
+    private String phone;
+
 
     @NotEmpty(message = "密码不能为空")
     private String password;
