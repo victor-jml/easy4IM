@@ -66,7 +66,7 @@ public class UserRegisterController {
         // 成功注册并登录直接返回token
         LocalAuth regUser = LocalAuth.builder()
                 .userId(userRegisterReqVO.getUserId())
-                .password(PwdUtil.md5(userRegisterReqVO.getPassword()))
+                .userPassword(PwdUtil.md5(userRegisterReqVO.getPassword()))
                 .build();
         String token = TokenUtil.makeToken();
         if(userService.addUser(regUser)){

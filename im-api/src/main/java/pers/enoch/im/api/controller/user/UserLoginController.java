@@ -69,7 +69,7 @@ public class UserLoginController  {
         if(auth == null){
             return Result.failure(ResultEnum.USER_LOGIN_ERROR);
         }
-        if(!auth.getPassword().equals(PwdUtil.md5(userPwdLoginReqVO.getPassword()))){
+        if(!auth.getUserPassword().equals(PwdUtil.md5(userPwdLoginReqVO.getPassword()))){
             return Result.failure(ResultEnum.USER_LOGIN_ERROR);
         }
         String userId = userPwdLoginReqVO.getUserId();

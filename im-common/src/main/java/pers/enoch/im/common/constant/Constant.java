@@ -13,4 +13,6 @@ public interface Constant {
     String REDIS_PHONE_PREFIX = "IM:PHONE";
 
     String DEFAULT_NAME = "Always Be Coding";
+
+    String MOBILE_CHINA_PREFIX = "+86";
 }

@@ -3,18 +3,17 @@ package pers.enoch.im.common.model;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Author yang.zhao
- * @Date 2020/12/16 17:12
- * @Version 1.0
- * @Description 用户信息
- **/
+ * 2020-12-21
+ * @author yang.zhao
+ *
+ */
 @Data
 @Builder
-public class Users implements Serializable {
+public class Users {
+
     /**
      * 自增id
      */
@@ -28,27 +27,27 @@ public class Users implements Serializable {
     /**
      * 昵称
      */
-    private String name;
+    private String userName;
 
     /**
      * 头像
      */
-    private String icon;
+    private String userIcon;
 
     /**
      * 年龄
      */
-    private Integer age;
+    private Integer userAge;
 
     /**
      * 用户状态（0-正常，1-禁用，2-删除）
      */
-    private Integer status;
+    private Integer userStatus;
 
     /**
      * 个性签名
      */
-    private String signature;
+    private String userSignature;
 
     /**
      * 在线状态
@@ -74,5 +73,6 @@ public class Users implements Serializable {
      * 上次登出时间戳
      */
     private Long lastLogout;
+
 
 }

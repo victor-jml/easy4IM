@@ -32,21 +32,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public LocalAuth findById(String userId) {
         LambdaQueryWrapper<LocalAuth> lambdaQueryWrapper = new LambdaQueryWrapper<LocalAuth>();
-        lambdaQueryWrapper.eq(LocalAuth::getEmail,userId);
+        lambdaQueryWrapper.eq(LocalAuth::getUserId,userId);
         return loginLocalMapper.selectOne(lambdaQueryWrapper);
     }
 
     @Override
     public LocalAuth findByEmail(String email) {
         LambdaQueryWrapper<LocalAuth> lambdaQueryWrapper = new LambdaQueryWrapper<LocalAuth>();
-        lambdaQueryWrapper.eq(LocalAuth::getEmail,email);
+        lambdaQueryWrapper.eq(LocalAuth::getUserEmail,email);
         return loginLocalMapper.selectOne(lambdaQueryWrapper);
     }
 
     @Override
     public LocalAuth findByPhone(String phone) {
         LambdaQueryWrapper<LocalAuth> lambdaQueryWrapper = new LambdaQueryWrapper<LocalAuth>();
-        lambdaQueryWrapper.eq(LocalAuth::getPhone,phone);
+        lambdaQueryWrapper.eq(LocalAuth::getUserPhone,phone);
         return loginLocalMapper.selectOne(lambdaQueryWrapper);
     }
 
@@ -54,8 +54,8 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(LocalAuth localAuth) {
         Users users = Users.builder()
                 .userId(localAuth.getUserId())
-                .name(Constant.DEFAULT_NAME)
-                .status(0)
+                .userName(Constant.DEFAULT_NAME)
+                .userStatus(0)
                 .online(1)
                 .createAt(new Date())
                 .updateAt(new Date())

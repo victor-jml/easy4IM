@@ -51,7 +51,15 @@ public enum  ResultEnum {
 
     USER_OTHER_LOGIN(2006,"该账户其他地方登录！如果非本人操作请及时修改密码"),
 
-    USER_TOKEN_EXPIRE(2007,"用户TOKEN已过期，请重新登录")
+    USER_TOKEN_EXPIRE(2007,"用户TOKEN已过期，请重新登录"),
+
+    /**
+     * 短信服务
+     */
+    SMS_SEND_OK(3001, "发送短信成功"),
+
+    SMS_SEND_ERROR(3002,"发送短信失败")
+
     ;
 
     private Integer code;

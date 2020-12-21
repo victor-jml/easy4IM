@@ -1,0 +1,54 @@
+{
+  "groups": [
+    {
+      "name": "sms",
+      "type": "pers.enoch.im.common.config.SmsConfig",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sms.app-id",
+      "type": "java.lang.String",
+      "description": "短信应用appId",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.app-key",
+      "type": "java.lang.String",
+      "description": "短信应用appKey",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.expire-time",
+      "type": "java.lang.String",
+      "description": "过期时间",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.phone-prefix",
+      "type": "java.lang.String",
+      "description": "redis存储前缀",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.secret-id",
+      "type": "java.lang.String",
+      "description": "腾讯云账户密钥对secretId（在访问管理中配置）",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.secret-key",
+      "type": "java.lang.String",
+      "description": "腾讯云账户密钥对secretKey（在访问管理中配置）",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    },
+    {
+      "name": "sms.sms-sign",
+      "type": "java.lang.String",
+      "description": "签名",
+      "sourceType": "pers.enoch.im.common.config.SmsConfig"
+    }
+  ],
+  "hints": []
+}
