@@ -8,9 +8,9 @@ package pers.enoch.im.common.constant;
 public interface Constant {
     String CONNECTION_RESET_BY_PEER = "Connection reset by peer";
 
-    String REDIS_USER_PREFIX = "IM:USER";
+    String REDIS_USER_PREFIX = "IM:USER:";
 
-    String REDIS_PHONE_PREFIX = "IM:PHONE";
+    String REDIS_PHONE_PREFIX = "IM:PHONE:";
 
     String DEFAULT_NAME = "Always Be Coding";
 

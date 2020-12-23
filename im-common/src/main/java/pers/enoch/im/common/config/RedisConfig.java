@@ -9,6 +9,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author yang.zhao
@@ -16,6 +17,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
  * @Version 1.0
  * @Description
  **/
+@Component
 public class RedisConfig {
     @Bean
     @ConditionalOnMissingBean(name = "redisTemplate")

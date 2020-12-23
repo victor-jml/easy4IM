@@ -3,12 +3,12 @@ package pers.enoch.im.api.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pers.enoch.im.api.mapper.user.LoginLocalMapper;
-import pers.enoch.im.api.mapper.user.UserInfoMapper;
+import pers.enoch.im.api.mapper.LoginLocalMapper;
+import pers.enoch.im.api.mapper.UserInfoMapper;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.common.constant.Constant;
-import pers.enoch.im.common.model.LocalAuth;
-import pers.enoch.im.common.model.Users;
+import pers.enoch.im.api.entity.LocalAuth;
+import pers.enoch.im.api.entity.Users;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -60,12 +60,14 @@ public class UserServiceImpl implements UserService {
                 .createAt(new Date())
                 .updateAt(new Date())
                 .build();
+        localAuth.setUserName(Constant.DEFAULT_NAME);
         int userInsert = userInfoMapper.insert(users);
         int localInsert = loginLocalMapper.insert(localAuth);
         if(userInsert == 0 || localInsert == 0){
             log.error("用户信息插入数据库失败");
             return false;
         }
+        log.info(" {} 用户注册成功，已登录",users.getUserName());
         return true;
     }
 }

@@ -2,6 +2,7 @@ package pers.enoch.im.common.utils;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @Version 1.0
  * @Description
  **/
+@Component
 public class RedisUtil {
 
     @Resource

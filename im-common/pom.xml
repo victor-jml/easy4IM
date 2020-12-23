@@ -44,11 +44,11 @@
             <artifactId>fastjson</artifactId>
         </dependency>
 
+
         <!--连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.12</version>
+            <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -59,6 +59,16 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
 
         <!--http 请求-->

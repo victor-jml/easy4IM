@@ -36,6 +36,14 @@ public class Result implements Serializable {
         return result;
     }
 
+    public static Result success(ResultEnum resultEnum,Object data){
+        Result result = new Result();
+        result.setCode(resultEnum.getCode());
+        result.setMessage(resultEnum.getMessage());
+        result.setData(data);
+        return result;
+    }
+
     public static Result success(Object data){
         Result result = new Result();
         result.setCode(ResultEnum.SUCCESS.getCode());

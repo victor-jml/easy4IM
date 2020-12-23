@@ -58,8 +58,14 @@ public enum  ResultEnum {
      */
     SMS_SEND_OK(3001, "发送短信成功"),
 
-    SMS_SEND_ERROR(3002,"发送短信失败")
+    SMS_SEND_ERROR(3002,"发送短信失败"),
 
+    /**
+     * 用户状态
+     */
+    USER_LOGIN_SUCCESS(4001,"用户登录成功"),
+
+    USER_REGISTE_SUCCESS(4002,"用户注册成功")
     ;
 
     private Integer code;
