@@ -7,8 +7,8 @@ import pers.enoch.im.api.mapper.LoginLocalMapper;
 import pers.enoch.im.api.mapper.UserInfoMapper;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.common.constant.Constant;
-import pers.enoch.im.api.entity.LocalAuth;
-import pers.enoch.im.api.entity.Users;
+import pers.enoch.im.api.model.LocalAuth;
+import pers.enoch.im.api.model.Users;
 
 import javax.annotation.Resource;
 import java.util.Date;

@@ -4,6 +4,7 @@ import io.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.protobuf.Logout;
+import pers.enoch.im.server.util.SessionUtil;
 
 /**
  * @Author yang.zhao
@@ -26,6 +27,11 @@ public class LogoutMsgTask implements Runnable {
 
     @Override
     public void run() {
-
+        // remove User-Channel relation
+        SessionUtil.unBindSession(request.getUid());
+        // change User online status
+        userStatusService.offline(request.getUid());
+        // close channel
+        channel.close();
     }
 }

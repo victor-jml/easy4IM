@@ -1,6 +1,5 @@
 package pers.enoch.im.api.service.impl;
 
-import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.service.UserStatusService;
@@ -27,11 +26,6 @@ public class UserStatusServiceImpl implements UserStatusService {
     @Override
     public void offline(String uid) {
         LoginUtil.offline(uid);
-    }
-
-    @Override
-    public void offline(ChannelHandlerContext ctx) {
-
     }
 
     @Override

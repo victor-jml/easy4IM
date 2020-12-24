@@ -38,6 +38,7 @@ public class TcpNettyServer {
                 //设置服务器端口
                 .localAddress(new InetSocketAddress(port))
                 // TCP长连接
+                .option(ChannelOption.SO_BACKLOG,1000)
                 .childOption(ChannelOption.SO_KEEPALIVE,true)
                 .childHandler(new TcpHandlerInitializer());
         ChannelFuture future = serverBootstrap.bind().sync();
@@ -61,7 +62,7 @@ public class TcpNettyServer {
         serverBootstrap.group(bossGroup,workerGroup)
                 .channel(NioServerSocketChannel.class)
                 //设置服务器端口
-                .localAddress(new InetSocketAddress(19999))
+                .localAddress(new InetSocketAddress(9000))
                 // TCP长连接
                 .childOption(ChannelOption.SO_KEEPALIVE,true)
                 .childHandler(new TcpHandlerInitializer());

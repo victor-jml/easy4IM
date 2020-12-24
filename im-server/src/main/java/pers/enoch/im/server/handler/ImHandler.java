@@ -67,7 +67,7 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         // 可能出现业务判断离线后再次触发 channelInactive
         log.warn("触发 channelInactive 掉线![{}]", ctx.channel().id());
-        userStatusService.offline(ctx);
+        ctx.channel().close();
     }
 
     @Override

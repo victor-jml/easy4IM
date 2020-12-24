@@ -1,6 +1,6 @@
 package pers.enoch.im.api.service;
 
-import pers.enoch.im.api.entity.LocalAuth;
+import pers.enoch.im.api.model.LocalAuth;
 
 /**
  * 用户登录验证

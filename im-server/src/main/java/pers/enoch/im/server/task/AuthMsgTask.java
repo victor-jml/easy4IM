@@ -16,7 +16,7 @@ import pers.enoch.im.server.util.SessionUtil;
 public class AuthMsgTask implements Runnable{
 
     @Autowired
-    UserStatusService userStatusService;
+    private UserStatusService userStatusService;
 
     private Auth.AuthRequest auth;
     private Channel channel;

@@ -1,7 +1,7 @@
 package pers.enoch.im.api.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import pers.enoch.im.api.entity.LocalAuth;
+import pers.enoch.im.api.model.LocalAuth;
 
 /**
  * @Author yang.zhao

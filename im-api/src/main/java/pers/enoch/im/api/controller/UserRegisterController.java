@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pers.enoch.im.api.model.LocalAuth;
+import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
+import pers.enoch.im.api.model.vo.res.UserResVo;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.common.constant.ResultEnum;
-import pers.enoch.im.api.entity.LocalAuth;
 import pers.enoch.im.common.utils.*;
-import pers.enoch.im.common.vo.req.UserRegisterReqVO;
-import pers.enoch.im.common.vo.res.UserResVO;
 
 import javax.validation.Valid;
 
@@ -55,27 +55,27 @@ public class UserRegisterController {
     }
 
     @PostMapping("regByUserId")
-    public Result regByUserId(@Valid @RequestBody UserRegisterReqVO userRegisterReqVO,
+    public Result regByUserId(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
                               BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
         }
-        LocalAuth user = userService.findById(userRegisterReqVO.getUserId());
+        LocalAuth user = userService.findById(userRegisterReqVo.getUserId());
         if(user != null){
             return Result.failure(ResultEnum.USER_HAS_EXISTED);
         }
         // 成功注册并登录直接返回token
         LocalAuth regUser = LocalAuth.builder()
-                .userId(userRegisterReqVO.getUserId())
-                .userPassword(PwdUtil.md5(userRegisterReqVO.getPassword()))
+                .userId(userRegisterReqVo.getUserId())
+                .userPassword(PwdUtil.md5(userRegisterReqVo.getPassword()))
                 .build();
         String token = TokenUtil.makeToken();
         if(userService.addUser(regUser)){
-            userStatusService.online(userRegisterReqVO.getUserId(),token);
+            userStatusService.online(userRegisterReqVo.getUserId(),token);
         }else {
             return Result.failure(ResultEnum.SERVER_ERROR);
         }
-        UserResVO regResVO = UserResVO.builder()
+        UserResVo regResVO = UserResVo.builder()
                 .token(token)
                 .timestamp(System.currentTimeMillis())
                 .build();
@@ -84,17 +84,17 @@ public class UserRegisterController {
     }
 
     @RequestMapping("regByPhone")
-    public Result regByPhone(@Valid @RequestBody UserRegisterReqVO userRegisterReqVO,
+    public Result regByPhone(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
                            BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
         }
-        Object o = RedisUtil.get(Constant.REDIS_PHONE_PREFIX, userRegisterReqVO.getPhone());
+        Object o = RedisUtil.get(Constant.REDIS_PHONE_PREFIX, userRegisterReqVo.getPhone());
         if(o == null){
             return Result.failure(ResultEnum.CODE_VALID_EXPIRED);
         }
         String code = (String)o;
-        if(!code.equals(userRegisterReqVO.getCode())){
+        if(!code.equals(userRegisterReqVo.getCode())){
             return Result.failure(ResultEnum.CODE_VALID_ERROR);
         }
         // 逻辑到这里表示验证码正确

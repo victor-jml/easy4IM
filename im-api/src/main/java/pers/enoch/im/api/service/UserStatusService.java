@@ -1,8 +1,6 @@
 package pers.enoch.im.api.service;
 
 
-import io.netty.channel.ChannelHandlerContext;
-
 /**
  * @author yang.zhao
  */
@@ -20,12 +18,6 @@ public interface UserStatusService {
      * @param uid
      */
     void offline(String uid);
-
-    /**
-     * 用户离线
-     * @param ctx
-     */
-    void offline(ChannelHandlerContext ctx);
 
     /**
      * 调用登录API时，检验该用户是否已经登录
