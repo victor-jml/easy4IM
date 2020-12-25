@@ -53,7 +53,9 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
         }else if(msg instanceof Auth.AuthRequest){
             // 验证登录
             Auth.AuthRequest authRequest = (Auth.AuthRequest)msg;
-            TaskExecute.execute(new AuthMsgTask(ctx.channel(),authRequest));
+            log.info("{} connect server success", authRequest.getUid());
+            AuthMsgTask authMsgTask = new AuthMsgTask(ctx.channel(), authRequest);
+            TaskExecute.execute(authMsgTask);
         }else if(msg instanceof Logout.LogoutRequest){
             // 注销登录
             Logout.LogoutRequest request = (Logout.LogoutRequest)msg;

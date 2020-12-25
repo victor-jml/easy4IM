@@ -1,12 +1,10 @@
-package pers.enoch.im.api.service.impl;
+package pers.enoch.im.server.service;
 
 import io.netty.channel.Channel;
-import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.OfflineMsgMapper;
 import pers.enoch.im.api.mapper.SendMsgMapper;
 import pers.enoch.im.api.model.OfflineMsg;
 import pers.enoch.im.api.model.SendMsg;
-import pers.enoch.im.api.service.MsgService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.protobuf.Single;
 
@@ -15,11 +13,10 @@ import java.util.Date;
 
 /**
  * @Author yang.zhao
- * Date: 2020/12/24
- * Description: Send Message Service
+ * Date: 2020/12/25
+ * Description:
  **/
-@Service
-public class MsgServiceImpl implements MsgService {
+public class SingleChatService {
     @Resource
     private UserStatusService userStatusService;
     @Resource
@@ -28,8 +25,7 @@ public class MsgServiceImpl implements MsgService {
     private OfflineMsgMapper offlineMsgMapper;
 
 
-    @Override
-    public void sendMsgSingle(Channel send ,Channel receive, Single.SingleSendRequest singleSendRequest) {
+    public void sendMsgSingle(Channel send , Channel receive, Single.SingleSendRequest singleSendRequest) {
         // check user isOnline
         boolean isLogin = userStatusService.checkLogin(singleSendRequest.getTo());
 
@@ -57,7 +53,7 @@ public class MsgServiceImpl implements MsgService {
         send.writeAndFlush(response);
 
     }
-    
+
     private SendMsg generateSendMsg(Single.SingleSendRequest singleSendRequest){
         return SendMsg.builder()
                 .msgFrom(singleSendRequest.getFrom())
@@ -71,7 +67,7 @@ public class MsgServiceImpl implements MsgService {
     }
 
     private OfflineMsg generateOfflineMsg(Single.SingleSendRequest singleSendRequest){
-          return OfflineMsg.builder()
+        return OfflineMsg.builder()
                 .msgFrom(singleSendRequest.getFrom())
                 .msgTo(singleSendRequest.getTo())
                 .groupId(0L)
