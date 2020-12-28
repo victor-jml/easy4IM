@@ -1,308 +1,992 @@
-2020-12-25 14:29:36,665 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 24065 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 14:29:36,669 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 14:29:37,410 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 14:29:37,587 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 14:29:37,592 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 14:29:37,624 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
-2020-12-25 14:29:38,242 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 14:29:38,266 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 14:29:38,266 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 14:29:38,372 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 14:29:38,373 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1672 ms
-2020-12-25 14:29:38,540 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 14:29:38,611 [ERROR] [main] org.springframework.boot.web.embedded.tomcat.TomcatStarter [TomcatStarter.java : 61] Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthIndicatorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthIndicatorAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthIndicatorRegistry]: Factory method 'healthIndicatorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]: Invocation of init method failed; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-2020-12-25 14:29:38,635 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
-2020-12-25 14:29:38,742 [WARN] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
-2020-12-25 14:29:38,757 [INFO] [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-12-25 14:29:38,762 [ERROR] [main] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-2020-12-25 14:34:34,723 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 24561 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 14:34:34,727 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 14:34:35,170 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 14:34:35,275 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 14:34:35,277 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 14:34:35,293 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2020-12-25 14:34:35,791 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 14:34:35,807 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 14:34:35,807 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 14:34:35,876 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 14:34:35,877 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1126 ms
-2020-12-25 14:34:35,990 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 14:34:36,052 [ERROR] [main] org.springframework.boot.web.embedded.tomcat.TomcatStarter [TomcatStarter.java : 61] Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthIndicatorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthIndicatorAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthIndicatorRegistry]: Factory method 'healthIndicatorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]: Invocation of init method failed; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
-2020-12-25 14:34:36,066 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
-2020-12-25 14:34:36,168 [WARN] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
-2020-12-25 14:34:36,179 [INFO] [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-12-25 14:34:36,183 [ERROR] [main] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
-
-Reason: Failed to determine a suitable driver class
-
-
-Action:
-
-Consider the following:
-	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
-	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
-
-2020-12-25 14:35:37,116 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 24664 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 14:35:37,119 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 14:35:37,588 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 14:35:37,697 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 14:35:37,699 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 14:35:37,717 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 8ms. Found 0 Redis repository interfaces.
-2020-12-25 14:35:38,203 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
-2020-12-25 14:35:38,219 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 14:35:38,219 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 14:35:38,302 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 14:35:38,303 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1160 ms
-2020-12-25 14:35:38,437 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 14:35:41,135 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 14:35:41,556 [WARN] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tcpNettyServer': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'server.netty.TcpPort' in value "${server.netty.TcpPort}"
-2020-12-25 14:35:41,570 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 14:35:41,575 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 14:35:41,577 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
-2020-12-25 14:35:41,588 [INFO] [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-12-25 14:35:41,597 [ERROR] [main] org.springframework.boot.SpringApplication [SpringApplication.java : 823] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tcpNettyServer': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'server.netty.TcpPort' in value "${server.netty.TcpPort}"
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:382)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1404)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:860)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+2020-12-28 09:30:35,158 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 72596 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 09:30:35,168 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
+2020-12-28 09:30:36,130 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
+2020-12-28 09:30:36,345 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 09:30:36,349 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 09:30:36,392 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+2020-12-28 09:30:37,587 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
+2020-12-28 09:30:37,618 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 09:30:37,618 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 09:30:37,787 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 09:30:37,787 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2567 ms
+2020-12-28 09:30:38,050 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 09:30:40,830 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 09:31:09,314 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 9000
+2020-12-28 09:31:09,319 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 45] ws server 启动成功，绑定端口号为： 8000
+2020-12-28 09:31:09,582 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 09:31:10,457 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 09:31:10,546 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
+2020-12-28 09:31:10,551 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 56.129 seconds (JVM running for 63.317)
+2020-12-28 09:31:21,003 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 0
+2020-12-28 09:31:21,054 [INFO] [RMI TCP Connection(5)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 09:31:21,055 [INFO] [RMI TCP Connection(5)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 09:31:21,069 [INFO] [RMI TCP Connection(5)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 13 ms
+2020-12-28 09:31:21,407 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
+2020-12-28 09:31:21,436 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
+2020-12-28 09:45:50,825 [INFO] [Thread-69] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 09:45:50,833 [INFO] [Thread-69] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 53] 关闭 ws server 成功
+2020-12-28 09:45:50,837 [INFO] [Thread-69] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] 关闭 tcp server 成功
+2020-12-28 09:45:51,974 [INFO] [Thread-69] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 09:45:51,988 [INFO] [Thread-69] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 10:21:34,528 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 77676 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:21:34,532 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 10:21:34,576 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:21:34,576 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:21:35,647 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:21:35,652 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:21:35,695 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 26ms. Found 0 Redis repository interfaces.
+2020-12-28 10:21:36,435 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 10:21:36,458 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:21:36,459 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:21:36,659 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:21:36,659 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2083 ms
+2020-12-28 10:21:37,108 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:21:41,664 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 10:21:42,604 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:21:43,110 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 10:21:43,119 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 10:21:48,223 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 55] tcp server start success.  bind port :  0 
+2020-12-28 10:21:48,232 [ERROR] [restartedMain] org.apache.catalina.util.LifecycleBase [DirectJDKLog.java : 175] Failed to start component [Connector[HTTP/1.1-8081]]
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1066)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:227)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:263)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:195)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:297)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:163)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552)
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
-	at pers.enoch.im.server.ServerApplication.main(ServerApplication.java:16)
-Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'server.netty.TcpPort' in value "${server.netty.TcpPort}"
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:851)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1212)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1191)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
-	... 17 common frames omitted
-2020-12-25 14:36:49,558 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 24783 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 14:36:49,561 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 14:36:50,027 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 14:36:50,131 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 14:36:50,132 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 14:36:50,149 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2020-12-25 14:36:50,639 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 14:36:50,657 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 14:36:50,658 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 14:36:50,739 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 14:36:50,739 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1154 ms
-2020-12-25 14:36:50,863 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 14:36:53,661 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 14:36:58,994 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 9000
-2020-12-25 14:36:58,997 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 45] ws server 启动成功，绑定端口号为： 8000
-2020-12-25 14:36:59,200 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 14:36:59,843 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 14:36:59,904 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
-2020-12-25 14:36:59,907 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 30.683 seconds (JVM running for 36.528)
-2020-12-25 14:37:00,221 [INFO] [RMI TCP Connection(3)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 14:37:00,223 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 14:37:00,236 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 13 ms
-2020-12-25 14:37:00,505 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
-2020-12-25 14:37:00,527 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
-2020-12-25 15:22:14,950 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 29350 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 15:22:14,955 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
-2020-12-25 15:22:15,018 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-12-25 15:22:15,019 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-12-25 15:22:16,794 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 15:22:16,796 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 15:22:16,829 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
-2020-12-25 15:22:17,525 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
-2020-12-25 15:22:17,546 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 15:22:17,547 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 15:22:17,730 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 15:22:17,731 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2711 ms
-2020-12-25 15:22:18,071 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 15:22:20,373 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 15:22:21,494 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 15:22:21,951 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
-2020-12-25 15:22:21,960 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 15:22:22,041 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
-2020-12-25 15:22:22,044 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 27.968 seconds (JVM running for 33.767)
-2020-12-25 15:22:22,106 [INFO] [RMI TCP Connection(3)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 15:22:22,107 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 15:22:22,117 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 9 ms
-2020-12-25 15:22:22,344 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
-2020-12-25 15:22:22,374 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
-2020-12-25 15:22:42,911 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
-2020-12-25 15:32:25,385 [INFO] [Thread-63] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 15:32:25,393 [INFO] [Thread-63] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 53] 关闭 ws server 成功
-2020-12-25 15:32:25,395 [INFO] [Thread-63] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] 关闭 tcp server 成功
-2020-12-25 15:32:26,524 [INFO] [Thread-63] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 15:32:26,534 [INFO] [Thread-63] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 15:33:36,392 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 30435 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 15:33:36,443 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 15:33:37,030 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 15:33:37,173 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 15:33:37,175 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 15:33:37,197 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 9ms. Found 0 Redis repository interfaces.
-2020-12-25 15:33:37,871 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 15:33:37,893 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 15:33:37,893 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 15:33:38,007 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 15:33:38,007 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1533 ms
-2020-12-25 15:33:38,571 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 15:33:42,087 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 15:33:48,214 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 9000
-2020-12-25 15:33:48,227 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 45] ws server 启动成功，绑定端口号为： 8000
-2020-12-25 15:33:49,821 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 15:33:52,321 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 15:33:52,483 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
-2020-12-25 15:33:52,491 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 36.788 seconds (JVM running for 43.399)
-2020-12-25 15:33:53,048 [INFO] [RMI TCP Connection(4)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 15:33:53,051 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 15:33:53,084 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 32 ms
-2020-12-25 15:33:53,914 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
-2020-12-25 15:33:53,960 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
-2020-12-25 15:34:30,379 [ERROR] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 80] 未收到客户端心跳包，断开连接
-2020-12-25 15:34:30,390 [WARN] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 69] 触发 channelInactive 掉线![801a5ae7]
-2020-12-25 15:35:18,242 [ERROR] [nioEventLoopGroup-5-2] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 80] 未收到客户端心跳包，断开连接
-2020-12-25 15:35:18,243 [WARN] [nioEventLoopGroup-5-2] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 69] 触发 channelInactive 掉线![27f5f068]
-2020-12-25 15:36:15,147 [INFO] [Thread-76] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 15:36:15,155 [INFO] [Thread-76] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 53] 关闭 ws server 成功
-2020-12-25 15:36:15,159 [INFO] [Thread-76] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] 关闭 tcp server 成功
-2020-12-25 15:36:16,298 [INFO] [Thread-76] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 15:36:16,308 [INFO] [Thread-76] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 16:23:09,602 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 35271 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 16:23:09,606 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 16:23:10,495 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 16:23:10,707 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 16:23:10,714 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 16:23:10,766 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
-2020-12-25 16:23:11,786 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 16:23:11,816 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 16:23:11,816 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 16:23:11,951 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 16:23:11,952 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2298 ms
-2020-12-25 16:23:12,211 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 16:23:15,133 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 16:23:20,766 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 9000
-2020-12-25 16:23:20,770 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 45] ws server 启动成功，绑定端口号为： 8000
-2020-12-25 16:23:21,014 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 16:23:21,936 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 16:23:22,016 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
-2020-12-25 16:23:22,021 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 33.253 seconds (JVM running for 40.639)
-2020-12-25 16:23:22,179 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 16:23:22,181 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 16:23:22,196 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 15 ms
-2020-12-25 16:23:22,538 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
-2020-12-25 16:23:22,562 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
-2020-12-25 16:25:38,871 [INFO] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 43] 接收到客户端消息
-2020-12-25 16:29:14,856 [WARN] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 70] 触发 channelInactive 掉线![3dce6a5b]
-2020-12-25 16:30:43,867 [INFO] [nioEventLoopGroup-5-2] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 43] 接收到客户端消息
-2020-12-25 16:31:22,055 [INFO] [Thread-69] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 16:31:22,063 [INFO] [Thread-69] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 53] 关闭 ws server 成功
-2020-12-25 16:31:22,066 [WARN] [nioEventLoopGroup-5-2] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 70] 触发 channelInactive 掉线![723387ba]
-2020-12-25 16:31:22,069 [INFO] [Thread-69] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] 关闭 tcp server 成功
-2020-12-25 16:31:23,215 [INFO] [Thread-69] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 16:31:23,234 [INFO] [Thread-69] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 16:33:51,133 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 36263 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 16:33:51,137 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
-2020-12-25 16:33:51,761 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
-2020-12-25 16:33:51,933 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 16:33:51,935 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 16:33:51,962 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
-2020-12-25 16:33:52,619 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
-2020-12-25 16:33:52,639 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 16:33:52,639 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 16:33:52,738 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 16:33:52,738 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1566 ms
-2020-12-25 16:33:53,006 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 16:33:55,813 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
-2020-12-25 16:34:01,237 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 46] tcp server 启动成功，绑定端口号为： 9000
-2020-12-25 16:34:01,242 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 45] ws server 启动成功，绑定端口号为： 8000
-2020-12-25 16:34:01,436 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 16:34:02,137 [INFO] [main] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 16:34:02,197 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
-2020-12-25 16:34:02,201 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 31.612 seconds (JVM running for 38.497)
-2020-12-25 16:34:02,559 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 16:34:02,560 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 16:34:02,571 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 11 ms
-2020-12-25 16:34:02,826 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
-2020-12-25 16:34:02,845 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
-2020-12-25 16:36:30,871 [INFO] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 43] 接收到客户端消息
-2020-12-25 16:36:39,080 [INFO] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 56] enoch connect server success
-2020-12-25 16:47:00,880 [ERROR] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 81] 未收到客户端心跳包，断开连接
-2020-12-25 16:47:00,890 [WARN] [nioEventLoopGroup-5-1] pers.enoch.im.server.handler.ImHandler [ImHandler.java : 70] 触发 channelInactive 掉线![5cd06435]
-2020-12-25 17:09:29,108 [INFO] [Thread-66] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 17:09:29,121 [INFO] [Thread-66] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 53] 关闭 ws server 成功
-2020-12-25 17:09:29,130 [INFO] [Thread-66] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] 关闭 tcp server 成功
-2020-12-25 17:09:30,278 [INFO] [Thread-66] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 17:09:30,289 [INFO] [Thread-66] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 18:00:59,212 [INFO] [Thread-61] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 18:00:59,224 [INFO] [Thread-61] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
-2020-12-25 18:00:59,264 [INFO] [Thread-61] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
-2020-12-25 18:01:20,763 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 29350 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
-2020-12-25 18:01:20,763 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
-2020-12-25 18:01:21,121 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-12-25 18:01:21,121 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-12-25 18:01:21,128 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
-2020-12-25 18:01:21,255 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
-2020-12-25 18:01:21,256 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
-2020-12-25 18:01:21,256 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
-2020-12-25 18:01:21,266 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
-2020-12-25 18:01:21,267 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 501 ms
-2020-12-25 18:01:21,367 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
-2020-12-25 18:01:23,572 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-2} inited
-2020-12-25 18:01:23,885 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-25 18:01:24,054 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
-2020-12-25 18:01:24,058 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-12-25 18:01:24,090 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
-2020-12-25 18:01:24,092 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 23.381 seconds (JVM running for 9575.692)
-2020-12-25 18:01:24,096 [INFO] [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [ConditionEvaluationDeltaLoggingListener.java : 63] Condition evaluation unchanged
-2020-12-25 18:02:23,297 [INFO] [http-nio-8081-exec-2] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-25 18:02:23,299 [INFO] [http-nio-8081-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
-2020-12-25 18:02:23,309 [INFO] [http-nio-8081-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 10 ms
-2020-12-25 18:02:23,517 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
-2020-12-25 18:36:21,325 [INFO] [Thread-82] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-25 18:36:21,330 [INFO] [Thread-82] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-2} closing ...
-2020-12-25 18:36:21,337 [INFO] [Thread-82] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-2} closed
+	at pers.enoch.im.api.ApiApplication.main(ApiApplication.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:444)
+	at sun.nio.ch.Net.bind(Net.java:436)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:225)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:228)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:211)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1141)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1227)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:592)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1063)
+	... 19 common frames omitted
+2020-12-28 10:21:48,236 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
+2020-12-28 10:21:48,240 [WARN] [restartedMain] org.apache.catalina.loader.WebappClassLoaderBase [DirectJDKLog.java : 173] The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:251)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.lang.Thread.run(Thread.java:748)
+2020-12-28 10:21:48,240 [WARN] [restartedMain] org.apache.catalina.loader.WebappClassLoaderBase [DirectJDKLog.java : 173] The web application [ROOT] appears to have started a thread named [Druid-ConnectionPool-Create-1900427397] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+ com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2672)
+2020-12-28 10:21:48,241 [WARN] [restartedMain] org.apache.catalina.loader.WebappClassLoaderBase [DirectJDKLog.java : 173] The web application [ROOT] appears to have started a thread named [Druid-ConnectionPool-Destroy-1900427397] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ com.alibaba.druid.pool.DruidDataSource$DestroyConnectionThread.run(DruidDataSource.java:2768)
+2020-12-28 10:21:48,245 [INFO] [restartedMain] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-28 10:21:48,249 [ERROR] [restartedMain] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8081 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8081, or configure this application to listen on another port.
+
+2020-12-28 10:21:48,252 [WARN] [restartedMain] o.s.beans.factory.support.DisposableBeanAdapter [DisposableBeanAdapter.java : 267] Invocation of destroy method failed on bean with name 'tomcatMetricsBinder': java.lang.NullPointerException
+2020-12-28 10:21:48,253 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:21:48,254 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 10:21:48,259 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 10:24:09,494 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 78069 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:24:09,496 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 10:24:09,528 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:24:09,529 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:24:10,294 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:24:10,296 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:24:10,325 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-12-28 10:24:10,864 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 10:24:10,880 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:24:10,881 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:24:11,024 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:24:11,026 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1497 ms
+2020-12-28 10:24:11,320 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:24:13,891 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 10:24:14,589 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:24:14,974 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 10:24:14,984 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 10:24:20,072 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 55] tcp server start success.  bind port :  0 
+2020-12-28 10:24:20,092 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 10:24:20,095 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 30.905 seconds (JVM running for 36.692)
+2020-12-28 10:24:20,164 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 10:24:20,166 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 10:24:20,177 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 11 ms
+2020-12-28 10:24:20,431 [INFO] [parallel-1] io.lettuce.core.EpollProvider [Slf4JLogger.java : 101] Starting without optional epoll library
+2020-12-28 10:24:20,453 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [Slf4JLogger.java : 101] Starting with kqueue library
+2020-12-28 10:27:02,212 [INFO] [Thread-57] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:27:02,220 [INFO] [Thread-57] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 10:27:02,238 [INFO] [Thread-57] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 10:27:52,331 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 78457 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:27:52,334 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 10:27:52,369 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:27:52,370 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:27:53,164 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:27:53,166 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:27:53,199 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2020-12-28 10:27:53,849 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 10:27:53,869 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:27:53,870 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:27:54,044 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:27:54,045 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1675 ms
+2020-12-28 10:27:54,340 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:27:56,755 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 10:27:57,514 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:27:57,898 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 10:27:57,911 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 10:28:03,019 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] tcp server start success.  bind port :  0 
+2020-12-28 10:28:03,036 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 10:28:03,039 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 31.202 seconds (JVM running for 37.501)
+2020-12-28 10:28:03,299 [INFO] [RMI TCP Connection(5)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 10:28:03,300 [INFO] [RMI TCP Connection(5)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 10:28:03,310 [INFO] [RMI TCP Connection(5)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 9 ms
+2020-12-28 10:28:03,511 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 10:28:03,525 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 10:28:24,613 [INFO] [Thread-71] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:28:24,614 [INFO] [Thread-71] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 10:28:24,619 [INFO] [Thread-71] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 10:29:04,888 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 78574 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:29:04,892 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 10:29:04,938 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:29:04,939 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:29:05,884 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:29:05,886 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:29:05,925 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2020-12-28 10:29:06,662 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 10:29:06,683 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:29:06,683 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:29:06,848 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:29:06,849 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1910 ms
+2020-12-28 10:29:07,245 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:29:09,720 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 10:30:20,654 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 78715 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:30:20,660 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 10:30:20,723 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:30:20,723 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:30:22,398 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:30:22,402 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:30:22,458 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
+2020-12-28 10:30:23,470 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 10:30:23,496 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:30:23,497 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:30:23,724 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:30:23,725 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 3001 ms
+2020-12-28 10:30:24,412 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:30:27,378 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 10:30:50,524 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:30:52,661 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 10:30:52,706 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 10:31:06,301 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 10:31:06,334 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 10:31:06,341 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 66.83 seconds (JVM running for 73.183)
+2020-12-28 10:31:06,834 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 10:31:06,836 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 10:31:06,850 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 14 ms
+2020-12-28 10:31:07,194 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 10:31:07,215 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 10:31:17,821 [INFO] [Thread-89] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:31:17,823 [INFO] [Thread-89] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 10:31:17,830 [INFO] [Thread-89] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 10:50:16,740 [INFO] [main] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 80625 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:50:16,743 [INFO] [main] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
+2020-12-28 10:50:17,385 [WARN] [main] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
+2020-12-28 10:50:17,444 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:50:17,449 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:50:17,487 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-12-28 10:50:18,051 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
+2020-12-28 10:50:18,078 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:50:18,078 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:50:18,196 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:50:18,197 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1428 ms
+2020-12-28 10:50:18,581 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:50:18,779 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:50:18,869 [WARN] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'dataSource': Could not bind properties to 'DruidDataSourceWrapper' : prefix=spring.datasource.druid, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource
+2020-12-28 10:50:18,869 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 10:50:18,874 [INFO] [main] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 59] 关闭 ws server 成功
+2020-12-28 10:50:18,881 [INFO] [main] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 81] 关闭 tcp server 成功
+2020-12-28 10:50:18,886 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
+2020-12-28 10:50:18,913 [INFO] [main] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-28 10:50:18,918 [ERROR] [main] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource:
+
+    Property: spring.datasource.druid.filters
+    Value: stat,wall,log4j
+    Origin: class path resource [application.properties]:41:33
+    Reason: org.apache.log4j.Logger
+
+Action:
+
+Update your application's configuration
+
+2020-12-28 10:52:00,935 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 80801 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:52:00,940 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
+2020-12-28 10:52:01,016 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:52:01,017 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:52:02,394 [WARN] [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
+2020-12-28 10:52:02,826 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:52:02,834 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:52:02,909 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 39ms. Found 0 Redis repository interfaces.
+2020-12-28 10:52:04,146 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
+2020-12-28 10:52:04,186 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:52:04,187 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:52:04,346 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:52:04,346 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 3329 ms
+2020-12-28 10:52:04,812 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:52:05,550 [ERROR] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatStarter [TomcatStarter.java : 61] Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthIndicatorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthIndicatorAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthIndicatorRegistry]: Factory method 'healthIndicatorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'dataSource': Could not bind properties to 'DruidDataSourceWrapper' : prefix=spring.datasource.druid, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource
+2020-12-28 10:52:05,677 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
+2020-12-28 10:52:05,737 [WARN] [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2020-12-28 10:52:05,775 [INFO] [restartedMain] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-28 10:52:05,793 [ERROR] [restartedMain] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource:
+
+    Property: spring.datasource.druid.filters
+    Value: stat,wall,log4j
+    Origin: class path resource [application.properties]:41:33
+    Reason: org.apache.log4j.Logger
+
+Action:
+
+Update your application's configuration
+
+2020-12-28 10:59:53,434 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 81561 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 10:59:53,438 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
+2020-12-28 10:59:53,471 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 10:59:53,471 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 10:59:54,260 [WARN] [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
+2020-12-28 10:59:54,475 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 10:59:54,479 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 10:59:54,512 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-12-28 10:59:55,299 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
+2020-12-28 10:59:55,329 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 10:59:55,330 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 10:59:55,444 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 10:59:55,444 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1973 ms
+2020-12-28 10:59:55,745 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 10:59:55,871 [ERROR] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatStarter [TomcatStarter.java : 61] Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 1; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthIndicatorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthIndicatorAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthIndicatorRegistry]: Factory method 'healthIndicatorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'dataSource': Could not bind properties to 'DruidDataSourceWrapper' : prefix=spring.datasource.druid, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource
+2020-12-28 10:59:55,894 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Stopping service [Tomcat]
+2020-12-28 10:59:55,913 [WARN] [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [AbstractApplicationContext.java : 557] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2020-12-28 10:59:55,926 [INFO] [restartedMain] o.s.b.a.logging.ConditionEvaluationReportLoggingListener [ConditionEvaluationReportLoggingListener.java : 136] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-28 10:59:55,929 [ERROR] [restartedMain] o.s.boot.diagnostics.LoggingFailureAnalysisReporter [LoggingFailureAnalysisReporter.java : 40] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.druid' to javax.sql.DataSource:
+
+    Property: spring.datasource.druid.filters
+    Value: stat,wall,log4j
+    Origin: class path resource [application.properties]:41:33
+    Reason: org.apache.log4j.Logger
+
+Action:
+
+Update your application's configuration
+
+2020-12-28 11:02:11,038 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 50] Starting ServerApplication on xmlydeMacBook-Pro.local with PID 81777 (/Users/xmly/Desktop/workspace/easy4IM/im-server/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:02:11,044 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [SpringApplication.java : 648] No active profile set, falling back to default profiles: default
+2020-12-28 11:02:11,091 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 11:02:11,091 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 11:02:12,292 [WARN] [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.server]' package. Please check your configuration.
+2020-12-28 11:02:12,572 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:02:12,578 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:02:12,629 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2020-12-28 11:02:13,754 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8001 (http)
+2020-12-28 11:02:13,794 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:02:13,795 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:02:13,999 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:02:13,999 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2908 ms
+2020-12-28 11:02:14,430 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:02:17,022 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 11:02:17,930 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:02:19,012 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:02:19,022 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:02:24,162 [INFO] [restartedMain] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 57] tcp server 启动成功，绑定端口号为： 9000
+2020-12-28 11:02:24,183 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8001 (http) with context path ''
+2020-12-28 11:02:24,188 [INFO] [restartedMain] pers.enoch.im.server.ServerApplication [StartupInfoLogger.java : 59] Started ServerApplication in 34.853 seconds (JVM running for 44.399)
+2020-12-28 11:02:24,580 [INFO] [RMI TCP Connection(4)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 11:02:24,582 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 11:02:24,594 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 12 ms
+2020-12-28 11:02:24,931 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 11:02:24,947 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 11:07:02,583 [INFO] [Thread-81] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:07:02,590 [INFO] [Thread-81] pers.enoch.im.server.starter.ws.WsNettyServer [WsNettyServer.java : 59] 关闭 ws server 成功
+2020-12-28 11:07:02,593 [INFO] [Thread-81] pers.enoch.im.server.starter.tcp.TcpNettyServer [TcpNettyServer.java : 81] 关闭 tcp server 成功
+2020-12-28 11:07:03,734 [INFO] [Thread-81] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 11:07:03,748 [INFO] [Thread-81] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 11:09:09,108 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 82446 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:09:09,131 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 11:09:09,855 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 11:09:09,856 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 11:09:17,054 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:09:17,065 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:09:17,203 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 87ms. Found 0 Redis repository interfaces.
+2020-12-28 11:09:19,381 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 11:09:19,437 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:09:19,438 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:09:19,941 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:09:19,943 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 10083 ms
+2020-12-28 11:09:21,279 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:09:24,389 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 11:09:26,368 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:09:27,717 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:09:27,743 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:09:32,957 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 11:09:32,998 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 11:09:33,005 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 46.417 seconds (JVM running for 59.679)
+2020-12-28 11:09:33,192 [INFO] [RMI TCP Connection(13)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 11:09:33,197 [INFO] [RMI TCP Connection(13)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 11:09:33,226 [INFO] [RMI TCP Connection(13)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 29 ms
+2020-12-28 11:09:33,998 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 11:09:34,047 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 11:17:25,203 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:17:27,971 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:22:25,381 [INFO] [Thread-89] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:22:25,392 [INFO] [Thread-89] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 11:22:25,419 [INFO] [Thread-89] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 11:22:47,860 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 82446 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:22:47,862 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 11:22:48,467 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:22:48,467 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:22:48,486 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-12-28 11:22:48,718 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 11:22:48,722 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:22:48,723 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:22:48,741 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:22:48,742 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 877 ms
+2020-12-28 11:22:48,855 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:22:51,133 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-2} inited
+2020-12-28 11:22:51,549 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:22:51,792 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:22:51,798 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:22:51,842 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 11:22:51,848 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 11:22:51,849 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 24.094 seconds (JVM running for 858.513)
+2020-12-28 11:22:51,855 [INFO] [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [ConditionEvaluationDeltaLoggingListener.java : 63] Condition evaluation unchanged
+2020-12-28 11:23:00,047 [INFO] [Thread-120] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:23:00,049 [INFO] [Thread-120] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-2} closing ...
+2020-12-28 11:23:00,052 [INFO] [Thread-120] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-2} closed
+2020-12-28 11:23:39,400 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 83968 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:23:39,403 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 11:23:39,452 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 11:23:39,452 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 11:23:41,003 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:23:41,006 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:23:41,096 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 69ms. Found 0 Redis repository interfaces.
+2020-12-28 11:23:43,020 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 11:23:43,069 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:23:43,070 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:23:43,369 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:23:43,370 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 3917 ms
+2020-12-28 11:23:43,994 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:23:46,670 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 11:23:48,352 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:23:49,216 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:23:49,232 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:23:54,388 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 11:23:54,406 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 11:23:54,411 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 35.764 seconds (JVM running for 43.265)
+2020-12-28 11:23:54,612 [INFO] [RMI TCP Connection(8)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 11:23:54,617 [INFO] [RMI TCP Connection(8)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 11:23:54,633 [INFO] [RMI TCP Connection(8)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 16 ms
+2020-12-28 11:23:54,969 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 11:23:54,988 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 11:26:40,289 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:26:40,293 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:26:40,360 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:38)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 11:27:50,805 [INFO] [Thread-79] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:27:50,810 [INFO] [Thread-79] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 11:27:50,820 [INFO] [Thread-79] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 11:28:28,866 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 84435 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:28:28,870 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 11:28:28,913 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 11:28:28,914 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 11:28:29,909 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:28:29,911 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:28:29,950 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 26ms. Found 0 Redis repository interfaces.
+2020-12-28 11:28:30,691 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 11:28:30,711 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:28:30,711 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:28:30,880 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:28:30,881 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1967 ms
+2020-12-28 11:28:31,273 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:28:33,783 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 11:28:34,696 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:28:35,201 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:28:35,211 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:28:40,318 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 11:28:40,337 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 11:28:40,340 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 31.958 seconds (JVM running for 38.92)
+2020-12-28 11:28:40,836 [INFO] [RMI TCP Connection(1)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 11:28:40,837 [INFO] [RMI TCP Connection(1)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 11:28:40,849 [INFO] [RMI TCP Connection(1)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 11 ms
+2020-12-28 11:28:41,165 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 11:28:41,189 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 11:29:45,359 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:29:45,364 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:29:45,404 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:48)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 11:37:18,981 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![6a16f3f2]
+2020-12-28 11:37:34,604 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:37:34,606 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:38:05,269 [ERROR] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:48)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 11:38:56,090 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 11:39:18,524 [WARN] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![1363efb6]
+2020-12-28 11:40:49,135 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:40:49,146 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:40:49,148 [ERROR] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:48)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 11:40:49,230 [INFO] [Thread-73] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:40:49,234 [INFO] [Thread-73] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 11:40:49,248 [INFO] [Thread-73] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 11:41:33,024 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 85666 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 11:41:33,028 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 11:41:33,073 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 11:41:33,074 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 11:41:34,518 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 11:41:34,527 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 11:41:34,731 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 64ms. Found 0 Redis repository interfaces.
+2020-12-28 11:41:35,521 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 11:41:35,541 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 11:41:35,542 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 11:41:35,744 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 11:41:35,745 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2671 ms
+2020-12-28 11:41:36,135 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 11:41:38,730 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 11:41:39,918 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:41:40,629 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 11:41:40,645 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 11:41:45,781 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 11:41:45,805 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 11:41:45,809 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 33.273 seconds (JVM running for 39.517)
+2020-12-28 11:41:46,006 [INFO] [RMI TCP Connection(4)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 11:41:46,007 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 11:41:46,025 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 17 ms
+2020-12-28 11:41:46,492 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 11:41:46,531 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 11:42:23,371 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 11:43:04,649 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 11:43:04,654 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 11:43:26,447 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:48)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 11:43:35,356 [INFO] [Thread-75] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 11:43:35,358 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 11:43:35,365 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 13:56:00,868 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 90310 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 13:56:00,871 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 13:56:00,935 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 13:56:00,935 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 13:56:02,274 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 13:56:02,278 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 13:56:02,350 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 47ms. Found 0 Redis repository interfaces.
+2020-12-28 13:56:03,221 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 13:56:03,248 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 13:56:03,248 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 13:56:03,476 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 13:56:03,477 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2541 ms
+2020-12-28 13:56:03,920 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 13:56:06,852 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 13:56:07,926 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 13:56:08,522 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 13:56:08,532 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 13:56:13,661 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 13:56:13,682 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 13:56:13,686 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 33.358 seconds (JVM running for 39.357)
+2020-12-28 13:56:13,864 [INFO] [RMI TCP Connection(4)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 13:56:13,867 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 13:56:13,881 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 14 ms
+2020-12-28 13:56:14,265 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 13:56:14,287 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 13:56:50,532 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 13:56:50,539 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 13:57:34,080 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 104] null
+java.lang.NullPointerException: null
+	at pers.enoch.im.api.SpringBeanUtil.getBean(SpringBeanUtil.java:49)
+	at pers.enoch.im.api.netty.task.AuthMsgTask.<init>(AuthMsgTask.java:27)
+	at pers.enoch.im.api.netty.handler.ImHandler.channelRead(ImHandler.java:58)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.logging.LoggingHandler.channelRead(LoggingHandler.java:241)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-28 13:59:51,959 [INFO] [Thread-75] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 13:59:51,961 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 13:59:51,969 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 14:00:28,068 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 90732 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 14:00:28,071 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 14:00:28,114 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 14:00:28,114 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 14:00:29,090 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 14:00:29,092 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 14:00:29,129 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 25ms. Found 0 Redis repository interfaces.
+2020-12-28 14:00:29,831 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 14:00:29,850 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 14:00:29,850 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 14:00:30,018 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 14:00:30,018 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 1904 ms
+2020-12-28 14:00:30,377 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 14:00:32,900 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 14:00:33,784 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:00:34,288 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 14:00:34,297 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 14:00:39,402 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 14:00:39,420 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 14:00:39,424 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 31.773 seconds (JVM running for 37.512)
+2020-12-28 14:00:39,591 [INFO] [RMI TCP Connection(3)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 14:00:39,593 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 14:00:39,606 [INFO] [RMI TCP Connection(3)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 13 ms
+2020-12-28 14:00:39,949 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 14:00:39,963 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 14:01:04,986 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:01:04,989 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:05:18,598 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![ee93835c]
+2020-12-28 14:05:32,770 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:05:32,770 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:07:19,031 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 14:07:41,358 [WARN] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![a8ca357c]
+2020-12-28 14:07:55,088 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:07:55,088 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:08:13,295 [WARN] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![aad5532b]
+2020-12-28 14:08:25,634 [INFO] [nioEventLoopGroup-7-4] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:08:25,634 [INFO] [nioEventLoopGroup-7-4] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:09:08,456 [INFO] [Thread-72] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:09:08,458 [INFO] [Thread-72] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 14:09:08,464 [INFO] [Thread-72] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 14:09:49,411 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 91622 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 14:09:49,416 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 14:09:49,479 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 14:09:49,479 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 14:09:50,767 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 14:09:50,770 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 14:09:50,831 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2020-12-28 14:09:51,659 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 14:09:51,682 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 14:09:51,682 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 14:09:51,923 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 14:09:51,923 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2443 ms
+2020-12-28 14:09:52,531 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 14:09:55,228 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 14:09:56,310 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:09:56,833 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 14:09:56,843 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 14:10:01,954 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 14:10:01,974 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 14:10:01,978 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 33.026 seconds (JVM running for 38.993)
+2020-12-28 14:10:02,484 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 14:10:02,485 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 14:10:02,497 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 11 ms
+2020-12-28 14:10:02,817 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 14:10:02,834 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 14:10:07,486 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 14:10:49,126 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:10:49,132 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:18:26,560 [INFO] [Thread-75] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:18:26,562 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 14:18:26,568 [INFO] [Thread-75] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 14:19:03,914 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 92520 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 14:19:03,919 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 14:19:03,968 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 14:19:03,968 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 14:19:05,195 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 14:19:05,198 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 14:19:05,279 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 44ms. Found 0 Redis repository interfaces.
+2020-12-28 14:19:07,078 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 14:19:07,113 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 14:19:07,113 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 14:19:07,723 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 14:19:07,723 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 3755 ms
+2020-12-28 14:19:09,361 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 14:19:13,353 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 14:19:14,624 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:19:15,155 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 14:19:15,165 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 14:19:20,276 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 14:19:20,298 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 14:19:20,302 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 36.995 seconds (JVM running for 43.224)
+2020-12-28 14:19:20,783 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 14:19:20,784 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 14:19:20,812 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 27 ms
+2020-12-28 14:19:21,180 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 14:19:21,205 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 14:20:38,209 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 14:21:13,210 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:21:13,216 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:21:54,734 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![90fb424f]
+2020-12-28 14:22:36,555 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 44] 接收到客户端消息
+2020-12-28 14:22:36,556 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 57] enoch connect server success
+2020-12-28 14:23:07,291 [INFO] [pool-4-thread-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 84] 用户 enoch 更新token过期时间
+2020-12-28 14:32:36,569 [ERROR] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 83] 未收到客户端心跳包，断开连接
+2020-12-28 14:32:36,573 [WARN] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 72] 触发 channelInactive 掉线![7fa622ae]
+2020-12-28 14:45:25,154 [INFO] [Thread-83] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 14:45:25,160 [INFO] [Thread-83] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 14:45:25,172 [INFO] [Thread-83] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 17:43:05,635 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 12706 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 17:43:05,640 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 17:43:05,696 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 17:43:05,697 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 17:43:07,042 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 17:43:07,048 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 17:43:07,130 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 50ms. Found 0 Redis repository interfaces.
+2020-12-28 17:43:08,037 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 17:43:08,065 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 17:43:08,066 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 17:43:08,308 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 17:43:08,309 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2612 ms
+2020-12-28 17:43:08,832 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 17:43:11,629 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 17:43:12,737 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 17:43:13,360 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 17:43:13,372 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 17:43:18,499 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 17:43:18,525 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 17:43:18,530 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 33.513 seconds (JVM running for 39.804)
+2020-12-28 17:43:19,008 [INFO] [RMI TCP Connection(2)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 17:43:19,012 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 17:43:19,029 [INFO] [RMI TCP Connection(2)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 16 ms
+2020-12-28 17:43:19,514 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 17:43:19,548 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 17:45:44,668 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 17:46:02,952 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 46] 接收到客户端消息
+2020-12-28 17:46:02,956 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 60] enoch connect to server
+2020-12-28 17:46:03,103 [INFO] [pool-4-thread-1] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 84] 用户 enoch 更新token过期时间
+2020-12-28 17:46:17,179 [INFO] [http-nio-8081-exec-3] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch1 上线
+2020-12-28 17:47:44,386 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 46] 接收到客户端消息
+2020-12-28 17:47:44,390 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 60] enoch1 connect to server
+2020-12-28 17:47:44,493 [INFO] [pool-4-thread-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 84] 用户 enoch1 更新token过期时间
+2020-12-28 17:54:47,611 [INFO] [Thread-76] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 17:54:47,619 [INFO] [Thread-76] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 17:54:47,633 [INFO] [Thread-76] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 18:00:34,702 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 14533 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 18:00:34,707 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 18:00:34,756 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 18:00:34,756 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 18:00:36,249 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 18:00:36,254 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 18:00:36,320 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 42ms. Found 0 Redis repository interfaces.
+2020-12-28 18:00:37,511 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 18:00:37,538 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 18:00:37,539 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 18:00:37,776 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 18:00:37,776 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 3020 ms
+2020-12-28 18:00:38,332 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 18:00:41,002 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-28 18:00:42,455 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 18:00:43,129 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 18:00:43,140 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 18:00:48,254 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 53] tcp server start success.  bind port :  9000 
+2020-12-28 18:00:48,275 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 18:00:48,278 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 34.062 seconds (JVM running for 39.979)
+2020-12-28 18:00:48,633 [INFO] [RMI TCP Connection(4)-192.168.140.202] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 18:00:48,635 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-28 18:00:48,648 [INFO] [RMI TCP Connection(4)-192.168.140.202] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 12 ms
+2020-12-28 18:00:48,977 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-28 18:00:49,026 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 66] Starting with kqueue library
+2020-12-28 18:01:28,791 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-28 18:01:35,780 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 46] 接收到客户端消息
+2020-12-28 18:01:35,785 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 60] enoch connect to server
+2020-12-28 18:01:35,961 [INFO] [pool-4-thread-1] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 84] 用户 enoch 更新token过期时间
+2020-12-28 18:01:48,914 [INFO] [http-nio-8081-exec-3] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch1 上线
+2020-12-28 18:02:03,147 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 46] 接收到客户端消息
+2020-12-28 18:02:03,149 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 60] enoch1 connect to server
+2020-12-28 18:02:03,271 [INFO] [pool-4-thread-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 84] 用户 enoch1 更新token过期时间
+2020-12-28 18:03:11,625 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 78] 触发 channelInactive 掉线![c25fb5b6]
+2020-12-28 18:03:17,031 [WARN] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 78] 触发 channelInactive 掉线![b14308b1]
+2020-12-28 18:03:24,642 [INFO] [Thread-64] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 18:03:24,644 [INFO] [Thread-64] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2020-12-28 18:03:24,654 [INFO] [Thread-64] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-28 18:03:47,347 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on xmlydeMacBook-Pro.local with PID 14533 (/Users/xmly/Desktop/workspace/easy4IM/im-api/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2020-12-28 18:03:47,350 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-28 18:03:52,234 [WARN] [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.api.mapper]' package. Please check your configuration.
+2020-12-28 18:03:53,292 [WARN] [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner [JakartaCommonsLoggingImpl.java : 64] No MyBatis mapper was found in '[pers.enoch.im.api]' package. Please check your configuration.
+2020-12-28 18:03:54,834 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-28 18:03:54,835 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-28 18:03:54,841 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 3ms. Found 0 Redis repository interfaces.
+2020-12-28 18:03:57,328 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 18:03:57,347 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-28 18:03:57,349 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-28 18:03:57,403 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-28 18:03:57,405 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 10039 ms
+2020-12-28 18:03:59,281 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-28 18:04:01,783 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-2} inited
+2020-12-28 18:04:05,422 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 18:04:08,214 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-28 18:04:08,243 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 18:04:08,861 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-28 18:04:08,878 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 41.905 seconds (JVM running for 240.565)
+2020-12-28 18:04:08,946 [INFO] [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [ConditionEvaluationDeltaLoggingListener.java : 58] Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   MybatisPlusAutoConfiguration.MapperScannerRegistrarNotFoundConfiguration matched:
+      - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2020-12-28 18:05:56,459 [INFO] [Thread-95] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 18:05:56,463 [INFO] [Thread-95] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-2} closing ...
+2020-12-28 18:05:56,468 [INFO] [Thread-95] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-2} closed

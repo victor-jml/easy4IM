@@ -74,7 +74,8 @@ public class LoginUtil {
         if(oldToken == null){
             return false;
         }
-        if(!validToken.equals(oldToken)){
+        String old = (String)oldToken;
+        if(!validToken.equals(old.split(",")[0])){
             return false;
         }
         // 如果token不为空则返回true

@@ -6,8 +6,6 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.exception.IMException;
 import pers.enoch.im.common.protobuf.Auth;
 import pers.enoch.im.common.protobuf.KeepAlive;
@@ -26,8 +24,8 @@ import pers.enoch.im.server.util.SessionUtil;
 @ChannelHandler.Sharable
 @Slf4j
 public class ImHandler extends ChannelInboundHandlerAdapter {
-    @Autowired
-    private UserStatusService userStatusService;
+//    @Autowired
+//    private UserStatusService userStatusService;
 
     private static class ChatHandlerHolder{
         private static final ImHandler INSTANCE = new ImHandler();

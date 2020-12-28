@@ -10,9 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description
  **/
 
-@SpringBootApplication(scanBasePackages = {"pers.enoch.im.api","pers.enoch.im.common"})
-public class ServerApplication {
+@SpringBootApplication
+public class ServerApplication{
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class,args);
     }
+
 }

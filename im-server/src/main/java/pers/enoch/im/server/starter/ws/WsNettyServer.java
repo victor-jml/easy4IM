@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import pers.enoch.im.server.init.ws.WsHandlerInitializer;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.net.InetSocketAddress;
 
@@ -30,7 +29,14 @@ public class WsNettyServer {
     @Value("${server.netty.WsPort}")
     private int port;
 
-    @PostConstruct
+
+
+
+    /**
+     * 暂时不启用ws server
+     * @ PostConstruct
+     * @throws InterruptedException
+     */
     public void init() throws InterruptedException {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup,workerGroup)
