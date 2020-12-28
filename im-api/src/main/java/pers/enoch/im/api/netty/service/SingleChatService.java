@@ -26,7 +26,6 @@ public class SingleChatService {
         // check User isOnline
         boolean isOnline = userStatusService.checkLogin(receiveId);
         Single.SingleSendResponse response = Single.SingleSendResponse.newBuilder()
-                .setMsgId(Long.parseLong(IDUtil.randomId()))
                 .setTimestamp(System.currentTimeMillis())
                 .build();
         if(isOnline){

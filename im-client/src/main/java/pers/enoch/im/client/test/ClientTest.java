@@ -5,6 +5,7 @@ import pers.enoch.im.common.protobuf.Auth;
 import pers.enoch.im.common.protobuf.Single;
 
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author yang.zhao
@@ -13,32 +14,38 @@ import java.util.Scanner;
  **/
 public class ClientTest {
     public static void main(String[] args) {
-        NettyClient client = NettyClient.getInstance();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("请输入账号：");
-        String name = sc.next();
-        System.out.println("请输入token：");
-        String token = sc.next();
-        Auth.AuthRequest request = Auth.AuthRequest.newBuilder()
-                .setUid(name)
-                .setToken(token)
-                .build();
-        client.send(request);
         new Thread(()->{
+            NettyClient client = new NettyClient();
+            Scanner sc = new Scanner(System.in);
+            final AtomicInteger login = new AtomicInteger(0);
+            final String[] userId = new String[1];
             while (!Thread.interrupted()){
-                System.out.println("输入发送的消息：");
-                Scanner scanner = new Scanner(System.in);
-                String words = scanner.nextLine();
-                System.out.println("请输入接受者: ");
-                String receive = scanner.nextLine();
-                Single.SingleSendRequest chatRequest = Single.SingleSendRequest.newBuilder()
-                        .setFrom(name)
-                        .setTo(receive)
-                        .setContent(words)
-                        .build();
-                client.send(request);
+                if(login.get() == 0){
+                    System.out.println("输入账号:");
+                    userId[0] = sc.nextLine();
+                    System.out.println("输入token:");
+                    String token = sc.nextLine();
+                    Auth.AuthRequest authRequest = Auth.AuthRequest.newBuilder()
+                            .setUid(userId[0])
+                            .setToken(token)
+                            .build();
+                    client.send(authRequest);
+                    login.getAndIncrement();
+                }else {
+                    System.out.println("输入发送者id:");
+                    String to = sc.nextLine();
+                    System.out.println("输入发送内容");
+                    String content = sc.nextLine();
+                    Single.SingleSendRequest singleSendRequest = Single.SingleSendRequest.newBuilder()
+                            .setFrom(userId[0])
+                            .setTo(to)
+                            .setContent(content)
+                            .build();
+                    client.send(singleSendRequest);
+                }
             }
-        });
+        }).start();
+
     }
 
 }
