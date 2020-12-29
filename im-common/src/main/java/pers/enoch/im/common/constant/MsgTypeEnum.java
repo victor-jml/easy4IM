@@ -1,6 +1,7 @@
 package pers.enoch.im.common.constant;
 
 import pers.enoch.im.common.protobuf.Auth;
+import pers.enoch.im.common.protobuf.KeepAlive;
 import pers.enoch.im.common.protobuf.Single;
 
 import java.util.stream.Stream;
@@ -11,6 +12,7 @@ import java.util.stream.Stream;
  * Description:
  **/
 public enum MsgTypeEnum {
+
 
     /**
      * 验证请求
@@ -40,8 +42,17 @@ public enum MsgTypeEnum {
     /**
      * 私聊推送回执
      */
-    SINGLE_PUSH_RES(6,Single.SinglePushResponse.class);
+    SINGLE_PUSH_RES(6,Single.SinglePushResponse.class),
 
+    /**
+     * 心跳检测
+     */
+    HEART_REQ(7, KeepAlive.KeepAliveReq.class),
+
+    /**
+     * 心跳检测ACK
+     */
+    HEART_RES(8, KeepAlive.KeepAliveRes.class);
 
 
 

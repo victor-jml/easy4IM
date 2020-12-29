@@ -5,6 +5,7 @@ import com.google.protobuf.Message;
 import pers.enoch.im.common.constant.MsgTypeEnum;
 import pers.enoch.im.common.exception.IMException;
 import pers.enoch.im.common.protobuf.Auth;
+import pers.enoch.im.common.protobuf.KeepAlive;
 import pers.enoch.im.common.protobuf.Single;
 
 import java.util.HashMap;
@@ -21,6 +22,8 @@ public class ParseService {
     public ParseService() {
         parseFunctionMap = new HashMap<>(MsgTypeEnum.values().length);
 
+        parseFunctionMap.put(MsgTypeEnum.HEART_REQ, KeepAlive.KeepAliveReq::parseFrom);
+        parseFunctionMap.put(MsgTypeEnum.HEART_RES, KeepAlive.KeepAliveRes::parseFrom);
         parseFunctionMap.put(MsgTypeEnum.AUTH_REQ, Auth.AuthRequest::parseFrom);
         parseFunctionMap.put(MsgTypeEnum.AUTH_RES, Auth.AuthResponse::parseFrom);
         parseFunctionMap.put(MsgTypeEnum.SINGLE_SEND_REQ, Single.SingleSendRequest::parseFrom);

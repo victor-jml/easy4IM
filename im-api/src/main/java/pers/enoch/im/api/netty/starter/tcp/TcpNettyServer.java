@@ -48,9 +48,15 @@ public class TcpNettyServer {
                 .childHandler(new TcpHandlerInitializer());
     }
 
-    public void start(){
+    public void start() throws InterruptedException {
         this.future = server.bind(port);
+
         log.info("tcp server start success.  bind port :  {} ", port);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        TcpNettyServer tcpNettyServer = new TcpNettyServer();
+        tcpNettyServer.start();
     }
 
 }

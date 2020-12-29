@@ -5,14 +5,15 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import pers.enoch.im.client.handler.ChatHandler;
-import pers.enoch.im.client.handler.LogicClientHandler;
-import pers.enoch.im.client.handler.MessageDecoder;
-import pers.enoch.im.client.handler.MessageEncoder;
+import pers.enoch.im.client.handler.*;
 import pers.enoch.im.common.protobuf.Auth;
 import pers.enoch.im.common.protobuf.Single;
+
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author yang.zhao
@@ -22,47 +23,64 @@ import pers.enoch.im.common.protobuf.Single;
 @Slf4j
 @Component
 public class NettyClient {
-	private static class SingletonHolder{
-		static final NettyClient INSTANCE = new NettyClient();
-	}
+	private final String HOST = "127.0.0.1";
 
-	public static NettyClient getInstance(){
-		return SingletonHolder.INSTANCE;
-	}
+	private final int PORT = 9000;
 
-
-	private EventLoopGroup workerGroup;
+	private final int MAX_RETRY = 5;
 
 	private Bootstrap bootstrap;
 
 	private ChannelFuture future;
 
 	public NettyClient(){
-		workerGroup = new NioEventLoopGroup();
 		bootstrap = new Bootstrap();
-		bootstrap.group(workerGroup)
+		EventLoopGroup workerGroup = new NioEventLoopGroup();
+		bootstrap
+				.group(workerGroup)
 				.channel(NioSocketChannel.class)
-				.option(ChannelOption.SO_BACKLOG,1000)
-				.option(ChannelOption.SO_KEEPALIVE,true)
+				.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+				.option(ChannelOption.SO_KEEPALIVE, true)
+				.option(ChannelOption.TCP_NODELAY, true)
 				.handler(new ChannelInitializer<SocketChannel>() {
 					@Override
-					protected void initChannel(SocketChannel socketChannel) throws Exception {
-						ChannelPipeline pipeline = socketChannel.pipeline();
+					public void initChannel(SocketChannel ch) {
+						ChannelPipeline pipeline = ch.pipeline();
 						pipeline.addLast(new MessageDecoder());
 						pipeline.addLast(new MessageEncoder());
+						pipeline.addLast(new IdleStateHandler(0,0,40));
+						pipeline.addLast(new HeartBeatHandler());
 						pipeline.addLast(new LogicClientHandler());
 						pipeline.addLast(new ChatHandler());
 					}
 				});
-		try {
-			future = bootstrap.connect("127.0.0.1",9000).sync();
-			if(future.isSuccess()){
-				log.info("connect to server");
+
+		doConnect(bootstrap, HOST, PORT, MAX_RETRY);
+	}
+
+	private void doConnect(Bootstrap bootstrap,String host,int port,int retry){
+		future = bootstrap.connect(host,port).addListener(channelFuture -> {
+			if (channelFuture.isSuccess()) {
+				log.info("{} , connect success ",new Date());
+				Channel channel = ((ChannelFuture) future).channel();
+				send(channel);
+			} else if (retry == 0) {
+				log.error("reconnect times reach the maximum number, give up connecting");
+				future.channel().close();
+			} else {
+				// order time to reconnect
+				int order = (MAX_RETRY - retry) + 1;
+				// reconnect time interval
+				int delay = 1 << order;
+				log.info("connect failed ,this is {} reconnect",order);
+				bootstrap.config().group().schedule(() -> doConnect(bootstrap, host, port, retry - 1), delay, TimeUnit
+						.SECONDS);
 			}
-		} catch (InterruptedException e) {
-			log.error("failed to connect to server");
-			e.printStackTrace();
-		}
+		});
+	}
+
+	public boolean checkConnect(){
+		return future != null && future.isSuccess();
 	}
 
 	public <T> void send(T message){

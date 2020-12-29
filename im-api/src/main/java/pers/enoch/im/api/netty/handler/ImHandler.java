@@ -49,6 +49,7 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
             KeepAlive.KeepAliveReq ping = (KeepAlive.KeepAliveReq)msg;
             // 先判断是否已登录，未登录的话直接关闭通道
             if(SessionUtil.getUserId(ctx.channel()) == null){
+                System.out.println("unLogin to Server");
                 ctx.channel().close();
             }
             log.info("server keepAlive heartbeat");
@@ -76,25 +77,24 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         // 可能出现业务判断离线后再次触发 channelInactive
         log.warn("触发 channelInactive 掉线![{}]", ctx.channel().id());
+        SessionUtil.unBindSession(ctx.channel());
         ctx.channel().close();
     }
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        // 心跳包
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent idleEvent = (IdleStateEvent) evt;
-            // 读空闲
             if (idleEvent.state() == IdleState.READER_IDLE) {
-                log.error("未收到客户端心跳包，断开连接");
+                log.error("60 seconds unreceived heartbeat from client! >>> connect has closed");
                 ctx.channel().close();
                 SessionUtil.unBindSession(ctx.channel());
-            }   // 写空闲
+            }
             else if (idleEvent.state() == IdleState.WRITER_IDLE) {
-
-            }  // 读写空闲
+//                log.info("WRITER_IDLE Trigger !");
+            }
             else if (idleEvent.state() == IdleState.ALL_IDLE) {
-
+//                log.info("ALL_IDLE Trigger ! ");
             }
         }
         super.userEventTriggered(ctx, evt);
