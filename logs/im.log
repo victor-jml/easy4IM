@@ -177,3 +177,172 @@ Consider defining a bean of type 'io.netty.channel.Channel' in your configuratio
 2020-12-30 18:19:29,396 [INFO] [Thread-77] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 208] Shutting down ExecutorService 'applicationTaskExecutor'
 2020-12-30 18:19:29,397 [INFO] [Thread-77] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
 2020-12-30 18:19:29,402 [INFO] [Thread-77] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2020-12-30 21:25:02,023 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on DESKTOP-RG5DQGH with PID 14292 (E:\idea code\easy4IM\im-api\target\classes started by zyvictor in E:\idea code\easy4IM)
+2020-12-30 21:25:02,603 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-30 21:25:03,047 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 21:25:03,048 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 21:25:06,813 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-30 21:25:06,816 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-30 21:25:06,871 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 34ms. Found 0 Redis repository interfaces.
+2020-12-30 21:25:10,893 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-30 21:25:10,920 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-30 21:25:10,920 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-30 21:25:11,092 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-30 21:25:11,092 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 8043 ms
+2020-12-30 21:25:11,751 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-30 21:25:14,538 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-30 21:25:15,817 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 21:25:16,482 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-30 21:25:16,493 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-30 21:25:18,331 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] tcp server start success.  bind port :  9000 
+2020-12-30 21:25:18,357 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-30 21:25:18,361 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 17.912 seconds (JVM running for 26.593)
+2020-12-30 21:25:20,447 [INFO] [RMI TCP Connection(2)-169.254.157.12] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 21:25:20,448 [INFO] [RMI TCP Connection(2)-169.254.157.12] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-30 21:25:20,461 [INFO] [RMI TCP Connection(2)-169.254.157.12] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 12 ms
+2020-12-30 21:25:20,907 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-30 21:25:20,910 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 70] Starting without optional kqueue library
+2020-12-30 22:01:51,458 [INFO] [http-nio-8081-exec-2] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-30 23:10:19,195 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:10:19,198 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 58] client : enoch  login
+2020-12-30 23:10:31,648 [ERROR] [http-nio-8081-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/].[dispatcherServlet] [DirectJDKLog.java : 175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。] with root cause
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:247)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1147)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-30 23:10:31,733 [INFO] [lettuce-eventExecutorLoop-1-3] io.lettuce.core.protocol.ConnectionWatchdog [AbstractInternalLogger.java : 173] Reconnecting, last destination was /117.50.65.187:6379
+2020-12-30 23:10:31,781 [INFO] [lettuce-nioEventLoop-8-3] io.lettuce.core.protocol.ReconnectionHandler [ReconnectionHandler.java : 177] Reconnected to 117.50.65.187:6379
+2020-12-30 23:10:31,917 [INFO] [pool-4-thread-1] pers.enoch.im.api.netty.task.LoginTask [LoginTask.java : 45] user : enoch login success 
+2020-12-30 23:10:46,511 [INFO] [http-nio-8081-exec-7] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch1 上线
+2020-12-30 23:10:52,251 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:10:52,251 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 58] client : enoch1  login
+2020-12-30 23:10:52,290 [INFO] [pool-4-thread-2] pers.enoch.im.api.netty.task.LoginTask [LoginTask.java : 45] user : enoch1 login success 
+2020-12-30 23:11:09,479 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:11:09,480 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 66] client : enoch  send msg to : enoch1 
+2020-12-30 23:11:25,752 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 116] 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:247)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1147)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-30 23:11:25,752 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 85] 触发 channelInactive 掉线![1848b904]
+2020-12-30 23:11:27,398 [ERROR] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 116] 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:247)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1147)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:347)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2020-12-30 23:11:27,399 [WARN] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 85] 触发 channelInactive 掉线![d7881dc1]
+2020-12-30 23:19:21,913 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:19:21,914 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 58] client : enoch  login
+2020-12-30 23:19:41,132 [INFO] [lettuce-eventExecutorLoop-1-1] io.lettuce.core.protocol.ConnectionWatchdog [AbstractInternalLogger.java : 173] Reconnecting, last destination was /117.50.65.187:6379
+2020-12-30 23:19:41,177 [INFO] [lettuce-nioEventLoop-8-4] io.lettuce.core.protocol.ReconnectionHandler [ReconnectionHandler.java : 177] Reconnected to 117.50.65.187:6379
+2020-12-30 23:20:01,916 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:20:01,916 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:21:07,781 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 50] Starting ApiApplication on DESKTOP-RG5DQGH with PID 23392 (E:\idea code\easy4IM\im-api\target\classes started by zyvictor in E:\idea code\easy4IM)
+2020-12-30 23:21:07,786 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [SpringApplication.java : 652] The following profiles are active: dev
+2020-12-30 23:21:07,851 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-30 23:21:07,852 [INFO] [restartedMain] o.s.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java : 225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-30 23:21:09,288 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-30 23:21:09,291 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-30 23:21:09,331 [INFO] [restartedMain] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2020-12-30 23:21:10,104 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 90] Tomcat initialized with port(s): 8081 (http)
+2020-12-30 23:21:10,127 [INFO] [restartedMain] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-12-30 23:21:10,127 [INFO] [restartedMain] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-12-30 23:21:10,262 [INFO] [restartedMain] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-12-30 23:21:10,263 [INFO] [restartedMain] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2411 ms
+2020-12-30 23:21:10,678 [INFO] [restartedMain] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2020-12-30 23:21:13,303 [INFO] [restartedMain] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2020-12-30 23:21:14,212 [INFO] [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-30 23:21:14,684 [INFO] [restartedMain] o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer [OptionalLiveReloadServer.java : 57] LiveReload server is running on port 35729
+2020-12-30 23:21:14,695 [INFO] [restartedMain] o.s.boot.actuate.endpoint.web.EndpointLinksResolver [EndpointLinksResolver.java : 58] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-30 23:21:16,235 [INFO] [restartedMain] pers.enoch.im.api.netty.starter.tcp.TcpNettyServer [TcpNettyServer.java : 54] tcp server start success.  bind port :  9000 
+2020-12-30 23:21:16,258 [INFO] [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 202] Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-30 23:21:16,260 [INFO] [restartedMain] pers.enoch.im.api.ApiApplication [StartupInfoLogger.java : 59] Started ApiApplication in 9.1 seconds (JVM running for 11.183)
+2020-12-30 23:21:16,350 [INFO] [RMI TCP Connection(1)-169.254.157.12] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-30 23:21:16,351 [INFO] [RMI TCP Connection(1)-169.254.157.12] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-12-30 23:21:16,361 [INFO] [RMI TCP Connection(1)-169.254.157.12] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 10 ms
+2020-12-30 23:21:18,091 [INFO] [parallel-1] io.lettuce.core.EpollProvider [EpollProvider.java : 68] Starting without optional epoll library
+2020-12-30 23:21:18,093 [INFO] [parallel-1] io.lettuce.core.KqueueProvider [KqueueProvider.java : 70] Starting without optional kqueue library
+2020-12-30 23:22:18,469 [INFO] [http-nio-8081-exec-1] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 64] 用户 enoch1 下线
+2020-12-30 23:22:18,516 [INFO] [http-nio-8081-exec-1] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch1 上线
+2020-12-30 23:22:32,527 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:22:32,529 [INFO] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 58] client : enoch1  login
+2020-12-30 23:22:32,574 [INFO] [pool-4-thread-1] pers.enoch.im.api.netty.task.LoginTask [LoginTask.java : 45] user : enoch1 login success 
+2020-12-30 23:22:42,089 [INFO] [http-nio-8081-exec-3] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 64] 用户 enoch 下线
+2020-12-30 23:22:42,130 [INFO] [http-nio-8081-exec-3] pers.enoch.im.common.utils.LoginUtil [LoginUtil.java : 55] 用户 enoch 上线
+2020-12-30 23:22:46,967 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:22:46,967 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 58] client : enoch  login
+2020-12-30 23:22:47,011 [INFO] [pool-4-thread-2] pers.enoch.im.api.netty.task.LoginTask [LoginTask.java : 45] user : enoch login success 
+2020-12-30 23:22:58,020 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:22:58,021 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 66] client : enoch  send msg to : enoch1 
+2020-12-30 23:23:32,535 [ERROR] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 95] 60 seconds unreceived heartbeat from client! >>> connect has closed
+2020-12-30 23:23:32,537 [WARN] [nioEventLoopGroup-7-1] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 85] 触发 channelInactive 掉线![80ec38df]
+2020-12-30 23:23:38,036 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:23:38,036 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:24:18,039 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:24:18,039 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:24:22,562 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:24:22,563 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:24:58,041 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:24:58,042 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:25:02,564 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:25:02,565 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:25:38,044 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:25:38,045 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:25:42,568 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:25:42,568 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:26:18,047 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:26:18,048 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:26:22,570 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:26:22,571 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:26:58,050 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:26:58,050 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:27:02,573 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:27:02,573 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:27:38,052 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:27:38,052 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:27:42,574 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:27:42,575 [INFO] [nioEventLoopGroup-7-3] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat
+2020-12-30 23:28:18,054 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 47] 接收到客户端消息
+2020-12-30 23:28:18,055 [INFO] [nioEventLoopGroup-7-2] pers.enoch.im.api.netty.handler.ImHandler [ImHandler.java : 51] client :   heartbeat

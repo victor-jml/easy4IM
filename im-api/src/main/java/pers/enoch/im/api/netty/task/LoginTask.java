@@ -31,7 +31,7 @@ public class LoginTask implements Runnable{
     @Override
     public void run() {
         // check userToken
-        boolean isLogin = userStatusService.checkLogin(request.getUserId());
+        boolean isLogin = userStatusService.checkToken(request.getUserId(), request.getToken());
         // login ack
         Status.Response response;
         if(!isLogin){
