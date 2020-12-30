@@ -8,9 +8,11 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import pers.enoch.im.client.handler.*;
-import pers.enoch.im.common.protobuf.Auth;
-import pers.enoch.im.common.protobuf.Single;
+import pers.enoch.im.client.handler.ClientLogicHandler;
+import pers.enoch.im.client.handler.MessageDecoder;
+import pers.enoch.im.client.handler.MessageEncoder;
+import pers.enoch.im.common.protobuf.Msg;
+import pers.enoch.im.common.protobuf.Status;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -52,9 +54,7 @@ public class NettyClient {
 						pipeline.addLast(new MessageDecoder());
 						pipeline.addLast(new MessageEncoder());
 						pipeline.addLast(new IdleStateHandler(0,0,40));
-						pipeline.addLast(new HeartBeatHandler());
-						pipeline.addLast(new LogicClientHandler());
-						pipeline.addLast(new ChatHandler());
+						pipeline.addLast(new ClientLogicHandler());
 					}
 				});
 
@@ -87,30 +87,50 @@ public class NettyClient {
 
 	public void command(){
 		Scanner sc = new Scanner(System.in);
-		String userId = "";
-		if(isLogin){
-			System.out.println("输入账号:");
-			userId = sc.nextLine();
-			System.out.println("输入token:");
-			String token = sc.nextLine();
-			Auth.AuthRequest request = Auth.AuthRequest.newBuilder()
-					.setUid(userId)
-					.setToken(token)
-					.build();
-			send(request);
-		}else{
-
-		}
+		new Thread(() -> {
+			final String[] userId = new String[2];
+			while (!Thread.interrupted()){
+			if(!isLogin){
+				System.out.println("输入账号:");
+				userId[0] = sc.nextLine();
+				System.out.println("输入token:");
+				String token = sc.nextLine();
+				Status.Request request = Status.Request.newBuilder()
+						.setType(Status.Request.Type.LOGIN)
+						.setUserId(userId[0])
+						.setToken(token)
+						.build();
+				send(request);
+				isLogin = true;
+			}else{
+				System.out.println("输入接收Id:");
+				String receiver = sc.nextLine();
+				System.out.println("输入消息:");
+				String content = sc.nextLine();
+				Msg.SendMsg sendMsg = Msg.SendMsg.newBuilder()
+						.setTimestamp(System.currentTimeMillis())
+						.setMsgType(Msg.SendMsg.MsgType.TEXT)
+						.setReceiveType(Msg.SendMsg.ReceiveType.SINGLE)
+						.setSender(userId[0])
+						.setReceiver(receiver)
+						.setContent(content)
+						.build();
+				send(sendMsg);
+			}
+			}
+		}).start();
 	}
 
 	public <T> void send(T message){
 		Channel channel = future.channel();
-		if(message instanceof Auth.AuthRequest){
-			Auth.AuthRequest request = (Auth.AuthRequest)message;
+		if(message instanceof Status.Request){
+			log.info("send Request success");
+			Status.Request request = (Status.Request)message;
 			channel.writeAndFlush(request);
-		}else if(message instanceof Single.SingleSendRequest){
-			Single.SingleSendRequest request = (Single.SingleSendRequest)message;
-			channel.writeAndFlush(request);
+		}else if(message instanceof Msg.SendMsg){
+			log.info("send Message success");
+			Msg.SendMsg sendMsg = (Msg.SendMsg)message;
+			channel.writeAndFlush(sendMsg);
 		}
 
 	}

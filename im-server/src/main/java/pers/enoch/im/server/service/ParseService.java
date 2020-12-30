@@ -4,8 +4,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import pers.enoch.im.common.constant.MsgTypeEnum;
 import pers.enoch.im.common.exception.IMException;
-import pers.enoch.im.common.protobuf.Auth;
-import pers.enoch.im.common.protobuf.Single;
 
 import java.util.HashMap;
 import java.util.Map;

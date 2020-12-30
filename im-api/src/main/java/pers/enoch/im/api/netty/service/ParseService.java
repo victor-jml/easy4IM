@@ -4,9 +4,9 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import pers.enoch.im.common.constant.MsgTypeEnum;
 import pers.enoch.im.common.exception.IMException;
-import pers.enoch.im.common.protobuf.Auth;
-import pers.enoch.im.common.protobuf.KeepAlive;
-import pers.enoch.im.common.protobuf.Single;
+import pers.enoch.im.common.protobuf.Ack;
+import pers.enoch.im.common.protobuf.Msg;
+import pers.enoch.im.common.protobuf.Status;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,14 +22,11 @@ public class ParseService {
     public ParseService() {
         parseFunctionMap = new HashMap<>(MsgTypeEnum.values().length);
 
-        parseFunctionMap.put(MsgTypeEnum.HEART_REQ, KeepAlive.KeepAliveReq::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.HEART_RES, KeepAlive.KeepAliveRes::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.AUTH_REQ, Auth.AuthRequest::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.AUTH_RES, Auth.AuthResponse::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.SINGLE_SEND_REQ, Single.SingleSendRequest::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.SINGLE_SEND_RES, Single.SinglePushResponse::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.SINGLE_PUSH_REQ, Single.SinglePushRequest::parseFrom);
-        parseFunctionMap.put(MsgTypeEnum.SINGLE_PUSH_RES,Single.SinglePushResponse::parseFrom);
+        parseFunctionMap.put(MsgTypeEnum.STATUS_REQ, Status.Request::parseFrom);
+        parseFunctionMap.put(MsgTypeEnum.STATUS_RES, Status.Response::parseFrom);
+        parseFunctionMap.put(MsgTypeEnum.CHAT, Msg.SendMsg::parseFrom);
+        parseFunctionMap.put(MsgTypeEnum.ACK, Ack.AckMsg::parseFrom);
+
     }
 
     public Message getMsgByCode(int code, byte[] bytes) throws InvalidProtocolBufferException {

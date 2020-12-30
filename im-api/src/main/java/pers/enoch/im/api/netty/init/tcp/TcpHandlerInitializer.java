@@ -3,7 +3,6 @@ package pers.enoch.im.api.netty.init.tcp;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import pers.enoch.im.api.netty.decode.MessageDecoder;
 import pers.enoch.im.api.netty.encode.MessageEncoder;
@@ -20,7 +19,7 @@ public class TcpHandlerInitializer extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = socketChannel.pipeline();
 
         // 可以打印出报文的请求和响应细节
-        pipeline.addLast(new LoggingHandler());
+//        pipeline.addLast(new LoggingHandler());
 
 
 

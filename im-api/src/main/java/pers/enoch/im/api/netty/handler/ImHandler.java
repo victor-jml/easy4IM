@@ -6,18 +6,18 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import pers.enoch.im.api.netty.task.AuthMsgTask;
-import pers.enoch.im.api.netty.task.LogoutMsgTask;
-import pers.enoch.im.api.netty.task.SingleChatMsgTask;
+import pers.enoch.im.api.netty.task.AckTask;
+import pers.enoch.im.api.netty.task.ChatTask;
+import pers.enoch.im.api.netty.task.LoginTask;
 import pers.enoch.im.api.netty.task.execute.TaskExecute;
 import pers.enoch.im.api.netty.util.SessionUtil;
-import pers.enoch.im.api.service.UserStatusService;
+import pers.enoch.im.api.service.impl.GroupMsgServiceImpl;
+import pers.enoch.im.api.service.impl.SingleMsgServiceImpl;
+import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.exception.IMException;
-import pers.enoch.im.common.protobuf.Auth;
-import pers.enoch.im.common.protobuf.KeepAlive;
-import pers.enoch.im.common.protobuf.Logout;
-import pers.enoch.im.common.protobuf.Single;
+import pers.enoch.im.common.protobuf.Ack;
+import pers.enoch.im.common.protobuf.Msg;
+import pers.enoch.im.common.protobuf.Status;
 
 
 /**
@@ -29,8 +29,9 @@ import pers.enoch.im.common.protobuf.Single;
 @ChannelHandler.Sharable
 @Slf4j
 public class ImHandler extends ChannelInboundHandlerAdapter {
-    @Autowired
-    private UserStatusService userStatusService;
+    private SingleMsgServiceImpl singleMsgServiceImpl = new SingleMsgServiceImpl();
+
+    private GroupMsgServiceImpl groupMsgServiceImpl = new GroupMsgServiceImpl();
 
     private static class ChatHandlerHolder{
         private static final ImHandler INSTANCE = new ImHandler();
@@ -44,32 +45,37 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         log.info("接收到客户端消息");
-        // 心跳包
-        if(msg instanceof KeepAlive.KeepAliveReq){
-            KeepAlive.KeepAliveReq ping = (KeepAlive.KeepAliveReq)msg;
-            // 先判断是否已登录，未登录的话直接关闭通道
-            if(SessionUtil.getUserId(ctx.channel()) == null){
-                System.out.println("unLogin to Server");
-                ctx.channel().close();
+        if(msg instanceof Status.Request){
+            Status.Request request = (Status.Request)msg;
+            if(request.getType().equals(Status.Request.Type.HEARTBEAT)){
+                log.info("client : {}  heartbeat",request.getUserId());
+                Status.Response response = Status.Response.newBuilder()
+                        .setStatusCode(ResultEnum.HEART_BEAT.getCode())
+                        .setStatusMsg(ResultEnum.HEART_BEAT.getMessage())
+                        .build();
+                ctx.channel().writeAndFlush(response);
+            }else {
+                log.info("client : {}  login",request.getUserId());
+                TaskExecute.execute(new LoginTask(ctx.channel(),request));
             }
-            log.info("server keepAlive heartbeat");
-            KeepAlive.KeepAliveRes pong = KeepAlive.KeepAliveRes.newBuilder().build();
-            ctx.writeAndFlush(pong);
-        }else if(msg instanceof Auth.AuthRequest){
-            // 验证登录
-            Auth.AuthRequest authRequest = (Auth.AuthRequest)msg;
-            log.info("{} connect to server", authRequest.getUid());
-            AuthMsgTask authMsgTask = new AuthMsgTask(ctx.channel(), authRequest);
-            TaskExecute.execute(authMsgTask);
-        }else if(msg instanceof Logout.LogoutRequest){
-            // 注销登录
-            Logout.LogoutRequest logoutRequest = (Logout.LogoutRequest)msg;
-            TaskExecute.execute(new LogoutMsgTask(ctx.channel(),logoutRequest));
-        }else  {
-            // 私聊业务
-            Single.SingleSendRequest sendRequest = (Single.SingleSendRequest)msg;
-            log.info("{}  send message to {}",sendRequest.getFrom(),sendRequest.getTo());
-            TaskExecute.execute(new SingleChatMsgTask(ctx.channel(),sendRequest));
+        }
+        else if(msg instanceof Msg.SendMsg){
+            Msg.SendMsg sendMsg = (Msg.SendMsg)msg;
+            if(sendMsg.getReceiveType().equals(Msg.SendMsg.ReceiveType.SINGLE)){
+                // single chat
+                log.info("client : {}  send msg to : {} ",sendMsg.getSender(),sendMsg.getReceiver());
+                TaskExecute.execute(new ChatTask(singleMsgServiceImpl,ctx.channel(),sendMsg));
+            }else {
+                // group chat
+                log.info("client : {} send msg to group : {}",sendMsg.getSender(),sendMsg.getReceiver());
+                TaskExecute.execute(new ChatTask(groupMsgServiceImpl,ctx.channel(),sendMsg));
+            }
+        }else if(msg instanceof Ack.AckMsg){
+            Ack.AckMsg ackMsg = (Ack.AckMsg)msg;
+            log.info("receive ack from client : {}",ackMsg.getReceiver());
+            TaskExecute.execute(new AckTask(ctx.channel(),ackMsg));
+        }else {
+            // XXX todo : other type message
         }
     }
 

@@ -1,0 +1,27 @@
+syntax ="proto3";
+
+option java_outer_classname = "Status";
+
+option optimize_for = SPEED;
+option java_package = "pers.enoch.im.common.protobuf";
+
+message Request{
+  Type type = 1;
+
+  string userId = 2;
+
+  string token = 3;
+
+  enum Type{
+    HEARTBEAT = 0;
+    LOGIN = 1;
+  }
+}
+
+message Response{
+
+  int32 status_code = 2;
+
+  string status_msg = 3;
+
+}

@@ -10,6 +10,10 @@ import lombok.Getter;
 @Getter
 public enum  ResultEnum {
     /**
+     * 心跳检测
+     */
+    HEART_BEAT(0,"心跳检测"),
+    /**
      * 成功状态码
      */
     SUCCESS(1, "成功"),

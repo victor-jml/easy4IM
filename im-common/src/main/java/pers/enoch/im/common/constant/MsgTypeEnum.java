@@ -1,8 +1,8 @@
 package pers.enoch.im.common.constant;
 
-import pers.enoch.im.common.protobuf.Auth;
-import pers.enoch.im.common.protobuf.KeepAlive;
-import pers.enoch.im.common.protobuf.Single;
+import pers.enoch.im.common.protobuf.Ack;
+import pers.enoch.im.common.protobuf.Msg;
+import pers.enoch.im.common.protobuf.Status;
 
 import java.util.stream.Stream;
 
@@ -15,45 +15,24 @@ public enum MsgTypeEnum {
 
 
     /**
-     * 验证请求
+     * 登录,心跳请求包
      */
-    AUTH_REQ(1, Auth.AuthRequest.class),
+    STATUS_REQ(1, Status.Request.class),
 
     /**
-     * 验证回执
+     * 登录,心跳回执包
      */
-    AUTH_RES(2,Auth.AuthResponse.class),
+    STATUS_RES(2,Status.Response.class),
 
     /**
-     * 私聊发生请求
+     * 消息ACK包
      */
-    SINGLE_SEND_REQ(3,Single.SingleSendRequest.class),
+    ACK(3, Ack.AckMsg.class),
 
     /**
-     * 私聊发送回执
+     * 消息
      */
-    SINGLE_SEND_RES(4,Single.SingleSendResponse.class),
-
-    /**
-     * 私聊推送请求
-     */
-    SINGLE_PUSH_REQ(5,Single.SinglePushRequest.class),
-
-    /**
-     * 私聊推送回执
-     */
-    SINGLE_PUSH_RES(6,Single.SinglePushResponse.class),
-
-    /**
-     * 心跳检测
-     */
-    HEART_REQ(7, KeepAlive.KeepAliveReq.class),
-
-    /**
-     * 心跳检测ACK
-     */
-    HEART_RES(8, KeepAlive.KeepAliveRes.class);
-
+    CHAT(4, Msg.SendMsg.class);
 
 
 
