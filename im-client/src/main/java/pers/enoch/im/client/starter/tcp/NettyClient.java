@@ -13,6 +13,7 @@ import pers.enoch.im.common.protobuf.Auth;
 import pers.enoch.im.common.protobuf.Single;
 
 import java.util.Date;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,6 +27,8 @@ public class NettyClient {
 	private final String HOST = "127.0.0.1";
 
 	private final int PORT = 9000;
+
+	private static boolean isLogin = false;
 
 	private final int MAX_RETRY = 5;
 
@@ -63,7 +66,7 @@ public class NettyClient {
 			if (channelFuture.isSuccess()) {
 				log.info("{} , connect success ",new Date());
 				Channel channel = ((ChannelFuture) future).channel();
-				send(channel);
+				command();
 			} else if (retry == 0) {
 				log.error("reconnect times reach the maximum number, give up connecting");
 				future.channel().close();
@@ -73,14 +76,31 @@ public class NettyClient {
 				// reconnect time interval
 				int delay = 1 << order;
 				log.info("connect failed ,this is {} reconnect",order);
-				bootstrap.config().group().schedule(() -> doConnect(bootstrap, host, port, retry - 1), delay, TimeUnit
-						.SECONDS);
+				bootstrap.config().group().schedule(() -> doConnect(bootstrap, host, port, retry - 1), delay, TimeUnit.SECONDS);
 			}
 		});
 	}
 
 	public boolean checkConnect(){
 		return future != null && future.isSuccess();
+	}
+
+	public void command(){
+		Scanner sc = new Scanner(System.in);
+		String userId = "";
+		if(isLogin){
+			System.out.println("输入账号:");
+			userId = sc.nextLine();
+			System.out.println("输入token:");
+			String token = sc.nextLine();
+			Auth.AuthRequest request = Auth.AuthRequest.newBuilder()
+					.setUid(userId)
+					.setToken(token)
+					.build();
+			send(request);
+		}else{
+
+		}
 	}
 
 	public <T> void send(T message){
