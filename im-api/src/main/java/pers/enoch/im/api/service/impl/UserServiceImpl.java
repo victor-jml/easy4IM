@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.LoginLocalMapper;
 import pers.enoch.im.api.mapper.UserInfoMapper;
-import pers.enoch.im.api.service.UserService;
-import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.api.model.LocalAuth;
 import pers.enoch.im.api.model.Users;
+import pers.enoch.im.api.service.UserService;
+import pers.enoch.im.common.constant.Constant;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -61,9 +61,10 @@ public class UserServiceImpl implements UserService {
                 .updateAt(new Date())
                 .build();
         localAuth.setUserName(Constant.DEFAULT_NAME);
-        int userInsert = userInfoMapper.insert(users);
-        int localInsert = loginLocalMapper.insert(localAuth);
-        if(userInsert == 0 || localInsert == 0){
+        try {
+            int userInsert = userInfoMapper.insert(users);
+            int localInsert = loginLocalMapper.insert(localAuth);
+        }catch (Exception e){
             log.error("用户信息插入数据库失败");
             return false;
         }

@@ -124,11 +124,11 @@ public class NettyClient {
 	public <T> void send(T message){
 		Channel channel = future.channel();
 		if(message instanceof Status.Request){
-			log.info("send Request success");
+			log.info("start sending request");
 			Status.Request request = (Status.Request)message;
 			channel.writeAndFlush(request);
 		}else if(message instanceof Msg.SendMsg){
-			log.info("send Message success");
+			log.info("start sending message");
 			Msg.SendMsg sendMsg = (Msg.SendMsg)message;
 			channel.writeAndFlush(sendMsg);
 		}

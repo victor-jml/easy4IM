@@ -63,7 +63,7 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
             Msg.SendMsg sendMsg = (Msg.SendMsg)msg;
             if(sendMsg.getReceiveType().equals(Msg.SendMsg.ReceiveType.SINGLE)){
                 // single chat
-                log.info("client : {}  send msg to : {} ",sendMsg.getSender(),sendMsg.getReceiver());
+                log.info("client : {}  send msg to : {} , msg content : {} ",sendMsg.getSender(),sendMsg.getReceiver(),sendMsg.getContent());
                 TaskExecute.execute(new ChatTask(singleMsgServiceImpl,ctx.channel(),sendMsg));
             }else {
                 // group chat
@@ -83,6 +83,8 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         // 可能出现业务判断离线后再次触发 channelInactive
         log.warn("触发 channelInactive 掉线![{}]", ctx.channel().id());
+        String userId = SessionUtil.getUserId(ctx.channel());
+
         SessionUtil.unBindSession(ctx.channel());
         ctx.channel().close();
     }
