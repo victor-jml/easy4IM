@@ -6,6 +6,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import pers.enoch.im.api.SpringBeanUtil;
 import pers.enoch.im.api.netty.task.AckTask;
 import pers.enoch.im.api.netty.task.ChatTask;
 import pers.enoch.im.api.netty.task.LoginTask;
@@ -28,10 +30,11 @@ import pers.enoch.im.common.protobuf.Status;
  **/
 @ChannelHandler.Sharable
 @Slf4j
+@Component
 public class ImHandler extends ChannelInboundHandlerAdapter {
-    private SingleSendMsgServiceImpl singleMsgServiceImpl = new SingleSendMsgServiceImpl();
+    private final SingleSendMsgServiceImpl singleMsgServiceImpl = SpringBeanUtil.getBean(SingleSendMsgServiceImpl.class);
 
-    private GroupSendMsgServiceImpl groupMsgServiceImpl = new GroupSendMsgServiceImpl();
+    private final GroupSendMsgServiceImpl groupMsgServiceImpl = SpringBeanUtil.getBean(GroupSendMsgServiceImpl.class);
 
     private static class ChatHandlerHolder{
         private static final ImHandler INSTANCE = new ImHandler();

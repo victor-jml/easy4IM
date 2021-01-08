@@ -66,7 +66,7 @@ public class SendMsg extends Model<SendMsg> {
     /**
      * 服务端收到消息的时间
      */
-    @TableField(value = "msg_time")
+    @TableField(value = "send_time")
     private Date sendTime;
 
     /**

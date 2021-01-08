@@ -1,6 +1,7 @@
 package pers.enoch.im.client.handler;
 
 
+import cn.hutool.core.date.DateUtil;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -12,7 +13,6 @@ import pers.enoch.im.common.protobuf.Ack;
 import pers.enoch.im.common.protobuf.Msg;
 import pers.enoch.im.common.protobuf.Status;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +37,9 @@ public class ClientLogicHandler extends ChannelInboundHandlerAdapter {
 		}else if(msg instanceof Msg.SendMsg){
 			Msg.SendMsg sendMsg = (Msg.SendMsg)msg;
 			log.info("receive message from : {} , msgId : {} , time : {} , content : {}",
-					sendMsg.getSender(),sendMsg.getMsgId(),new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(sendMsg.getTimestamp() * 1000)),sendMsg.getContent());
+					sendMsg.getSender(),sendMsg.getMsgId(), DateUtil.format(new Date(sendMsg.getTimestamp()),"yyyy-MM-dd hh:mm:ss"),sendMsg.getContent());
+			Ack.AckMsg ackMsg = Ack.AckMsg.newBuilder().setAckMsgId(sendMsg.getMsgId()).build();
+			ctx.channel().writeAndFlush(ackMsg);
 		}
 	}
 

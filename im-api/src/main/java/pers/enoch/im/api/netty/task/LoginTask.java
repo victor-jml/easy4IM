@@ -58,7 +58,11 @@ public class LoginTask implements Runnable{
     }
 
 
-    private void sendAckToClient(Channel channel){
+    /**
+     * login token check failed
+     * @param channel
+     */
+    private void sendErrorToClient(Channel channel){
         Status.Response response = Status.Response.newBuilder()
                 .setStatusCode(ResultEnum.USER_TOKEN_EXPIRE.getCode())
                 .setStatusMsg(ResultEnum.USER_TOKEN_EXPIRE.getMessage())
@@ -66,7 +70,11 @@ public class LoginTask implements Runnable{
         channel.writeAndFlush(response);
     }
 
-    private void sendErrorToClient(Channel channel){
+    /**
+     * login success
+     * @param channel
+     */
+    private void sendAckToClient(Channel channel){
         Status.Response response = Status.Response.newBuilder()
                 .setStatusCode(ResultEnum.USER_LOGIN_SUCCESS.getCode())
                 .setStatusMsg(ResultEnum.USER_LOGIN_SUCCESS.getMessage())
@@ -83,6 +91,7 @@ public class LoginTask implements Runnable{
         List<Msg.SendMsg> sendMsgs = offlineMsgs.stream().map(offlineMsg -> {
             Msg.SendMsg msg = Msg.SendMsg.newBuilder()
                     .setMsgId(offlineMsg.getMsgId().toString())
+                    .setTimestamp(offlineMsg.getSendTime().getTime())
                     .setSender(offlineMsg.getMsgFrom())
                     .setReceiver(offlineMsg.getMsgTo())
                     .setContent(offlineMsg.getMsgContent())

@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class NettyClient {
-	private final String HOST = "victorzy.top";
+	private final String HOST = "127.0.0.1";
 
 	private final int PORT = 9000;
 

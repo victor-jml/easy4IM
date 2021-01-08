@@ -34,7 +34,7 @@ public class UserRegisterController {
     private final UserService userService;
 
     @Autowired
-    public UserRegisterController(UserStatusService userStatusService,UserService userService){
+    public UserRegisterController(UserStatusService userStatusService, UserService userService){
         this.userService = userService;
         this.userStatusService = userStatusService;
     }

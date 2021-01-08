@@ -1,6 +1,7 @@
 package pers.enoch.im.api.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.OfflineMsgMapper;
@@ -8,6 +9,7 @@ import pers.enoch.im.api.model.OfflineMsg;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author yang.zhao
@@ -22,16 +24,16 @@ public class OfflineService {
 
     /**
      * save Offline msg
-     * @return
+     * @return Long insert offline-msg_id
      */
-    public boolean saveOfflineMsg(OfflineMsg offlineMsg){
+    public Long saveOfflineMsg(OfflineMsg offlineMsg){
         try {
              offlineMsgMapper.insert(offlineMsg);
         } catch (Exception e) {
             log.error("insert offline message error");
-            return false;
+            return null;
         }
-        return true;
+        return offlineMsg.getMsgId();
     }
 
 
@@ -42,7 +44,10 @@ public class OfflineService {
     public List<OfflineMsg> pollOfflineMsg(String userId){
         QueryWrapper<OfflineMsg> queryOfflineMsg = new QueryWrapper<>();
         List<OfflineMsg> result = null;
-        queryOfflineMsg.eq("userId",userId);
+        Map<String,Object> queryMap = Maps.newHashMap();
+        queryMap.put("msg_to",userId);
+        queryMap.put("delivered",0);
+        queryOfflineMsg.allEq(queryMap);
         try {
             result = offlineMsgMapper.selectList(queryOfflineMsg);
         } catch (Exception e) {
@@ -50,5 +55,24 @@ public class OfflineService {
             return null;
         }
         return result;
+    }
+
+    /**
+     * change offline-message type
+     * @param msgId
+     * @return
+     */
+    public boolean ackOfflineMsg(Long msgId){
+        OfflineMsg offlineMsg = OfflineMsg.builder()
+                .msgId(msgId)
+                .delivered(1)
+                .build();
+        try {
+            offlineMsgMapper.updateById(offlineMsg);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

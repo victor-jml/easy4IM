@@ -9,16 +9,15 @@ import pers.enoch.im.common.utils.RedisUtil;
 
 /**
  * @Author yang.zhao
- * @Date 2020/12/4 16:43
- * @Version 1.0
- * @Description
+ * Date: 2021/1/8
+ * Description:
  **/
-@Slf4j
 @Service
+@Slf4j
 public class UserStatusServiceImpl implements UserStatusService {
 
     @Override
-    public void online(String uid,String token) {
+    public void online(String uid, String token) {
         LoginUtil.online(uid,token);
     }
 
@@ -47,6 +46,4 @@ public class UserStatusServiceImpl implements UserStatusService {
         String timestamp = token.split(",")[1];
         return oldTimestamp != Long.parseLong(timestamp);
     }
-
-
 }
