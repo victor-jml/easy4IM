@@ -8,7 +8,7 @@ import pers.enoch.im.common.protobuf.Msg;
  * Date: 2020/12/30
  * Description:
  **/
-public interface MsgService {
+public interface SendMsgService {
     /**
      * define sendMsg interface , two implement class (SingleChat & GroupChat)
      * @param channel

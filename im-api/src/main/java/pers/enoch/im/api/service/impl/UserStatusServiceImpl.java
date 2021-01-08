@@ -20,7 +20,6 @@ public class UserStatusServiceImpl implements UserStatusService {
     @Override
     public void online(String uid,String token) {
         LoginUtil.online(uid,token);
-
     }
 
     @Override

@@ -3,7 +3,7 @@ package pers.enoch.im.api.netty.task;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.api.netty.util.SessionUtil;
-import pers.enoch.im.api.service.MsgService;
+import pers.enoch.im.api.service.SendMsgService;
 import pers.enoch.im.common.protobuf.Msg;
 
 /**
@@ -14,16 +14,16 @@ import pers.enoch.im.common.protobuf.Msg;
 @Slf4j
 public class ChatTask implements Runnable {
 
-    private MsgService msgService;
+    private SendMsgService sendMsgService;
 
     private Msg.SendMsg sendMsg;
 
     private Channel channel;
 
-    public ChatTask(MsgService msgService,Channel channel,Msg.SendMsg sendMsg){
+    public ChatTask(SendMsgService sendMsgService, Channel channel, Msg.SendMsg sendMsg){
         this.channel = channel;
         this.sendMsg = sendMsg;
-        this.msgService = msgService;
+        this.sendMsgService = sendMsgService;
 
     }
 
@@ -31,7 +31,7 @@ public class ChatTask implements Runnable {
     public void run() {
         Channel sender = SessionUtil.getChannel(sendMsg.getSender());
         log.debug("sender original : {} , now : {}",sender.toString(),channel.toString());
-        msgService.sendMsg(channel,sendMsg);
+        sendMsgService.sendMsg(channel,sendMsg);
 
     }
 }

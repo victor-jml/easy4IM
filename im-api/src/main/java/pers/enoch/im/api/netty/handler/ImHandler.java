@@ -11,8 +11,8 @@ import pers.enoch.im.api.netty.task.ChatTask;
 import pers.enoch.im.api.netty.task.LoginTask;
 import pers.enoch.im.api.netty.task.execute.TaskExecute;
 import pers.enoch.im.api.netty.util.SessionUtil;
-import pers.enoch.im.api.service.impl.GroupMsgServiceImpl;
-import pers.enoch.im.api.service.impl.SingleMsgServiceImpl;
+import pers.enoch.im.api.service.impl.GroupSendMsgServiceImpl;
+import pers.enoch.im.api.service.impl.SingleSendMsgServiceImpl;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.exception.IMException;
 import pers.enoch.im.common.protobuf.Ack;
@@ -29,9 +29,9 @@ import pers.enoch.im.common.protobuf.Status;
 @ChannelHandler.Sharable
 @Slf4j
 public class ImHandler extends ChannelInboundHandlerAdapter {
-    private SingleMsgServiceImpl singleMsgServiceImpl = new SingleMsgServiceImpl();
+    private SingleSendMsgServiceImpl singleMsgServiceImpl = new SingleSendMsgServiceImpl();
 
-    private GroupMsgServiceImpl groupMsgServiceImpl = new GroupMsgServiceImpl();
+    private GroupSendMsgServiceImpl groupMsgServiceImpl = new GroupSendMsgServiceImpl();
 
     private static class ChatHandlerHolder{
         private static final ImHandler INSTANCE = new ImHandler();
