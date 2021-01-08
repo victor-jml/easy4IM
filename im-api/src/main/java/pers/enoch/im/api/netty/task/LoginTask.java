@@ -41,14 +41,7 @@ public class LoginTask implements Runnable{
     @Override
     public void run() {
         // check userToken
-<<<<<<< Updated upstream
-        boolean isLogin = userStatusService.checkLogin(request.getUserId());
-        // login ack
-        Status.Response response;
-=======
         boolean isLogin = userStatusService.checkToken(request.getUserId(), request.getToken());
-
->>>>>>> Stashed changes
         if(!isLogin){
             log.error("user : {} login error !!! ," ,request.getUserId());
             sendErrorToClient(channel);
@@ -81,6 +74,11 @@ public class LoginTask implements Runnable{
         channel.writeAndFlush(response);
     }
 
+    /**
+     * push offline message to client
+     * @param channel
+     * @param offlineMsgs
+     */
     private void pushMsg(Channel channel,List<OfflineMsg> offlineMsgs){
         List<Msg.SendMsg> sendMsgs = offlineMsgs.stream().map(offlineMsg -> {
             Msg.SendMsg msg = Msg.SendMsg.newBuilder()
