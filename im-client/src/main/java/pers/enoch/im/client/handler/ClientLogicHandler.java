@@ -9,8 +9,11 @@ import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.client.starter.tcp.NettyClient;
 import pers.enoch.im.common.protobuf.Ack;
+import pers.enoch.im.common.protobuf.Msg;
 import pers.enoch.im.common.protobuf.Status;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
@@ -31,8 +34,10 @@ public class ClientLogicHandler extends ChannelInboundHandlerAdapter {
 		}else if(msg instanceof Ack.AckMsg){
 			Ack.AckMsg ackMsg = (Ack.AckMsg)msg;
 			log.info("{}  send message success , msgId : {}",ackMsg.getTimestamp(),ackMsg.getAckMsgId());
-		}else{
-
+		}else if(msg instanceof Msg.SendMsg){
+			Msg.SendMsg sendMsg = (Msg.SendMsg)msg;
+			log.info("receive message from : {} , msgId : {} , time : {} , content : {}",
+					sendMsg.getSender(),sendMsg.getMsgId(),new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(sendMsg.getTimestamp() * 1000)),sendMsg.getContent());
 		}
 	}
 
