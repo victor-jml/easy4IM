@@ -1,0 +1,5 @@
+FROM openjdk:8  ## 依赖java8的jdk镜像
+MAINTAINER yang.zhao  ## 镜像作者信息
+ADD /app.jar app.jar  ## 将同文件夹下的app.jar加入进来
+EXPOSE 8081,9000   ## 暴露8090端口
+ENTRYPOINT ["java","-jar","-Denv=dev","-Ddev_meta=http://localhost:8081","-Dapp.id=app.test","/app.jar"]   ## 启动项目要执行的命令

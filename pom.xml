@@ -19,6 +19,24 @@
     <name>easy4im</name>
     <description>Spring Boot</description>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.active>dev</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profile.active>prod</profile.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <properties>
         <junit.version>4.12</junit.version>
         <netty.version>4.1.42.Final</netty.version>
