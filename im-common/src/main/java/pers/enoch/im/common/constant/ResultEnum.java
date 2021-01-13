@@ -34,7 +34,7 @@ public enum  ResultEnum {
 
     PARAM_NOT_COMPLETE(1004,"参数类型缺失"),
 
-    PHONE_VALID_ERROR(1005,"电话号码格式错误"),
+    PHONE_VALID_ERROR(1005,"电话号码验证失败"),
 
     CODE_VALID_EXPIRED(1006,"验证码失效"),
 

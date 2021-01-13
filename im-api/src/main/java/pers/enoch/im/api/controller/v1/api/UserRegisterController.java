@@ -1,7 +1,6 @@
-package pers.enoch.im.api.controller;
+package pers.enoch.im.api.controller.v1.api;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,10 @@ import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.common.constant.ResultEnum;
-import pers.enoch.im.common.utils.*;
+import pers.enoch.im.common.utils.PwdUtil;
+import pers.enoch.im.common.utils.RedisUtil;
+import pers.enoch.im.common.utils.Result;
+import pers.enoch.im.common.utils.TokenUtil;
 
 import javax.validation.Valid;
 
@@ -23,11 +25,11 @@ import javax.validation.Valid;
  * @Author yang.zhao
  * @Date 2020/12/18 11:08
  * @Version 1.0
- * @Description 用户注册
+ * @Description user reg
  **/
 @Slf4j
 @RestController
-@RequestMapping("/user/reg")
+@RequestMapping("/v1/api/reg")
 public class UserRegisterController {
 
     private final UserStatusService userStatusService;
@@ -39,22 +41,7 @@ public class UserRegisterController {
         this.userStatusService = userStatusService;
     }
 
-    @PostMapping("sendCode")
-    public Result sendCode(String phone){
-        log.info(" {} 新用户注册",phone);
-        if(Strings.isBlank(phone)){
-            return Result.failure(ResultEnum.PARAM_IS_BLANK);
-        }
-        if(!PhoneUtil.isPhone(phone)){
-            return Result.failure(ResultEnum.PHONE_VALID_ERROR);
-        }
-        // 生成code并存入redis中 过期时间为5min
-        int code = PhoneUtil.createCode();
-        RedisUtil.set(Constant.REDIS_PHONE_PREFIX,phone,String.valueOf(code),3000L);
-        return Result.success();
-    }
-
-    @PostMapping("regByUserId")
+    @PostMapping("byUserId")
     public Result regByUserId(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
                               BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -69,8 +56,8 @@ public class UserRegisterController {
                 .userId(userRegisterReqVo.getUserId())
                 .userPassword(PwdUtil.md5(userRegisterReqVo.getPassword()))
                 .build();
-        String token = TokenUtil.makeToken();
-        if(userService.addUser(regUser)){
+        String token = TokenUtil.createToken();
+        if(userService.userRegister(regUser)){
             userStatusService.online(userRegisterReqVo.getUserId(),token);
         }else {
             return Result.failure(ResultEnum.SERVER_ERROR);
@@ -83,7 +70,7 @@ public class UserRegisterController {
 
     }
 
-    @RequestMapping("regByPhone")
+    @RequestMapping("byPhone")
     public Result regByPhone(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
                            BindingResult bindingResult){
         if(bindingResult.hasErrors()){

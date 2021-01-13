@@ -27,7 +27,7 @@ public class SmsUtil {
      * @return 发送短信后的状态的set集合
      */
     public static SendStatus[] sendMessage(SmsConfig smsConfig, String templateId,
-                                           String[] templateParams,String[] mobiles){
+                                           String[] templateParams, String[] mobiles){
         Credential cred = new Credential(smsConfig.getSecretId(), smsConfig.getSecretKey());
         /*
           实例化要请求产品(以sms为例)的client对象

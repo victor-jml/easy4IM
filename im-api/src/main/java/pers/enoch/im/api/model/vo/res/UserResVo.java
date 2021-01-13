@@ -2,6 +2,7 @@ package pers.enoch.im.api.model.vo.res;
 
 import lombok.Builder;
 import lombok.Data;
+import pers.enoch.im.api.model.Users;
 
 /**
  * @Author yang.zhao
@@ -10,14 +11,15 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class UserResVo {
+public class UserResVo extends Users {
     /**
-     * 成功登录（注册）返回Token
+     * login success return token
      */
     private String token;
 
     /**
-     * 时间戳
+     * login success timestamp
      */
     private Long timestamp;
+
 }

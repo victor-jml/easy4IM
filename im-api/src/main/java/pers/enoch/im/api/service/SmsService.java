@@ -3,21 +3,21 @@ package pers.enoch.im.api.service;
 /**
  * @Author yang.zhao
  * 2020/12/21
- * 短信服务
+ * sms service
  **/
 public interface SmsService {
 
     /**
-     * 发送短信验证码
-     * @param mobile
+     * send sms code
+     * @param mobile user phone number
      */
     void sendSmsCode(String mobile);
 
     /**
-     * 验证短信验证码
-     * @param mobile
-     * @param code
-     * @return
+     * check code
+     * @param mobile user phone number
+     * @param code sms code
+     * @return boolean true or false
      */
     boolean verifyCode(String mobile,String code);
 }

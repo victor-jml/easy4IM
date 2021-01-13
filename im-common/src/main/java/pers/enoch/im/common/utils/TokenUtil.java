@@ -13,7 +13,7 @@ public class TokenUtil {
      * 生成Token
      * @return
      */
-    public static String makeToken() {
+    public static String createToken() {
         return IdUtil.simpleUUID();
     }
 }

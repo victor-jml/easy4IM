@@ -66,4 +66,6 @@ public class Result implements Serializable {
         result.setData(data);
         return result;
     }
+
+
 }

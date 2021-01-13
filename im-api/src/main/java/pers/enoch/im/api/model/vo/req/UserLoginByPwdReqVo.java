@@ -9,11 +9,11 @@ import javax.validation.constraints.NotEmpty;
  * @Author yang.zhao
  * @Date 2020/12/4 11:07
  * @Version 1.0
- * @Description 用户密码登录
+ * @Description user login by password
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class UserPwdLoginReqVo extends BaseRequestVo {
+public class UserLoginByPwdReqVo extends BaseRequestVo {
 
     /**
      * 通过userId进行登录
@@ -24,12 +24,6 @@ public class UserPwdLoginReqVo extends BaseRequestVo {
      * 通过email进行登录
      */
     private String email;
-
-    /**
-     * 通过手机号进行登录
-     */
-    private String phone;
-
 
     @NotEmpty(message = "密码不能为空")
     private String password;

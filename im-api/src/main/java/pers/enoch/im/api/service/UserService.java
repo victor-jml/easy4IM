@@ -1,12 +1,30 @@
 package pers.enoch.im.api.service;
 
 import pers.enoch.im.api.model.LocalAuth;
+import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
+import pers.enoch.im.api.model.vo.req.UserLoginBySmsReqVo;
+import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
+import pers.enoch.im.api.model.vo.res.UserResVo;
 
 /**
- * 用户登录验证
+ * 用户登录
  * @Author yang.zhao
  */
 public interface UserService {
+
+    /**
+     * user login by pwd
+     * @param userLoginByPwdReqVo userLogin info {userId or Email, password}
+     * @return UserResVo
+     */
+    UserResVo login(UserLoginByPwdReqVo userLoginByPwdReqVo);
+
+    /**
+     * user login By sms
+     * @param userLoginBySmsReqVo userLogin info (phone, smsCode)
+     * @return UserResVo
+     */
+    UserResVo login(UserLoginBySmsReqVo userLoginBySmsReqVo);
 
     /**
      * 通过用户id查找账号
@@ -30,9 +48,9 @@ public interface UserService {
     LocalAuth findByPhone(String phone);
 
     /**
-     * 通过注册添加用户
-     * @param localAuth
+     * user register by
+     * @param userRegisterReqVo user register by UserInfo
      * @return
      */
-    boolean addUser(LocalAuth localAuth);
+    UserResVo userRegister(UserRegisterReqVo userRegisterReqVo);
 }
