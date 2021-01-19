@@ -31,31 +31,25 @@ public class SendMsg extends Model<SendMsg> {
      * 发送者id
      */
     @TableField(value = "msg_from")
-    private String msgFrom;
+    private String senderId;
 
     /**
      * 接收者id
      */
     @TableField(value = "msg_to")
-    private String msgTo;
+    private String receiverId;
 
     /**
-     * 群id(当群聊的情况下)
+     * 消息接受类型(0-私聊,1-群聊)
      */
-    @TableField(value = "group_id")
-    private Long groupId;
+    @TableField(value = "msg_type")
+    private Integer msgType;
 
     /**
-     * tcp包头命令号
+     * 消息类型(0-文字,1-图片，2-语音)
      */
-    @TableField(value = "cmd_id")
-    private Integer cmdId;
-
-    /**
-     * tcp包头seq
-     */
-    @TableField(value = "msg_seq")
-    private Integer msgSeq;
+    @TableField(value = "content_type")
+    private Integer contentType;
 
     /**
      * 消息内容
@@ -70,9 +64,16 @@ public class SendMsg extends Model<SendMsg> {
     private Date sendTime;
 
     /**
-     * 消息类型(0-文字,1-图片，2-语音)
+     * 消息是否送达
      */
-    @TableField(value = "msg_type")
-    private Integer msgType;
+    @TableField(value = "delivered")
+    private Integer delivered;
+
+    /**
+     * tcp包头seq
+     */
+    @TableField(value = "msg_seq")
+    private Integer msgSeq;
+
 
 }

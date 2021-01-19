@@ -19,16 +19,10 @@ public final class Msg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string msgId = 1;</code>
+     * <code>int64 msgId = 1;</code>
      * @return The msgId.
      */
-    java.lang.String getMsgId();
-    /**
-     * <code>string msgId = 1;</code>
-     * @return The bytes for msgId.
-     */
-    com.google.protobuf.ByteString
-        getMsgIdBytes();
+    long getMsgId();
 
     /**
      * <code>int64 timestamp = 2;</code>
@@ -127,7 +121,6 @@ public final class Msg {
       super(builder);
     }
     private SendMsg() {
-      msgId_ = "";
       msgType_ = 0;
       receiveType_ = 0;
       sender_ = "";
@@ -166,10 +159,9 @@ public final class Msg {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              msgId_ = s;
+              msgId_ = input.readInt64();
               break;
             }
             case 16: {
@@ -462,41 +454,14 @@ public final class Msg {
     }
 
     public static final int MSGID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object msgId_;
+    private long msgId_;
     /**
-     * <code>string msgId = 1;</code>
+     * <code>int64 msgId = 1;</code>
      * @return The msgId.
      */
     @java.lang.Override
-    public java.lang.String getMsgId() {
-      java.lang.Object ref = msgId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        msgId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string msgId = 1;</code>
-     * @return The bytes for msgId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMsgIdBytes() {
-      java.lang.Object ref = msgId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        msgId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getMsgId() {
+      return msgId_;
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
@@ -722,8 +687,8 @@ public final class Msg {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMsgIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgId_);
+      if (msgId_ != 0L) {
+        output.writeInt64(1, msgId_);
       }
       if (timestamp_ != 0L) {
         output.writeInt64(2, timestamp_);
@@ -755,8 +720,9 @@ public final class Msg {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMsgIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgId_);
+      if (msgId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, msgId_);
       }
       if (timestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -797,8 +763,8 @@ public final class Msg {
       }
       pers.enoch.im.common.protobuf.Msg.SendMsg other = (pers.enoch.im.common.protobuf.Msg.SendMsg) obj;
 
-      if (!getMsgId()
-          .equals(other.getMsgId())) return false;
+      if (getMsgId()
+          != other.getMsgId()) return false;
       if (getTimestamp()
           != other.getTimestamp()) return false;
       if (msgType_ != other.msgType_) return false;
@@ -823,7 +789,8 @@ public final class Msg {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MSGID_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMsgId());
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestamp());
@@ -972,7 +939,7 @@ public final class Msg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        msgId_ = "";
+        msgId_ = 0L;
 
         timestamp_ = 0L;
 
@@ -1070,9 +1037,8 @@ public final class Msg {
 
       public Builder mergeFrom(pers.enoch.im.common.protobuf.Msg.SendMsg other) {
         if (other == pers.enoch.im.common.protobuf.Msg.SendMsg.getDefaultInstance()) return this;
-        if (!other.getMsgId().isEmpty()) {
-          msgId_ = other.msgId_;
-          onChanged();
+        if (other.getMsgId() != 0L) {
+          setMsgId(other.getMsgId());
         }
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
@@ -1128,78 +1094,33 @@ public final class Msg {
         return this;
       }
 
-      private java.lang.Object msgId_ = "";
+      private long msgId_ ;
       /**
-       * <code>string msgId = 1;</code>
+       * <code>int64 msgId = 1;</code>
        * @return The msgId.
        */
-      public java.lang.String getMsgId() {
-        java.lang.Object ref = msgId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          msgId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getMsgId() {
+        return msgId_;
       }
       /**
-       * <code>string msgId = 1;</code>
-       * @return The bytes for msgId.
-       */
-      public com.google.protobuf.ByteString
-          getMsgIdBytes() {
-        java.lang.Object ref = msgId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          msgId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string msgId = 1;</code>
+       * <code>int64 msgId = 1;</code>
        * @param value The msgId to set.
        * @return This builder for chaining.
        */
-      public Builder setMsgId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setMsgId(long value) {
+        
         msgId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string msgId = 1;</code>
+       * <code>int64 msgId = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMsgId() {
         
-        msgId_ = getDefaultInstance().getMsgId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string msgId = 1;</code>
-       * @param value The bytes for msgId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMsgIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        msgId_ = value;
+        msgId_ = 0L;
         onChanged();
         return this;
       }
@@ -1733,7 +1654,7 @@ public final class Msg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tmsg.proto\"\203\002\n\007SendMsg\022\r\n\005msgId\030\001 \001(\t\022\021" +
+      "\n\tmsg.proto\"\203\002\n\007SendMsg\022\r\n\005msgId\030\001 \001(\003\022\021" +
       "\n\ttimestamp\030\002 \001(\003\022!\n\007msgType\030\003 \001(\0162\020.Sen" +
       "dMsg.MsgType\022)\n\013receiveType\030\004 \001(\0162\024.Send" +
       "Msg.ReceiveType\022\016\n\006sender\030\005 \001(\t\022\020\n\010recei" +

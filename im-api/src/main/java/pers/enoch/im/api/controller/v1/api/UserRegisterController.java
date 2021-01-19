@@ -41,34 +41,36 @@ public class UserRegisterController {
         this.userStatusService = userStatusService;
     }
 
-    @PostMapping("byUserId")
-    public Result regByUserId(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
-                              BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
-        }
-        LocalAuth user = userService.findById(userRegisterReqVo.getUserId());
-        if(user != null){
-            return Result.failure(ResultEnum.USER_HAS_EXISTED);
-        }
-        // 成功注册并登录直接返回token
-        LocalAuth regUser = LocalAuth.builder()
-                .userId(userRegisterReqVo.getUserId())
-                .userPassword(PwdUtil.md5(userRegisterReqVo.getPassword()))
-                .build();
-        String token = TokenUtil.createToken();
-        if(userService.userRegister(regUser)){
-            userStatusService.online(userRegisterReqVo.getUserId(),token);
-        }else {
-            return Result.failure(ResultEnum.SERVER_ERROR);
-        }
-        UserResVo regResVO = UserResVo.builder()
-                .token(token)
-                .timestamp(System.currentTimeMillis())
-                .build();
-        return Result.success(ResultEnum.USER_REGISTE_SUCCESS,regResVO);
 
-    }
+
+//    @PostMapping("byUserId")
+//    public Result regByUserId(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
+//                              BindingResult bindingResult){
+//        if(bindingResult.hasErrors()){
+//            return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
+//        }
+//        LocalAuth user = userService.findById(userRegisterReqVo.getUserId());
+//        if(user != null){
+//            return Result.failure(ResultEnum.USER_HAS_EXISTED);
+//        }
+//        // 成功注册并登录直接返回token
+//        LocalAuth regUser = LocalAuth.builder()
+//                .userId(userRegisterReqVo.getUserId())
+//                .userPassword(PwdUtil.md5(userRegisterReqVo.getPassword()))
+//                .build();
+//        String token = TokenUtil.createToken();
+//        if(userService.userRegister(regUser)){
+//            userStatusService.online(userRegisterReqVo.getUserId(),token);
+//        }else {
+//            return Result.failure(ResultEnum.SERVER_ERROR);
+//        }
+//        UserResVo regResVO = UserResVo.builder()
+//                .token(token)
+//                .timestamp(System.currentTimeMillis())
+//                .build();
+//        return Result.success(ResultEnum.USER_REGISTE_SUCCESS,regResVO);
+//
+//    }
 
     @RequestMapping("byPhone")
     public Result regByPhone(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,

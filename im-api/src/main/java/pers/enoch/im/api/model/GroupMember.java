@@ -9,38 +9,42 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.Date;
+
 /**
  * @Author yang.zhao
- * Date: 2020/12/23
+ * Date: 2021/1/19
  * Description:
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
-@TableName("tb_local_auth")
-public class LocalAuth extends Model<LocalAuth> {
+@TableName("tb_group_info")
+public class GroupMember extends Model<GroupMember> {
 
     /**
-     * 用户id
+     * 自增主键
      */
-    @TableId("user_id")
+    @TableId(value = "id",type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 群ID
+     */
+    @TableField(value = "group_id")
+    private Long groupId;
+
+    /**
+     * 用户ID
+     */
+    @TableField(value = "user_id")
     private String userId;
 
-    /**
-     * 邮箱
-     */
-    @TableField("user_email")
-    private String userEmail;
 
     /**
-     * 密码
+     * 建立时间
      */
-    @TableField("user_password")
-    private String userPassword;
+    @TableField(value = "create_at")
+    private Date createAt = new Date();
 
-    /**
-     * 电话号码
-     */
-    @TableField("user_phone")
-    private String userPhone;
 }

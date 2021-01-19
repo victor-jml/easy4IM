@@ -13,13 +13,10 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserRegisterReqVo extends BaseRequestVo {
 
-    @NotNull(message = "电话号码不可为空")
     private String phone;
 
-    @NotNull(message = "用户ID不可为空")
     private String userId;
 
-    @NotNull(message = "密码不可为空")
     private String password;
 
     private String code;

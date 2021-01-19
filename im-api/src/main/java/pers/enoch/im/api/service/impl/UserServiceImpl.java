@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.LoginLocalMapper;
 import pers.enoch.im.api.mapper.UserInfoMapper;
 import pers.enoch.im.api.model.LocalAuth;
-import pers.enoch.im.api.model.Users;
+import pers.enoch.im.api.model.UserInfo;
 import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.req.UserLoginBySmsReqVo;
 import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
 import pers.enoch.im.api.model.vo.res.UserResVo;
 import pers.enoch.im.api.service.UserService;
@@ -57,7 +56,7 @@ public class UserServiceImpl implements UserService {
         if(userStatusService.checkLogin(userAuth.getUserId())){
             userStatusService.offline(userAuth.getUserId());
         }
-        Users userInfo = findUserInfo(userAuth.getUserId());
+        UserInfo userInfo = findUserInfo(userAuth.getUserId());
         BeanUtils.copyProperties(result,userInfo);
         String token = TokenUtil.createToken();
         long timestamp = System.currentTimeMillis();
@@ -69,18 +68,13 @@ public class UserServiceImpl implements UserService {
 
 
 
-    @Override
-    public UserResVo login(UserLoginBySmsReqVo userLoginBySmsReqVo) {
-        return null;
-    }
-
     /**
      * select user base info by userId
      * @param userId userId
      * @return Users
      */
-    private Users findUserInfo(String userId){
-        return userInfoMapper.selectOne(new QueryWrapper<Users>().eq("user_id",userId));
+    private UserInfo findUserInfo(String userId){
+        return userInfoMapper.selectOne(new QueryWrapper<UserInfo>().eq("user_id",userId));
     }
 
     /**
