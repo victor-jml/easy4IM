@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.req.UserLoginBySmsReqVo;
 import pers.enoch.im.api.model.vo.res.UserResVo;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.common.constant.ResultEnum;
@@ -41,16 +40,16 @@ public class UserLoginController  {
      * @param bindingResult
      * @return
      */
-    @PostMapping(value = "bySms")
-    public Result loginBySms(@Valid @RequestBody UserLoginBySmsReqVo userLoginBySmsReqVo,
-                             BindingResult bindingResult){
-        if (bindingResult.hasErrors()) {
-            return Result.failure(ResultEnum.PARAM_TYPE_BIND_ERROR);
-        }
-        Optional<UserResVo> response = Optional.ofNullable(userService.login(userLoginBySmsReqVo));
-        return response.map(userResVo -> Result.success(ResultEnum.USER_LOGIN_SUCCESS, userResVo))
-                .orElseGet(() -> Result.success(ResultEnum.USER_LOGIN_ERROR, null));
-    }
+//    @PostMapping(value = "bySms")
+//    public Result loginBySms(@Valid @RequestBody UserLoginBySmsReqVo userLoginBySmsReqVo,
+//                             BindingResult bindingResult){
+//        if (bindingResult.hasErrors()) {
+//            return Result.failure(ResultEnum.PARAM_TYPE_BIND_ERROR);
+//        }
+//        Optional<UserResVo> response = Optional.ofNullable(userService.login(userLoginBySmsReqVo));
+//        return response.map(userResVo -> Result.success(ResultEnum.USER_LOGIN_SUCCESS, userResVo))
+//                .orElseGet(() -> Result.success(ResultEnum.USER_LOGIN_ERROR, null));
+//    }
 
     /**
      * user login by pwd

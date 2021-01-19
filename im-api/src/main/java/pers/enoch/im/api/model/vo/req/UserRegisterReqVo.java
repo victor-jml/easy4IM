@@ -22,5 +22,4 @@ public class UserRegisterReqVo extends BaseRequestVo {
     @NotNull(message = "密码不可为空")
     private String password;
 
-    private String code;
 }

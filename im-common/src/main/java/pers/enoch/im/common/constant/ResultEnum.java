@@ -34,11 +34,13 @@ public enum  ResultEnum {
 
     PARAM_NOT_COMPLETE(1004,"参数类型缺失"),
 
-    PHONE_VALID_ERROR(1005,"电话号码验证失败"),
+    PHONE_VALID_ERROR(1005,"电话号码不存在"),
 
-    CODE_VALID_EXPIRED(1006,"验证码失效"),
+    PHONE_HAS_EXIST(1006,"电话号码已存在"),
 
-    CODE_VALID_ERROR(1007,"验证码错误"),
+    CODE_VALID_EXPIRED(1007,"验证码失效"),
+
+    CODE_VALID_ERROR(1008,"验证码错误"),
 
     /**
      * 用户错误
@@ -69,7 +71,9 @@ public enum  ResultEnum {
      */
     USER_LOGIN_SUCCESS(4001,"用户登录成功"),
 
-    USER_REGISTE_SUCCESS(4002,"用户注册成功")
+    USER_REGISTER_SUCCESS(4002,"用户注册成功"),
+
+    USER_REGISTER_FAILED(4003,"用户注册失败")
     ;
 
     private Integer code;

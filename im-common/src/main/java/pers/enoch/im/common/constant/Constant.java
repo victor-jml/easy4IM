@@ -15,4 +15,8 @@ public interface Constant {
     String DEFAULT_NAME = "Always Be Coding";
 
     String MOBILE_CHINA_PREFIX = "+86";
+
+    String USER_DEFAULT_ICON = "https://graduate-item-1256089709.cos.ap-chengdu.myqcloud.com/icon.jpg";
+
+    String USER_DEFAULT_SIGNATURE = "This is Default Signature";
 }

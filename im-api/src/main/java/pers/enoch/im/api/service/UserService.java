@@ -1,8 +1,8 @@
 package pers.enoch.im.api.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import pers.enoch.im.api.model.LocalAuth;
 import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.req.UserLoginBySmsReqVo;
 import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
 import pers.enoch.im.api.model.vo.res.UserResVo;
 
@@ -18,13 +18,6 @@ public interface UserService {
      * @return UserResVo
      */
     UserResVo login(UserLoginByPwdReqVo userLoginByPwdReqVo);
-
-    /**
-     * user login By sms
-     * @param userLoginBySmsReqVo userLogin info (phone, smsCode)
-     * @return UserResVo
-     */
-    UserResVo login(UserLoginBySmsReqVo userLoginBySmsReqVo);
 
     /**
      * 通过用户id查找账号
@@ -53,4 +46,7 @@ public interface UserService {
      * @return
      */
     UserResVo userRegister(UserRegisterReqVo userRegisterReqVo);
+
+
+
 }
