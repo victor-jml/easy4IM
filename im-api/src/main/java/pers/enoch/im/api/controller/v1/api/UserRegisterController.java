@@ -72,24 +72,24 @@ public class UserRegisterController {
 //
 //    }
 
-    @RequestMapping("byPhone")
-    public Result regByPhone(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
-                           BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
-        }
-        Object o = RedisUtil.get(Constant.REDIS_PHONE_PREFIX, userRegisterReqVo.getPhone());
-        if(o == null){
-            return Result.failure(ResultEnum.CODE_VALID_EXPIRED);
-        }
-        String code = (String)o;
-        if(!code.equals(userRegisterReqVo.getCode())){
-            return Result.failure(ResultEnum.CODE_VALID_ERROR);
-        }
-        // 逻辑到这里表示验证码正确
-        // 注册逻辑(注册成功自动登录)
-        // todo 待申请短信服务后实现短信注册登录
-        return Result.success();
-    }
+//    @RequestMapping("byPhone")
+//    public Result regByPhone(@Valid @RequestBody UserRegisterReqVo userRegisterReqVo,
+//                           BindingResult bindingResult){
+//        if(bindingResult.hasErrors()){
+//            return Result.failure(ResultEnum.PARAM_NOT_COMPLETE);
+//        }
+//        Object o = RedisUtil.get(Constant.REDIS_PHONE_PREFIX, userRegisterReqVo.getPhone());
+//        if(o == null){
+//            return Result.failure(ResultEnum.CODE_VALID_EXPIRED);
+//        }
+//        String code = (String)o;
+//        if(!code.equals(userRegisterReqVo.getCode())){
+//            return Result.failure(ResultEnum.CODE_VALID_ERROR);
+//        }
+//        // 逻辑到这里表示验证码正确
+//        // 注册逻辑(注册成功自动登录)
+//        // todo 待申请短信服务后实现短信注册登录
+//        return Result.success();
+//    }
 
 }

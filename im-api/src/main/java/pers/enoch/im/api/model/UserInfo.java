@@ -1,9 +1,6 @@
 package pers.enoch.im.api.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Builder;
 import lombok.Data;
@@ -67,13 +64,13 @@ public class UserInfo extends Model<UserInfo> {
     /**
      * 创建时间
      */
-    @TableField("create_at")
-    private Date createAt = new Date();
+    @TableField(value = "create_at" ,fill = FieldFill.INSERT)
+    private Date createAt;
 
     /**
      * 更新时间
      */
-    @TableField("update_at")
+    @TableField(value = "update_at",fill = FieldFill.INSERT_UPDATE)
     private Date updateAt;
 
     /**

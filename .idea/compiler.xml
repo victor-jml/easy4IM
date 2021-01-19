@@ -7,9 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="im-common" />
-        <module name="im-api" />
         <module name="im-client" />
+        <module name="im-api" />
+        <module name="im-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

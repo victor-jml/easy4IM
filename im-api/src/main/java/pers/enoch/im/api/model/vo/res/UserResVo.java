@@ -1,7 +1,6 @@
 package pers.enoch.im.api.model.vo.res;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import pers.enoch.im.api.model.UserInfo;
 
 /**
@@ -11,7 +10,7 @@ import pers.enoch.im.api.model.UserInfo;
  **/
 @Data
 @Builder
-public class UserResVo extends UserInfo {
+public class UserResVo {
     /**
      * login success return token
      */
