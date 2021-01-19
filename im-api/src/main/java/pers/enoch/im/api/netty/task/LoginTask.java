@@ -5,6 +5,7 @@ import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.api.SpringBeanUtil;
 import pers.enoch.im.api.model.OfflineMsg;
+import pers.enoch.im.api.model.SendMsg;
 import pers.enoch.im.api.netty.util.SessionUtil;
 import pers.enoch.im.api.service.OfflineService;
 import pers.enoch.im.api.service.UserStatusService;
@@ -51,9 +52,9 @@ public class LoginTask implements Runnable{
             sendAckToClient(channel);
         }
         // todo get user offline msg And push
-        List<OfflineMsg> offlineMsgs = offlineService.pollOfflineMsg(request.getUserId());
-        if(!Collections.isEmpty(offlineMsgs)){
-            pushMsg(channel,offlineMsgs);
+        List<SendMsg> offlineMsg = offlineService.pollOfflineMsg(request.getUserId());
+        if(!Collections.isEmpty(offlineMsg)){
+            pushMsg(channel,offlineMsg);
         }
     }
 
@@ -87,18 +88,17 @@ public class LoginTask implements Runnable{
      * @param channel
      * @param offlineMsgs
      */
-    private void pushMsg(Channel channel,List<OfflineMsg> offlineMsgs){
+    private void pushMsg(Channel channel,List<SendMsg> offlineMsgs){
         List<Msg.SendMsg> sendMsgs = offlineMsgs.stream().map(offlineMsg -> {
-            Msg.SendMsg msg = Msg.SendMsg.newBuilder()
-                    .setMsgId(offlineMsg.getMsgId().toString())
+            return Msg.SendMsg.newBuilder()
+                    .setMsgId(offlineMsg.getMsgId())
                     .setTimestamp(offlineMsg.getSendTime().getTime())
-                    .setSender(offlineMsg.getMsgFrom())
-                    .setReceiver(offlineMsg.getMsgTo())
+                    .setSender(offlineMsg.getSenderId())
+                    .setReceiver(offlineMsg.getReceiverId())
                     .setContent(offlineMsg.getMsgContent())
                     .setMsgType(offlineMsg.getMsgType() == 0 ? Msg.SendMsg.MsgType.TEXT : Msg.SendMsg.MsgType.FILE)
-                    .setReceiveType(offlineMsg.getGroupId() == null ? Msg.SendMsg.ReceiveType.SINGLE : Msg.SendMsg.ReceiveType.GROUP)
+                    .setReceiveType(offlineMsg.getMsgType() == 1 ? Msg.SendMsg.ReceiveType.SINGLE : Msg.SendMsg.ReceiveType.GROUP)
                     .build();
-            return msg;
         }).collect(Collectors.toList());
         sendMsgs.forEach((channel::writeAndFlush));
     }

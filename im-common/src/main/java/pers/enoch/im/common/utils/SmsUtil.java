@@ -6,6 +6,7 @@
 //import com.tencentcloudapi.sms.v20190711.models.SendSmsRequest;
 //import com.tencentcloudapi.sms.v20190711.models.SendSmsResponse;
 //import com.tencentcloudapi.sms.v20190711.models.SendStatus;
+//import pers.enoch.im.common.config.SmsConfig;
 //import pers.enoch.im.common.constant.ResultEnum;
 //import pers.enoch.im.common.exception.IMException;
 //

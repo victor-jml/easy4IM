@@ -6,18 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import pers.enoch.im.api.config.QCloudCosUtilsConfig;
 import pers.enoch.im.api.mapper.LoginLocalMapper;
 import pers.enoch.im.api.mapper.UserInfoMapper;
 import pers.enoch.im.api.model.LocalAuth;
-import pers.enoch.im.api.model.Users;
+import pers.enoch.im.api.model.UserInfo;
 import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
 import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
 import pers.enoch.im.api.model.vo.res.UserResVo;
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.utils.PwdUtil;
 import pers.enoch.im.common.utils.TokenUtil;
@@ -59,7 +56,7 @@ public class UserServiceImpl implements UserService {
         if(userStatusService.checkLogin(userAuth.getUserId())){
             userStatusService.offline(userAuth.getUserId());
         }
-        Users userInfo = findUserInfo(userAuth.getUserId());
+        UserInfo userInfo = findUserInfo(userAuth.getUserId());
         BeanUtils.copyProperties(result,userInfo);
         String token = TokenUtil.createToken();
         long timestamp = System.currentTimeMillis();
@@ -71,14 +68,13 @@ public class UserServiceImpl implements UserService {
 
 
 
-
     /**
      * select user base info by userId
      * @param userId userId
      * @return Users
      */
-    private Users findUserInfo(String userId){
-        return userInfoMapper.selectOne(new QueryWrapper<Users>().eq("user_id",userId));
+    private UserInfo findUserInfo(String userId){
+        return userInfoMapper.selectOne(new QueryWrapper<UserInfo>().eq("user_id",userId));
     }
 
     /**
@@ -122,44 +118,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResVo userRegister(UserRegisterReqVo userRegisterReqVo) {
-        String userName = Constant.DEFAULT_NAME;
-        String userIcon = Constant.USER_DEFAULT_ICON;
-        String token = TokenUtil.createToken();
-        long timestamp = System.currentTimeMillis();
-        userStatusService.online(userRegisterReqVo.getUserId(),token);
-        LocalAuth localAuth = LocalAuth.builder()
-                .userId(userRegisterReqVo.getUserId())
-                .userName(userName)
-                .userPassword(PwdUtil.md5(userRegisterReqVo.getPassword()))
-                .build();
-        Users userInfo = Users.builder()
-                .userId(userRegisterReqVo.getUserId())
-                .userName(userName)
-                .userIcon(userIcon)
-                .userStatus(0)
-                .userSignature(Constant.USER_DEFAULT_SIGNATURE)
-                .online(1)
-                .createAt(new Date())
-                .updateAt(new Date())
-                .lastLogin(timestamp)
-                .build();
-        UserResVo userResVo = UserResVo.builder().build();
-        BeanUtils.copyProperties(userResVo,userInfo);
-
-        try {
-            loginLocalMapper.insert(localAuth);
-            userInfoMapper.insert(userInfo);
-        } catch (Exception e) {
-            log.error("user reg failed");
-            return null;
-        }
-        userResVo.setToken(token);
-        userResVo.setTimestamp(timestamp);
-        return userResVo;
-
-
+        return null;
     }
-
-
 
 }

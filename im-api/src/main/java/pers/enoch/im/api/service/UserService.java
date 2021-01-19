@@ -1,6 +1,5 @@
 package pers.enoch.im.api.service;
 
-import org.springframework.web.multipart.MultipartFile;
 import pers.enoch.im.api.model.LocalAuth;
 import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
 import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
@@ -18,6 +17,7 @@ public interface UserService {
      * @return UserResVo
      */
     UserResVo login(UserLoginByPwdReqVo userLoginByPwdReqVo);
+
 
     /**
      * 通过用户id查找账号
@@ -46,7 +46,4 @@ public interface UserService {
      * @return
      */
     UserResVo userRegister(UserRegisterReqVo userRegisterReqVo);
-
-
-
 }

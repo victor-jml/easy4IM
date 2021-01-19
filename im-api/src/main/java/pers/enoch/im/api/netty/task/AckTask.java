@@ -30,7 +30,6 @@ public class AckTask implements Runnable{
     @Override
     public void run() {
         // todo update offlineMsg receiveType
-        log.info("receive ack from client : {} " , ackMsg.getSender());
-        offlineService.ackOfflineMsg(Long.valueOf(ackMsg.getAckMsgId()));
+        offlineService.ackMsg(channel,ackMsg);
     }
 }

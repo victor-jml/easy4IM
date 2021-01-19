@@ -31,24 +31,22 @@ public class SingleSendMsgServiceImpl implements SendMsgService {
 
     @Override
     public void sendMsg(Channel channel, Msg.SendMsg sendMsg) {
-        OfflineMsg offlineMsg = generateOfflineMsg(sendMsg);
         SendMsg msg = generateSendMsg(sendMsg);
-        Long msgId = offlineService.saveOfflineMsg(offlineMsg);
         int insert = 0;
         try {
             insert = sendMsgMapper.insert(msg);
         } catch (Exception e) {
             log.error("insert sent-msg failed");
         }
-        if(SessionUtil.hasLogin(sendMsg.getReceiver())){
-            pushMsg(offlineMsg.getMsgId().toString(),sendMsg);
-        }
         if(insert == 1){
-            sendAck(msgId.toString(),sendMsg);
-        };
+            sendAck(msg.getMsgId(),sendMsg);
+        }
+        if(SessionUtil.hasLogin(sendMsg.getReceiver())){
+            pushMsg(msg.getMsgId(),sendMsg);
+        }
     }
 
-    private void pushMsg(String msgId,Msg.SendMsg sendMsg){
+    private void pushMsg(Long msgId,Msg.SendMsg sendMsg){
         Msg.SendMsg push = Msg.SendMsg.newBuilder(sendMsg)
                 .setMsgId(msgId)
                 .build();
@@ -56,7 +54,7 @@ public class SingleSendMsgServiceImpl implements SendMsgService {
         channel.writeAndFlush(push);
     }
 
-    private void sendAck(String msgId,Msg.SendMsg sendMsg){
+    private void sendAck(Long msgId,Msg.SendMsg sendMsg){
         Ack.AckMsg ack = Ack.AckMsg.newBuilder()
                 .setTimestamp(System.currentTimeMillis())
                 .setAckMsgId(msgId)
@@ -65,24 +63,16 @@ public class SingleSendMsgServiceImpl implements SendMsgService {
         channel.writeAndFlush(ack);
     }
 
-    private OfflineMsg generateOfflineMsg(Msg.SendMsg sendMsg){
-        return OfflineMsg.builder()
-                .msgFrom(sendMsg.getSender())
-                .msgTo(sendMsg.getReceiver())
-                .msgContent(sendMsg.getContent())
-                .delivered(0)
-                .msgType( (sendMsg.getMsgType().equals(Msg.SendMsg.MsgType.TEXT)) ? 0 : 1)
-                .sendTime(new Date())
-                .build();
-    }
 
     private SendMsg generateSendMsg(Msg.SendMsg sendMsg){
         return SendMsg.builder()
-                .msgFrom(sendMsg.getSender())
-                .msgTo(sendMsg.getReceiver())
+                .senderId(sendMsg.getSender())
+                .receiverId(sendMsg.getReceiver())
                 .msgContent(sendMsg.getContent())
-                .msgType( (sendMsg.getMsgType().equals(Msg.SendMsg.MsgType.TEXT)) ? 0 : 1)
+                .contentType( (sendMsg.getMsgType().equals(Msg.SendMsg.MsgType.TEXT)) ? 0 : 1)
+                .msgType(sendMsg.getReceiveType().equals((Msg.SendMsg.ReceiveType.SINGLE)) ? 1 : 2)
                 .sendTime(new Date())
+                .delivered(0)
                 .build();
     }
 }

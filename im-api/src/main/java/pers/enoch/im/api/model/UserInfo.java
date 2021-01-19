@@ -19,19 +19,13 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
-@TableName("tb_users")
-public class Users extends Model<Users> {
-
-    /**
-     * 自增id
-     */
-    @TableId(value = "id",type = IdType.AUTO)
-    private Long id;
+@TableName("tb_user_info")
+public class UserInfo extends Model<UserInfo> {
 
     /**
      * 用户id
      */
-    @TableField("user_id")
+    @TableId("user_id")
     private String userId;
 
     /**
@@ -74,7 +68,7 @@ public class Users extends Model<Users> {
      * 创建时间
      */
     @TableField("create_at")
-    private Date createAt;
+    private Date createAt = new Date();
 
     /**
      * 更新时间

@@ -12,5 +12,5 @@ message AckMsg{
 
   string receiver = 3;
 
-  string ackMsgId = 4;
+  int64 ackMsgId = 4;
 }

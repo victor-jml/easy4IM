@@ -11,36 +11,47 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @Author yang.zhao
- * Date: 2020/12/23
+ * Date: 2021/1/19
  * Description:
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
-@TableName("tb_local_auth")
-public class LocalAuth extends Model<LocalAuth> {
+@TableName(value = "tb_third_part_auth")
+public class ThirdPartAuth extends Model<ThirdPartAuth> {
+    /**
+     * 自增主键
+     */
+    @TableId(value = "id",type = IdType.AUTO)
+    private Long id;
 
     /**
      * 用户id
      */
-    @TableId("user_id")
+    @TableField("user_id")
     private String userId;
 
     /**
-     * 邮箱
+     * oauth_name
      */
-    @TableField("user_email")
-    private String userEmail;
+    @TableField("oauth_name")
+    private String oauthName;
 
     /**
-     * 密码
+     * oauth_id
      */
-    @TableField("user_password")
-    private String userPassword;
+    @TableField("oauth_id")
+    private String oauthId;
 
     /**
-     * 电话号码
+     * 第三方认证token
      */
-    @TableField("user_phone")
-    private String userPhone;
+    @TableField("oauth_token")
+    private String oauthToken;
+
+    /**
+     * oauth_expire
+     */
+    @TableField("oauth_expire")
+    private String oauthExpire;
 }
