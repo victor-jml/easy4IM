@@ -1,6 +1,5 @@
 package pers.enoch.im.api.controller.v1.api;
 
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;

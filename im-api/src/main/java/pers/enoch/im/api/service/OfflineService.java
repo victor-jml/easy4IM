@@ -35,7 +35,7 @@ public class OfflineService {
         QueryWrapper<SendMsg> queryOfflineMsg = new QueryWrapper<>();
         List<SendMsg> result = null;
         Map<String,Object> queryMap = Maps.newHashMap();
-        queryMap.put("msg_to",userId);
+        queryMap.put("receiver_id",userId);
         queryMap.put("delivered",0);
         queryOfflineMsg.allEq(queryMap);
         try {

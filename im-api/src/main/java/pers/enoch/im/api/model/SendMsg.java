@@ -30,13 +30,13 @@ public class SendMsg extends Model<SendMsg> {
     /**
      * 发送者id
      */
-    @TableField(value = "msg_from")
+    @TableField(value = "sender_id")
     private String senderId;
 
     /**
      * 接收者id
      */
-    @TableField(value = "msg_to")
+    @TableField(value = "receiver_id")
     private String receiverId;
 
     /**
