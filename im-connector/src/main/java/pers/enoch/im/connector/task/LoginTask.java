@@ -1,62 +1,55 @@
-package pers.enoch.im.api.netty.task;
+package pers.enoch.im.connector.task;
 
-import io.jsonwebtoken.lang.Collections;
+import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
-import pers.enoch.im.api.SpringBeanUtil;
-
-import pers.enoch.im.api.netty.util.SessionUtil;
-import pers.enoch.im.api.service.OfflineService;
-import pers.enoch.im.api.service.UserStatusService;
+import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.model.SendMsg;
 import pers.enoch.im.common.protobuf.Msg;
 import pers.enoch.im.common.protobuf.Status;
+import pers.enoch.im.common.utils.LoginUtil;
+import pers.enoch.im.common.utils.RedisUtil;
+import pers.enoch.im.connector.SpringBeanUtil;
+import pers.enoch.im.connector.common.UserChannelCache;
+import pers.enoch.im.connector.service.OfflineService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * @Author yang.zhao
- * Date: 2020/12/30
+ * Date: 2021/1/22
  * Description:
  **/
 @Slf4j
-public class LoginTask implements Runnable{
-
-    private final UserStatusService userStatusService;
-
-    private final OfflineService offlineService;
+public class LoginTask implements Runnable  {
 
     private Channel channel;
 
     private Status.Request request;
 
-    public LoginTask(Channel channel, Status.Request request){
+    private final OfflineService offlineService;
+
+    public LoginTask(Status.Request request, Channel channel){
         this.channel = channel;
         this.request = request;
-        this.userStatusService = SpringBeanUtil.getBean(UserStatusService.class);
         this.offlineService = SpringBeanUtil.getBean(OfflineService.class);
     }
 
     @Override
     public void run() {
-        // check userToken
-        boolean isLogin = userStatusService.checkToken(request.getUserId(), request.getToken());
-        if(!isLogin){
-            log.error("user : {} login error !!! ," ,request.getUserId());
+        log.info("receive client {}  login message",request.getUserId());
+        if(!LoginUtil.checkToken(request.getUserId(),request.getToken())){
             sendErrorToClient(channel);
         }else {
-            SessionUtil.bindSession(request.getUserId(),channel);
+            UserChannelCache.set(request.getUserId(),channel);
             log.info("user : {} login success ", request.getUserId());
             sendAckToClient(channel);
         }
-        //  get user offline msg And push
-        List<SendMsg> offlineMsg = offlineService.pollOfflineMsg(request.getUserId());
-        if(!Collections.isEmpty(offlineMsg)){
-            pushMsg(channel,offlineMsg);
-        }
+
     }
+
 
 
     /**
@@ -88,7 +81,7 @@ public class LoginTask implements Runnable{
      * @param channel
      * @param offlineMsgs
      */
-    private void pushMsg(Channel channel,List<SendMsg> offlineMsgs){
+    private void pushMsg(Channel channel, List<SendMsg> offlineMsgs){
         List<Msg.SendMsg> sendMsgs = offlineMsgs.stream().map(offlineMsg -> {
             return Msg.SendMsg.newBuilder()
                     .setMsgId(offlineMsg.getMsgId())
@@ -96,8 +89,8 @@ public class LoginTask implements Runnable{
                     .setSender(offlineMsg.getSenderId())
                     .setReceiver(offlineMsg.getReceiverId())
                     .setContent(offlineMsg.getMsgContent())
-                    .setMsgType(offlineMsg.getMsgType() == 0 ? Msg.SendMsg.MsgType.TEXT : Msg.SendMsg.MsgType.FILE)
-                    .setReceiveType(offlineMsg.getMsgType() == 1 ? Msg.SendMsg.ReceiveType.SINGLE : Msg.SendMsg.ReceiveType.GROUP)
+                    .setMsgType(Msg.SendMsg.MsgType.FILE)
+                    .setReceiveType(Msg.SendMsg.ReceiveType.GROUP)
                     .build();
         }).collect(Collectors.toList());
         sendMsgs.forEach((channel::writeAndFlush));

@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pers.enoch.im.api.model.LocalAuth;
-import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
-import pers.enoch.im.api.model.vo.res.UserResVo;
+
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.Constant;

@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.res.UserResVo;
+
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.common.constant.ResultEnum;
+import pers.enoch.im.common.model.vo.req.UserLoginByPwdReqVo;
+import pers.enoch.im.common.model.vo.res.UserResVo;
 import pers.enoch.im.common.utils.Result;
 
 import javax.validation.Valid;

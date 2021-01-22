@@ -1,9 +1,10 @@
 package pers.enoch.im.api.service;
 
-import pers.enoch.im.api.model.LocalAuth;
-import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
-import pers.enoch.im.api.model.vo.res.UserResVo;
+
+import pers.enoch.im.common.model.LocalAuth;
+import pers.enoch.im.common.model.vo.req.UserLoginByPwdReqVo;
+import pers.enoch.im.common.model.vo.req.UserRegisterReqVo;
+import pers.enoch.im.common.model.vo.res.UserResVo;
 
 /**
  * 用户登录

@@ -61,21 +61,8 @@
             <artifactId>mybatis-plus</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-        </dependency>
+
 
         <!--apache的工具包-->
         <dependency>
@@ -152,14 +139,6 @@
                    </temporaryProtoFileDirectory>
                    <!--配置查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
                </configuration>
-<!--               <executions>-->
-<!--                   <execution>-->
-<!--                       <goals>-->
-<!--                           <goal>compile</goal>-->
-<!--                           <goal>compile-custom</goal>-->
-<!--                       </goals>-->
-<!--                   </execution>-->
-<!--               </executions>-->
            </plugin>
        </plugins>
    </build>

@@ -1,15 +1,13 @@
-package pers.enoch.im.api.service;
+package pers.enoch.im.connector.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.google.common.collect.Maps;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import pers.enoch.im.api.mapper.SendMsgMapper;
-
 import pers.enoch.im.common.model.SendMsg;
 import pers.enoch.im.common.protobuf.Ack;
+import pers.enoch.im.connector.mapper.SendMsgMapper;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -17,7 +15,7 @@ import java.util.Map;
 
 /**
  * @Author yang.zhao
- * Date: 2021/1/7
+ * Date: 2021/1/22
  * Description:
  **/
 @Slf4j

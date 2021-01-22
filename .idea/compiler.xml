@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="im-client" />
-        <module name="im-api" />
         <module name="im-common" />
+        <module name="im-api" />
+        <module name="im-connector" />
+        <module name="im-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="im-api" options="-parameters" />
       <module name="im-client" options="-parameters" />
       <module name="im-common" options="-parameters" />
+      <module name="im-connector" options="-parameters" />
       <module name="im-server" options="-parameters" />
     </option>
   </component>
