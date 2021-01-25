@@ -3,8 +3,9 @@ package pers.enoch.im.api.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.OperationLogMapper;
-import pers.enoch.im.api.model.OperationLog;
+
 import pers.enoch.im.api.service.OperationLogService;
+import pers.enoch.im.common.model.OperationLog;
 
 /**
  * @Author yang.zhao

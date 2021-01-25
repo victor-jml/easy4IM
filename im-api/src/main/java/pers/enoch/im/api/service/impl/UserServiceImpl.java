@@ -8,14 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.mapper.LoginLocalMapper;
 import pers.enoch.im.api.mapper.UserInfoMapper;
-import pers.enoch.im.api.model.LocalAuth;
-import pers.enoch.im.api.model.UserInfo;
-import pers.enoch.im.api.model.vo.req.UserLoginByPwdReqVo;
-import pers.enoch.im.api.model.vo.req.UserRegisterReqVo;
-import pers.enoch.im.api.model.vo.res.UserResVo;
+
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
 import pers.enoch.im.common.constant.ResultEnum;
+import pers.enoch.im.common.model.LocalAuth;
+import pers.enoch.im.common.model.UserInfo;
+import pers.enoch.im.common.model.vo.req.UserLoginByPwdReqVo;
+import pers.enoch.im.common.model.vo.req.UserRegisterReqVo;
+import pers.enoch.im.common.model.vo.res.UserResVo;
 import pers.enoch.im.common.utils.PwdUtil;
 import pers.enoch.im.common.utils.TokenUtil;
 

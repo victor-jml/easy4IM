@@ -1,6 +1,7 @@
 package pers.enoch.im.connector.task;
 
 import com.alibaba.druid.support.spring.stat.SpringStatUtils;
+import io.jsonwebtoken.lang.Collections;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import pers.enoch.im.common.constant.Constant;
@@ -47,7 +48,11 @@ public class LoginTask implements Runnable  {
             log.info("user : {} login success ", request.getUserId());
             sendAckToClient(channel);
         }
-
+        //  get user offline msg And push
+        List<SendMsg> offlineMsg = offlineService.pollOfflineMsg(request.getUserId());
+        if(!Collections.isEmpty(offlineMsg)){
+            pushMsg(channel,offlineMsg);
+        }
     }
 
 

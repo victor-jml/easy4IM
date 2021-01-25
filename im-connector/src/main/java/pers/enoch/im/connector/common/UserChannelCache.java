@@ -49,4 +49,9 @@ public class UserChannelCache {
         }
         channelUserMap.remove(channel);
     }
+
+    public static boolean hasLogin(String userId){
+        Channel channel = getChannel(userId);
+        return channel != null;
+    }
 }

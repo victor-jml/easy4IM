@@ -57,7 +57,6 @@ public class TcpServer {
                     pipeline.addLast(ImHandler.getInstance());
                 }
             });
-
             // 6.设置参数
             // 设置参数，TCP参数
             // 连接缓冲池的大小
@@ -66,7 +65,7 @@ public class TcpServer {
             serverBootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
             // 关闭延迟发送
             serverBootstrap.childOption(ChannelOption.TCP_NODELAY, true);
-            log.warn("tcp服务启动 , 端口号 {}" , port);
+            log.info("tcp服务启动 , 端口号 {}" , port);
             /**
              * 绑定端口，同步等待成功
              */

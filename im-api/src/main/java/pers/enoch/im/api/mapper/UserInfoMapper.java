@@ -1,7 +1,8 @@
 package pers.enoch.im.api.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import pers.enoch.im.api.model.UserInfo;
+import pers.enoch.im.common.model.UserInfo;
+
 
 /**
  * @Author yang.zhao

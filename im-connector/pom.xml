@@ -15,6 +15,12 @@
             <groupId>pers.enoch.im</groupId>
             <artifactId>im-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,16 +42,12 @@
             <artifactId>protobuf-java-format</artifactId>
             <version>1.2</version>
         </dependency>
+
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.squareup.okio</groupId>
-                    <artifactId>okio</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

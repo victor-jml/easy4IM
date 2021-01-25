@@ -12,7 +12,12 @@ import pers.enoch.im.common.exception.IMException;
 import pers.enoch.im.common.protobuf.Ack;
 import pers.enoch.im.common.protobuf.Msg;
 import pers.enoch.im.common.protobuf.Status;
+import pers.enoch.im.connector.SpringBeanUtil;
 import pers.enoch.im.connector.common.UserChannelCache;
+import pers.enoch.im.connector.service.impl.GroupSendMsgServiceImpl;
+import pers.enoch.im.connector.service.impl.SingleSendMsgServiceImpl;
+import pers.enoch.im.connector.task.AckTask;
+import pers.enoch.im.connector.task.ChatTask;
 import pers.enoch.im.connector.task.LoginTask;
 import pers.enoch.im.connector.task.execute.TaskExecute;
 
@@ -25,6 +30,10 @@ import pers.enoch.im.connector.task.execute.TaskExecute;
 @Slf4j
 @Component
 public class ImHandler extends ChannelInboundHandlerAdapter {
+
+    private final SingleSendMsgServiceImpl singleMsgServiceImpl = SpringBeanUtil.getBean(SingleSendMsgServiceImpl.class);
+
+    private final GroupSendMsgServiceImpl groupMsgServiceImpl = SpringBeanUtil.getBean(GroupSendMsgServiceImpl.class);
 
     private static class ChatHandlerHolder{
         private static final ImHandler INSTANCE = new ImHandler();
@@ -49,7 +58,7 @@ public class ImHandler extends ChannelInboundHandlerAdapter {
                 ctx.channel().writeAndFlush(response);
             }else {
                 log.info("client : {}  login",request.getUserId());
-                TaskExecute.execute(new LoginTask(ctx.channel(),request));
+                TaskExecute.execute(new LoginTask(request,ctx.channel()));
             }
         }
         else if(msg instanceof Msg.SendMsg){
