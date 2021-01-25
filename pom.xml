@@ -12,7 +12,6 @@
         <module>im-api</module>
         <module>im-client</module>
         <module>im-connector</module>
-        <module>im-test</module>
     </modules>
 
 

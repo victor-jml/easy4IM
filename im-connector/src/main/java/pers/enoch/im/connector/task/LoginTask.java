@@ -1,16 +1,13 @@
 package pers.enoch.im.connector.task;
 
-import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import io.jsonwebtoken.lang.Collections;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
-import pers.enoch.im.common.constant.Constant;
 import pers.enoch.im.common.constant.ResultEnum;
 import pers.enoch.im.common.model.SendMsg;
 import pers.enoch.im.common.protobuf.Msg;
 import pers.enoch.im.common.protobuf.Status;
-import pers.enoch.im.common.utils.LoginUtil;
-import pers.enoch.im.common.utils.RedisUtil;
+import pers.enoch.im.common.redis.UserInfoCache;
 import pers.enoch.im.connector.SpringBeanUtil;
 import pers.enoch.im.connector.common.UserChannelCache;
 import pers.enoch.im.connector.service.OfflineService;
@@ -41,7 +38,7 @@ public class LoginTask implements Runnable  {
     @Override
     public void run() {
         log.info("receive client {}  login message",request.getUserId());
-        if(!LoginUtil.checkToken(request.getUserId(),request.getToken())){
+        if(!UserInfoCache.checkToken(request.getUserId(),request.getToken())){
             sendErrorToClient(channel);
         }else {
             UserChannelCache.set(request.getUserId(),channel);

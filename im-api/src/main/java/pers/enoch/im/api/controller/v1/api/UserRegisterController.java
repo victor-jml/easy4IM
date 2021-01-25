@@ -2,22 +2,11 @@ package pers.enoch.im.api.controller.v1.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import pers.enoch.im.api.service.UserService;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.common.constant.Constant;
-import pers.enoch.im.common.constant.ResultEnum;
-import pers.enoch.im.common.utils.PwdUtil;
-import pers.enoch.im.common.utils.RedisUtil;
-import pers.enoch.im.common.utils.Result;
-import pers.enoch.im.common.utils.TokenUtil;
-
-import javax.validation.Valid;
 
 /**
  * @Author yang.zhao

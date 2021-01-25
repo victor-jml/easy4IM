@@ -66,3 +66,25 @@
 2021-01-23 23:51:59,187 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
 2021-01-23 23:51:59,963 [INFO] [main] pers.enoch.im.connector.ConnectApp [StartupInfoLogger.java : 59] Started ConnectApp in 2.664 seconds (JVM running for 4.406)
 2021-01-23 23:52:00,001 [INFO] [main] pers.enoch.im.connector.server.TcpServer [TcpServer.java : 68] tcp服务启动 , 端口号 8888
+2021-01-25 09:52:25,616 [INFO] [main] pers.enoch.im.connector.ConnectApp [StartupInfoLogger.java : 50] Starting ConnectApp on xmlydeMacBook-Pro.local with PID 16696 (/Users/xmly/Desktop/workspace/easy4IM/im-connector/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2021-01-25 09:52:25,620 [INFO] [main] pers.enoch.im.connector.ConnectApp [SpringApplication.java : 652] The following profiles are active: dev
+2021-01-25 09:52:26,215 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-25 09:52:26,220 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-25 09:52:26,262 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2021-01-25 09:52:26,633 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2021-01-25 09:52:26,756 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2021-01-25 09:52:27,709 [INFO] [main] pers.enoch.im.connector.ConnectApp [StartupInfoLogger.java : 59] Started ConnectApp in 22.593 seconds (JVM running for 28.333)
+2021-01-25 09:52:27,730 [INFO] [main] pers.enoch.im.connector.server.TcpServer [TcpServer.java : 68] tcp服务启动 , 端口号 8888
+2021-01-25 09:52:33,777 [INFO] [Thread-46] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2021-01-25 09:52:33,781 [INFO] [Thread-46] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed
+2021-01-25 11:22:38,236 [INFO] [main] pers.enoch.im.connector.ConnectApp [StartupInfoLogger.java : 50] Starting ConnectApp on xmlydeMacBook-Pro.local with PID 25615 (/Users/xmly/Desktop/workspace/easy4IM/im-connector/target/classes started by xmly in /Users/xmly/Desktop/workspace/easy4IM)
+2021-01-25 11:22:38,241 [INFO] [main] pers.enoch.im.connector.ConnectApp [SpringApplication.java : 652] The following profiles are active: prod
+2021-01-25 11:22:38,854 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 247] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-25 11:22:38,858 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-25 11:22:38,907 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 185] Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2021-01-25 11:22:39,319 [INFO] [main] c.a.d.spring.boot.autoconfigure.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 56] Init DruidDataSource
+2021-01-25 11:22:39,458 [INFO] [main] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1003] {dataSource-1} inited
+2021-01-25 11:22:40,940 [INFO] [main] pers.enoch.im.connector.ConnectApp [StartupInfoLogger.java : 59] Started ConnectApp in 23.18 seconds (JVM running for 28.841)
+2021-01-25 11:22:40,970 [INFO] [main] pers.enoch.im.connector.server.TcpServer [TcpServer.java : 68] tcp服务启动 , 端口号 8888
+2021-01-25 11:22:58,026 [INFO] [Thread-48] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1948] {dataSource-1} closing ...
+2021-01-25 11:22:58,033 [INFO] [Thread-48] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 2020] {dataSource-1} closed

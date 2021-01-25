@@ -11,6 +11,7 @@
       <set>
         <option value="$PROJECT_DIR$/easy4IM-server/pom.xml" />
         <option value="$PROJECT_DIR$/im-server/pom.xml" />
+        <option value="$PROJECT_DIR$/im-test/pom.xml" />
         <option value="$PROJECT_DIR$/im-userstats/pom.xml" />
       </set>
     </option>

@@ -3,9 +3,7 @@ package pers.enoch.im.api.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pers.enoch.im.api.service.UserStatusService;
-import pers.enoch.im.common.constant.Constant;
-import pers.enoch.im.common.utils.LoginUtil;
-import pers.enoch.im.common.utils.RedisUtil;
+import pers.enoch.im.common.redis.UserInfoCache;
 
 /**
  * @Author yang.zhao
@@ -18,32 +16,22 @@ public class UserStatusServiceImpl implements UserStatusService {
 
     @Override
     public void online(String uid, String token) {
-        LoginUtil.online(uid,token);
+        UserInfoCache.online(uid,token);
     }
 
     @Override
     public void offline(String uid) {
-        LoginUtil.offline(uid);
+        UserInfoCache.offline(uid);
     }
 
     @Override
     public boolean checkLogin(String uid) {
-        return LoginUtil.checkLogin(uid);
+        return UserInfoCache.checkLoginById(uid);
     }
 
     @Override
     public boolean checkToken(String uid, String token) {
-        return LoginUtil.checkToken(uid, token);
+        return UserInfoCache.checkToken(uid, token);
     }
 
-    @Override
-    public boolean checkToken(String uid, Long oldTimestamp) {
-        Object o = RedisUtil.get(Constant.REDIS_USER_PREFIX,uid);
-        if(o == null){
-            return false;
-        }
-        String token = (String)o;
-        String timestamp = token.split(",")[1];
-        return oldTimestamp != Long.parseLong(timestamp);
-    }
 }

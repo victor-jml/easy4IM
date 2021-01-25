@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(result,userInfo);
         String token = TokenUtil.createToken();
         long timestamp = System.currentTimeMillis();
-        userStatusService.online(userAuth.getUserId(),token + "," + Long.toString(timestamp));
+        userStatusService.online(userAuth.getUserId(),token);
         result.setToken(token);
         result.setTimestamp(timestamp);
         return result;

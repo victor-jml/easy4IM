@@ -8,14 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="im-common" />
-        <module name="im-client" />
         <module name="im-api" />
         <module name="im-connector" />
-        <module name="im-test" />
+        <module name="im-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="im-server" target="1.8" />
+      <module name="im-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

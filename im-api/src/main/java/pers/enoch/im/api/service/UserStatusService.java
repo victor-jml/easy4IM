@@ -34,11 +34,5 @@ public interface UserStatusService {
      */
     boolean checkToken(String uid,String token);
 
-    /**
-     * 验证token是否过期
-     * @param uid
-     * @param oldTimestamp
-     * @return
-     */
-    boolean checkToken(String uid,Long oldTimestamp);
+
 }

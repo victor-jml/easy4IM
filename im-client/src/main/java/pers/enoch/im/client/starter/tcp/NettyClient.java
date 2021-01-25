@@ -26,9 +26,9 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class NettyClient {
-	private final String HOST = "127.0.0.1";
+	private final String HOST = "117.50.65.187";
 
-	private final int PORT = 9000;
+	private final int PORT = 8888;
 
 	private static boolean isLogin = false;
 

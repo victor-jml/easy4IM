@@ -24,9 +24,14 @@ public class Result implements Serializable {
         super();
     }
 
+    public Result(ResultEnum resultEnum){
+        this(resultEnum,null);
+    }
+
     public Result(ResultEnum resultEnum,Object data){
         this.code = resultEnum.getCode();
         this.message = resultEnum.getMessage();
+        this.data = data;
     }
 
     public static Result success(){
